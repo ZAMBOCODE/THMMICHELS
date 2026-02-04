@@ -85,7 +85,31 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+
+        /* Lenis Smooth Scroll */
+        html.lenis, html.lenis body {
+            height: auto;
+        }
+
+        .lenis.lenis-smooth {
+            scroll-behavior: auto !important;
+        }
+
+        .lenis.lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain;
+        }
+
+        .lenis.lenis-stopped {
+            overflow: hidden;
+        }
+
+        .lenis.lenis-scrolling iframe {
+            pointer-events: none;
+        }
     </style>
+
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
     <script type="importmap">
 {
   "imports": {
@@ -100,6 +124,44 @@
 <body class="overflow-x-hidden">
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
+    <script>
+        // Initialize Lenis Smooth Scroll
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            orientation: 'vertical',
+            gestureOrientation: 'vertical',
+            smoothWheel: true,
+            wheelMultiplier: 1,
+            touchMultiplier: 2,
+            infinite: false,
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+
+        requestAnimationFrame(raf);
+
+        // Make lenis available globally for scrollTo functionality
+        window.lenis = lenis;
+
+        // Handle anchor links with smooth scroll
+        document.addEventListener('click', (e) => {
+            const target = e.target.closest('a[href^="#"], button[data-scroll-to]');
+            if (target) {
+                const href = target.getAttribute('href') || target.getAttribute('data-scroll-to');
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    const element = document.querySelector(href);
+                    if (element) {
+                        lenis.scrollTo(element, { offset: -100 });
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>

@@ -1,136 +1,74 @@
 
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { CASE_STUDIES } from '../constants';
 
 const CaseStudy: React.FC = () => {
-  // Triple the items for infinite scroll illusion
-  const extendedStudies = [...CASE_STUDIES, ...CASE_STUDIES, ...CASE_STUDIES];
-  const [activeIndex, setActiveIndex] = useState(CASE_STUDIES.length); // Start in middle
+  const [activeIndex, setActiveIndex] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollStartLeft, setScrollStartLeft] = useState(0);
-  const isScrolling = useRef(false);
 
-  const getCardWidth = useCallback(() => {
-    if (!carouselRef.current) return 0;
-    return carouselRef.current.offsetWidth * 0.7;
-  }, []);
-
-  const gap = 24;
-
-  const scrollToIndex = useCallback((index: number, smooth = true) => {
-    if (carouselRef.current) {
-      const cardWidth = getCardWidth();
-      carouselRef.current.scrollTo({
-        left: index * (cardWidth + gap),
-        behavior: smooth ? 'smooth' : 'auto'
-      });
-      setActiveIndex(index);
-    }
-  }, [getCardWidth]);
-
-  // Reset to middle section when reaching edges
-  const handleInfiniteScroll = useCallback(() => {
-    if (!carouselRef.current || isScrolling.current) return;
-
-    const cardWidth = getCardWidth();
-    const scrollPos = carouselRef.current.scrollLeft;
-    const singleSetWidth = CASE_STUDIES.length * (cardWidth + gap);
-
-    // If scrolled to the last set, jump to middle set
-    if (scrollPos >= singleSetWidth * 2 - cardWidth) {
-      isScrolling.current = true;
-      const newScrollPos = scrollPos - singleSetWidth;
-      carouselRef.current.scrollLeft = newScrollPos;
-      setActiveIndex(prev => prev - CASE_STUDIES.length);
-      setTimeout(() => { isScrolling.current = false; }, 50);
-    }
-    // If scrolled to the first set, jump to middle set
-    else if (scrollPos <= cardWidth / 2) {
-      isScrolling.current = true;
-      const newScrollPos = scrollPos + singleSetWidth;
-      carouselRef.current.scrollLeft = newScrollPos;
-      setActiveIndex(prev => prev + CASE_STUDIES.length);
-      setTimeout(() => { isScrolling.current = false; }, 50);
-    }
-  }, [getCardWidth]);
-
-  const handleScroll = useCallback(() => {
-    if (carouselRef.current && !isDragging && !isScrolling.current) {
-      const cardWidth = getCardWidth();
-      const newIndex = Math.round(carouselRef.current.scrollLeft / (cardWidth + gap));
-      setActiveIndex(newIndex);
-      handleInfiniteScroll();
-    }
-  }, [isDragging, getCardWidth, handleInfiniteScroll]);
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    setIsDragging(true);
-    setStartX(e.pageX - (carouselRef.current?.offsetLeft || 0));
-    setScrollStartLeft(carouselRef.current?.scrollLeft || 0);
-  };
-
-  const handleMouseUp = () => {
-    setIsDragging(false);
-    handleInfiniteScroll();
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    const x = e.pageX - (carouselRef.current?.offsetLeft || 0);
-    const walk = (x - startX) * 1.5;
-    if (carouselRef.current) {
-      carouselRef.current.scrollLeft = scrollStartLeft - walk;
-    }
-  };
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    setIsDragging(true);
-    setStartX(e.touches[0].pageX - (carouselRef.current?.offsetLeft || 0));
-    setScrollStartLeft(carouselRef.current?.scrollLeft || 0);
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    if (!isDragging) return;
-    const x = e.touches[0].pageX - (carouselRef.current?.offsetLeft || 0);
-    const walk = (x - startX) * 1.5;
-    if (carouselRef.current) {
-      carouselRef.current.scrollLeft = scrollStartLeft - walk;
-    }
-  };
-
-  const handleTouchEnd = () => {
-    setIsDragging(false);
-    handleInfiniteScroll();
-  };
-
-  // Initialize scroll position to middle set
-  useEffect(() => {
-    if (carouselRef.current) {
-      const cardWidth = getCardWidth();
-      carouselRef.current.scrollLeft = CASE_STUDIES.length * (cardWidth + gap);
-    }
-  }, [getCardWidth]);
-
-  useEffect(() => {
+  const scrollToIndex = (index: number) => {
     const carousel = carouselRef.current;
-    if (carousel) {
-      carousel.addEventListener('scroll', handleScroll);
-      return () => carousel.removeEventListener('scroll', handleScroll);
+    if (!carousel) return;
+
+    const cards = carousel.children;
+    if (cards[index]) {
+      const card = cards[index] as HTMLElement;
+      const scrollPos = card.offsetLeft - (carousel.offsetWidth - card.offsetWidth) / 2;
+      carousel.scrollTo({ left: scrollPos, behavior: 'smooth' });
     }
-  }, [handleScroll]);
+    setActiveIndex(index);
+  };
 
   const navigate = (direction: 'prev' | 'next') => {
-    const newIndex = direction === 'next' ? activeIndex + 1 : activeIndex - 1;
+    let newIndex = direction === 'next' ? activeIndex + 1 : activeIndex - 1;
+
+    // Loop around
+    if (newIndex < 0) newIndex = CASE_STUDIES.length - 1;
+    if (newIndex >= CASE_STUDIES.length) newIndex = 0;
+
     scrollToIndex(newIndex);
   };
 
-  // Get the actual index within the original array
-  const getRealIndex = (index: number) => {
-    return ((index % CASE_STUDIES.length) + CASE_STUDIES.length) % CASE_STUDIES.length;
-  };
+  // Center first card on mount
+  useEffect(() => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+
+    // Center the first card
+    const firstCard = carousel.children[0] as HTMLElement;
+    if (firstCard) {
+      const scrollPos = firstCard.offsetLeft - (carousel.offsetWidth - firstCard.offsetWidth) / 2;
+      carousel.scrollLeft = scrollPos;
+    }
+  }, []);
+
+  // Update active index on scroll
+  useEffect(() => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+
+    const handleScroll = () => {
+      const cards = Array.from(carousel.children) as HTMLElement[];
+      const center = carousel.scrollLeft + carousel.offsetWidth / 2;
+
+      let closestIndex = 0;
+      let closestDistance = Infinity;
+
+      cards.forEach((card, index) => {
+        const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+        const distance = Math.abs(center - cardCenter);
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = index;
+        }
+      });
+
+      setActiveIndex(closestIndex);
+    };
+
+    carousel.addEventListener('scroll', handleScroll);
+    return () => carousel.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <section id="showcase" className="py-24 bg-[#0F0F0F] overflow-hidden">
@@ -145,22 +83,32 @@ const CaseStudy: React.FC = () => {
           </div>
 
           {/* Navigation Arrows */}
-          <div className="flex gap-3">
+          <div className="flex gap-4">
             <button
               onClick={() => navigate('prev')}
-              className="w-14 h-14 border border-white/20 hover:border-[#D97706] transition-all flex items-center justify-center group"
+              className="group relative w-16 h-16 overflow-hidden"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="group-hover:text-[#D97706] transition-colors">
-                <path d="M19 12H5M12 19l-7-7 7-7" />
-              </svg>
+              <div className="absolute inset-0 border border-white/20 group-hover:border-[#D97706] transition-all duration-500"></div>
+              <div className="absolute inset-0 bg-[#D97706] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></div>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="relative z-10 group-hover:text-[#0F0F0F] transition-colors duration-500">
+                  <path d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
+              </div>
+              <span className="absolute bottom-2 left-2 font-mono text-[8px] text-white/30 group-hover:text-[#0F0F0F]/50 transition-colors duration-500">PREV</span>
             </button>
             <button
               onClick={() => navigate('next')}
-              className="w-14 h-14 border border-white/20 hover:border-[#D97706] transition-all flex items-center justify-center group"
+              className="group relative w-16 h-16 overflow-hidden"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="group-hover:text-[#D97706] transition-colors">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
+              <div className="absolute inset-0 border border-white/20 group-hover:border-[#D97706] transition-all duration-500"></div>
+              <div className="absolute inset-0 bg-[#D97706] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></div>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="relative z-10 group-hover:text-[#0F0F0F] transition-colors duration-500">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </div>
+              <span className="absolute bottom-2 right-2 font-mono text-[8px] text-white/30 group-hover:text-[#0F0F0F]/50 transition-colors duration-500">NEXT</span>
             </button>
           </div>
         </div>
@@ -177,23 +125,16 @@ const CaseStudy: React.FC = () => {
         {/* Carousel */}
         <div
           ref={carouselRef}
-          className="flex gap-6 overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing px-[15%]"
-          style={{ scrollSnapType: 'x mandatory', scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-          onMouseDown={handleMouseDown}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseUp}
-          onMouseMove={handleMouseMove}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
+          className="flex gap-6 overflow-x-auto scrollbar-hide px-[15%] pb-4 snap-x snap-mandatory"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
-          {extendedStudies.map((study, index) => (
+          {CASE_STUDIES.map((study, index) => (
             <div
-              key={`${study.id}-${index}`}
-              className={`flex-shrink-0 w-[70%] transition-all duration-500 ${
-                index === activeIndex ? 'opacity-100 scale-100' : 'opacity-40 scale-95'
+              key={study.id}
+              onClick={() => scrollToIndex(index)}
+              className={`flex-shrink-0 w-[70%] md:w-[60%] cursor-pointer transition-all duration-500 snap-center ${
+                index === activeIndex ? 'opacity-100 scale-100' : 'opacity-50 scale-95'
               }`}
-              style={{ scrollSnapAlign: 'center' }}
             >
               <div className="relative group">
                 {/* Image */}
@@ -201,7 +142,9 @@ const CaseStudy: React.FC = () => {
                   <img
                     src={study.image}
                     alt={study.title}
-                    className="w-full h-[400px] md:h-[500px] object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                    className={`w-full h-[400px] md:h-[500px] object-cover transition-all duration-500 ${
+                      index === activeIndex ? 'grayscale-0' : 'grayscale'
+                    }`}
                     draggable={false}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] via-transparent to-transparent"></div>
@@ -229,21 +172,6 @@ const CaseStudy: React.FC = () => {
             </div>
           ))}
         </div>
-      </div>
-
-      {/* Dots Indicator */}
-      <div className="flex justify-center gap-2 mt-10">
-        {CASE_STUDIES.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => scrollToIndex(CASE_STUDIES.length + index)}
-            className={`h-1 transition-all duration-300 ${
-              getRealIndex(activeIndex) === index
-                ? 'w-8 bg-[#D97706]'
-                : 'w-4 bg-white/20 hover:bg-white/40'
-            }`}
-          />
-        ))}
       </div>
 
       {/* View All Link */}
