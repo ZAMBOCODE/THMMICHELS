@@ -8,8 +8,8 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-[#0F0F0F]/60 z-10"></div>
         <img
-          src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=80&w=2000"
-          alt="Workshop"
+          src="/Shipping-container-bar-landing.webp"
+          alt="Container Bar"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 blueprint-grid opacity-30 z-20 pointer-events-none"></div>

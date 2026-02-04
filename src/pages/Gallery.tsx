@@ -7,7 +7,7 @@ const Gallery: React.FC = () => {
             id: 1,
             title: 'The Rooftop Gin Bar',
             category: 'Event-Container',
-            image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&q=80&w=800',
+            image: '/csm_Gruenbeck_Roadshow_Deutschland_02_7a30455b9f.jpg',
             specs: ['6m x 2m', 'Hydraulik', 'LED-Beleuchtung'],
         },
         {

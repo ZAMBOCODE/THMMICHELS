@@ -49,7 +49,31 @@ export const CASE_STUDIES: CaseStudy[] = [
     title: 'The Rooftop Gin Bar',
     problem: 'Ein Kunde suchte nach einer wetterfesten, transportablen Bar-Lösung für exklusive Rooftop-Events, die Luxus ausstrahlt.',
     solution: 'Ein 20ft Seecontainer wurde mit vollautomatischer Hydraulik-Front, integriertem Kühlsystem und massiven Eichenholz-Akzenten transformiert.',
-    image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80&w=1200',
+    image: '/csm_Gruenbeck_Roadshow_Deutschland_02_7a30455b9f.jpg',
     specs: ['[CONFIG: CUSTOM_HYDRAULICS]', '[TYPE: 20FT GASTRO]', '[POWER: INTEGRATED_SMART_GRID]']
+  },
+  {
+    id: 'mobile-office-hub',
+    title: 'Mobile Office Hub',
+    problem: 'Ein Bauunternehmen benötigte flexible Büroräume direkt auf der Baustelle – wetterfest, vollausgestattet und schnell einsatzbereit.',
+    solution: 'Zwei 40ft Container wurden zu einem modernen Doppelbüro mit Klimaanlage, Küche und Konferenzbereich verbunden.',
+    image: '/Prefabricated-Office-Container.webp',
+    specs: ['[CONFIG: DUAL_UNIT]', '[TYPE: 40FT OFFICE]', '[CLIMATE: INTEGRATED_HVAC]']
+  },
+  {
+    id: 'street-food-trailer',
+    title: 'Street Food Gourmet',
+    problem: 'Ein Food-Entrepreneur wollte ein einzigartiges mobiles Restaurant, das auf Festivals und in der City gleichermaßen funktioniert.',
+    solution: 'Ein kompakter Container auf SARIS-Anhänger mit professioneller Gastroküche, Abzugshaube und stylischer Außenbeleuchtung.',
+    image: '/11.jpg',
+    specs: ['[CONFIG: GASTRO_KITCHEN]', '[TYPE: MOBILE_UNIT]', '[TRAILER: SARIS_PRO]']
+  },
+  {
+    id: 'pop-up-store',
+    title: 'Pop-up Retail Box',
+    problem: 'Eine Modemarke suchte nach einer temporären Verkaufsfläche für Fashion-Weeks und Messen mit maximalem Branding-Potenzial.',
+    solution: 'Ein Nudie-Container mit Glasfront, integrierten LED-Panels und modularem Regalsystem für flexible Produktpräsentation.',
+    image: '/pro-spacecube-nudie-lg01.webp',
+    specs: ['[CONFIG: GLASS_FRONT]', '[TYPE: RETAIL_UNIT]', '[BRANDING: FULL_WRAP]']
   }
 ];
