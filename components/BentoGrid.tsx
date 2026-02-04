@@ -8,39 +8,70 @@ const BentoGrid: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
           <div className="max-w-xl">
-            <h2 className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4">[ SOLUTIONS ]</h2>
-            <h3 className="text-4xl md:text-6xl font-display font-black uppercase leading-tight">Transformation <br/>Kategorien</h3>
+            <h2 className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4">[ LEISTUNGEN ]</h2>
+            <h3 className="text-4xl md:text-5xl font-display font-black uppercase leading-tight">Alles aus <br />einer Hand</h3>
           </div>
           <p className="text-[#9CA3AF] max-w-sm text-right font-mono text-sm leading-relaxed opacity-60">
-            Jedes Modul ist eine leere Leinwand. Wir definieren den Rahmen – du entscheidest über den Inhalt.
+            Du brauchst einen mobilen Barwagen, einen Food-Truck oder einen Office-Container? Wir fertigen, vermieten und vertreiben – individuell und präzise.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
-          {BENTO_ITEMS.map((item) => (
-            <div 
-              key={item.id} 
-              className={`relative overflow-hidden group border border-white/10 ${item.gridClass} transition-all duration-700 hover:border-[#D97706]/50`}
-            >
-              <img 
-                src={item.image} 
-                alt={item.title} 
-                className="absolute inset-0 w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] via-[#0F0F0F]/40 to-transparent z-10 transition-opacity duration-500 group-hover:opacity-80"></div>
-              
-              <div className="absolute inset-0 p-8 flex flex-col justify-end z-20">
-                <span className="font-mono text-[#D97706] text-[10px] tracking-widest mb-2 block">{item.label}</span>
-                <h4 className="text-3xl font-display font-black uppercase mb-3 tracking-tighter">{item.title}</h4>
-                <p className="text-[#9CA3AF] text-sm max-w-xs transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 font-mono">
-                  {item.description}
-                </p>
-              </div>
-              
-              {/* Decorative Corner */}
-              <div className="absolute top-0 right-0 w-12 h-12 border-t border-r border-white/20 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 auto-rows-[300px]">
+          {/* Card 1: Event-Container */}
+          <div className="relative overflow-hidden group border border-white/10 row-span-1 transition-all duration-700 hover:border-[#D97706]/50">
+            <img src="https://images.unsplash.com/photo-1565098772267-60af42b81ef2?auto=format&fit=crop&q=80&w=800" alt="Event Container" className="absolute inset-0 w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] via-[#0F0F0F]/40 to-transparent z-10 transition-opacity duration-500 group-hover:opacity-80"></div>
+            <div className="absolute inset-0 p-8 flex flex-col justify-end z-20">
+              <span className="font-mono text-[#D97706] text-[10px] tracking-widest mb-2 block">INDIVIDUELL & ROBUST</span>
+              <h4 className="text-3xl font-display font-black uppercase mb-3 tracking-tighter">Event-Container</h4>
+              <p className="text-[#9CA3AF] text-sm max-w-xs transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 font-mono">
+                Bar, Food-Truck, Eiswagen – wir bauen deinen Container genau so, wie du ihn brauchst. Komplett individuell und sofort einsatzbereit.
+              </p>
+              <a href="/leistungen/event-container/" className="mt-4 text-[#D97706] text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-700 delay-100 flex items-center gap-2">Mehr erfahren <span className="text-lg">→</span></a>
             </div>
-          ))}
+          </div>
+
+          {/* Card 2: Office-Container */}
+          <div className="relative overflow-hidden group border border-white/10 row-span-1 transition-all duration-700 hover:border-[#D97706]/50">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" alt="Office Container" className="absolute inset-0 w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] via-[#0F0F0F]/40 to-transparent z-10 transition-opacity duration-500 group-hover:opacity-80"></div>
+            <div className="absolute inset-0 p-8 flex flex-col justify-end z-20">
+              <span className="font-mono text-[#D97706] text-[10px] tracking-widest mb-2 block">WORK ANYWHERE</span>
+              <h4 className="text-3xl font-display font-black uppercase mb-3 tracking-tighter">Office-Container</h4>
+              <p className="text-[#9CA3AF] text-sm max-w-xs transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 font-mono">
+                Vollausgestattete Büro-Container mit Küche, Klima und WC – dein Arbeitsplatz, wo du ihn brauchst.
+              </p>
+              <a href="/leistungen/office-container/" className="mt-4 text-[#D97706] text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-700 delay-100 flex items-center gap-2">Mehr erfahren <span className="text-lg">→</span></a>
+            </div>
+          </div>
+
+          {/* Card 3: Nudie-Container */}
+          <div className="relative overflow-hidden group border border-white/10 row-span-1 transition-all duration-700 hover:border-[#D97706]/50">
+            <img src="https://images.unsplash.com/photo-1535498730771-e735b998cd64?auto=format&fit=crop&q=80&w=800" alt="Nudie Container" className="absolute inset-0 w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] via-[#0F0F0F]/40 to-transparent z-10 transition-opacity duration-500 group-hover:opacity-80"></div>
+            <div className="absolute inset-0 p-8 flex flex-col justify-end z-20">
+              <span className="font-mono text-[#D97706] text-[10px] tracking-widest mb-2 block">PURE FLEXIBILITY</span>
+              <h4 className="text-3xl font-display font-black uppercase mb-3 tracking-tighter">Nudie-Container</h4>
+              <p className="text-[#9CA3AF] text-sm max-w-xs transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 font-mono">
+                Container ohne Anhänger – flexibel einsetzbar und in verschiedenen Größen direkt von unserem holländischen Partner.
+              </p>
+              <a href="/leistungen/nudie-container/" className="mt-4 text-[#D97706] text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-700 delay-100 flex items-center gap-2">Mehr erfahren <span className="text-lg">→</span></a>
+            </div>
+          </div>
+
+          {/* Card 4: Anhänger mieten */}
+          <div className="relative overflow-hidden group border border-white/10 row-span-1 transition-all duration-700 hover:border-[#D97706]/50">
+            <img src="https://images.unsplash.com/photo-1519671482538-581b5db3bcc6?auto=format&fit=crop&q=80&w=800" alt="Anhänger mieten" className="absolute inset-0 w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] via-[#0F0F0F]/40 to-transparent z-10 transition-opacity duration-500 group-hover:opacity-80"></div>
+            <div className="absolute inset-0 p-8 flex flex-col justify-end z-20">
+              <span className="font-mono text-[#D97706] text-[10px] tracking-widest mb-2 block">RENTAL SERVICE</span>
+              <h4 className="text-3xl font-display font-black uppercase mb-3 tracking-tighter">Anhänger mieten</h4>
+              <p className="text-[#9CA3AF] text-sm max-w-xs transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 font-mono">
+                Unser Bar-Anhänger für dein Event – voll ausgestattet, stilvoll und garantiert ein Hingucker.
+              </p>
+              <a href="/leistungen/anhaenger-mieten/" className="mt-4 text-[#D97706] text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-700 delay-100 flex items-center gap-2">Mehr erfahren <span className="text-lg">→</span></a>
+            </div>
+          </div>
         </div>
       </div>
     </section>

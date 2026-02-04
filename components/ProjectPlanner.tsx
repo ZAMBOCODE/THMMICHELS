@@ -1,8 +1,8 @@
-
 import React, { useState } from 'react';
 
 const ProjectPlanner: React.FC = () => {
   const [step, setStep] = useState(1);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     category: '',
     mobility: '',
@@ -37,10 +37,29 @@ const ProjectPlanner: React.FC = () => {
   const toggleFeature = (fId: string) => {
     setFormData(prev => ({
       ...prev,
-      features: prev.features.includes(fId) 
+      features: prev.features.includes(fId)
         ? prev.features.filter(f => f !== fId)
         : [...prev.features, fId]
     }));
+  };
+
+  const handleSubmit = () => {
+    // Build mailto link as fallback (no backend needed)
+    const subject = encodeURIComponent(`Neue Projekt-Anfrage: ${formData.category}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.contact.name}\n` +
+      `Email: ${formData.contact.email}\n` +
+      `Kategorie: ${formData.category}\n` +
+      `Mobilität: ${formData.mobility}\n` +
+      `Features: ${formData.features.join(', ')}\n\n` +
+      `Nachricht:\n${formData.contact.message}`
+    );
+
+    // Open mailto
+    window.location.href = `mailto:info@thm-michels.de?subject=${subject}&body=${body}`;
+
+    // Show success state
+    setIsSubmitted(true);
   };
 
   return (
@@ -49,14 +68,17 @@ const ProjectPlanner: React.FC = () => {
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         <div className="bg-[#0F0F0F] border border-white/10 p-8 md:p-16 shadow-2xl">
           <div className="mb-12">
-            <div className="flex justify-between items-center mb-8">
-              <h2 className="text-3xl font-display font-black uppercase tracking-tight">Projekt Planer</h2>
-              <span className="font-mono text-[#D97706] text-sm">STEP_0{step} / 04</span>
+            <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-4">
+              <div>
+                <h2 className="text-3xl font-display font-black uppercase tracking-tight leading-none mb-2">Du hast eine Idee?</h2>
+                <p className="text-[#9CA3AF] font-mono text-sm">Lass uns darüber reden. Wir finden die beste Lösung.</p>
+              </div>
+              <span className="font-mono text-[#D97706] text-sm whitespace-nowrap">STEP_0{step} / 04</span>
             </div>
-            
+
             <div className="w-full h-1 bg-white/5 relative">
-              <div 
-                className="absolute top-0 left-0 h-full bg-[#D97706] transition-all duration-500" 
+              <div
+                className="absolute top-0 left-0 h-full bg-[#D97706] transition-all duration-500"
                 style={{ width: `${(step / 4) * 100}%` }}
               ></div>
             </div>
@@ -68,9 +90,9 @@ const ProjectPlanner: React.FC = () => {
                 <h4 className="text-xl font-display font-black uppercase mb-8">Kategorie wählen</h4>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {categories.map(c => (
-                    <button 
+                    <button
                       key={c.id}
-                      onClick={() => { setFormData({...formData, category: c.id}); handleNext(); }}
+                      onClick={() => { setFormData({ ...formData, category: c.id }); handleNext(); }}
                       className={`p-6 border flex flex-col items-center gap-4 transition-all ${formData.category === c.id ? 'border-[#D97706] bg-[#D97706]/5' : 'border-white/10 hover:border-white/30'}`}
                     >
                       <svg className="h-8 w-8 text-[#D97706]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -88,9 +110,9 @@ const ProjectPlanner: React.FC = () => {
                 <h4 className="text-xl font-display font-black uppercase mb-8">Mobilitäts-Anforderung</h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {mobilityOptions.map(m => (
-                    <button 
+                    <button
                       key={m.id}
-                      onClick={() => { setFormData({...formData, mobility: m.id}); handleNext(); }}
+                      onClick={() => { setFormData({ ...formData, mobility: m.id }); handleNext(); }}
                       className={`p-8 border text-left transition-all ${formData.mobility === m.id ? 'border-[#D97706] bg-[#D97706]/5' : 'border-white/10 hover:border-white/30'}`}
                     >
                       <h5 className="font-display font-black uppercase text-lg mb-2">{m.label}</h5>
@@ -106,7 +128,7 @@ const ProjectPlanner: React.FC = () => {
                 <h4 className="text-xl font-display font-black uppercase mb-8">Features & Technik</h4>
                 <div className="grid grid-cols-2 gap-4">
                   {featureOptions.map(f => (
-                    <button 
+                    <button
                       key={f.id}
                       onClick={() => toggleFeature(f.id)}
                       className={`p-4 border text-left font-mono text-[10px] uppercase tracking-widest transition-all ${formData.features.includes(f.id) ? 'border-[#D97706] text-[#D97706]' : 'border-white/10 text-[#9CA3AF]'}`}
@@ -119,30 +141,59 @@ const ProjectPlanner: React.FC = () => {
               </div>
             )}
 
-            {step === 4 && (
+            {step === 4 && !isSubmitted && (
               <div className="space-y-6">
                 <h4 className="text-xl font-display font-black uppercase mb-8">Kontakt Details</h4>
                 <div className="grid grid-cols-1 gap-4">
-                  <input 
-                    type="text" 
-                    placeholder="NAME / UNTERNEHMEN" 
+                  <input
+                    type="text"
+                    placeholder="NAME / UNTERNEHMEN"
                     className="w-full bg-white/5 border border-white/10 p-4 font-mono text-sm focus:border-[#D97706] outline-none"
-                    onChange={(e) => setFormData({...formData, contact: {...formData.contact, name: e.target.value}})}
+                    value={formData.contact.name}
+                    onChange={(e) => setFormData({ ...formData, contact: { ...formData.contact, name: e.target.value } })}
                   />
-                  <input 
-                    type="email" 
-                    placeholder="EMAIL_ADRESSE" 
+                  <input
+                    type="email"
+                    placeholder="EMAIL_ADRESSE"
                     className="w-full bg-white/5 border border-white/10 p-4 font-mono text-sm focus:border-[#D97706] outline-none"
-                    onChange={(e) => setFormData({...formData, contact: {...formData.contact, email: e.target.value}})}
+                    value={formData.contact.email}
+                    onChange={(e) => setFormData({ ...formData, contact: { ...formData.contact, email: e.target.value } })}
                   />
-                  <textarea 
-                    rows={4} 
-                    placeholder="NACHRICHT_AN_MAXIM" 
+                  <textarea
+                    rows={4}
+                    placeholder="NACHRICHT_AN_MAXIM"
                     className="w-full bg-white/5 border border-white/10 p-4 font-mono text-sm focus:border-[#D97706] outline-none"
-                    onChange={(e) => setFormData({...formData, contact: {...formData.contact, message: e.target.value}})}
+                    value={formData.contact.message}
+                    onChange={(e) => setFormData({ ...formData, contact: { ...formData.contact, message: e.target.value } })}
                   ></textarea>
                 </div>
-                <button className="mt-8 bg-[#D97706] text-white px-8 py-4 font-black text-sm uppercase tracking-widest w-full">Anfrage Absenden</button>
+                <button
+                  onClick={handleSubmit}
+                  className="mt-8 bg-[#D97706] hover:bg-[#B45309] text-white px-8 py-4 font-black text-sm uppercase tracking-widest w-full transition-colors"
+                >
+                  Anfrage Absenden
+                </button>
+              </div>
+            )}
+
+            {isSubmitted && (
+              <div className="text-center py-12">
+                <div className="w-20 h-20 mx-auto mb-6 border-2 border-[#D97706] rounded-full flex items-center justify-center">
+                  <svg className="w-10 h-10 text-[#D97706]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <h4 className="text-2xl font-display font-black uppercase mb-4">Anfrage gesendet!</h4>
+                <p className="font-mono text-[#9CA3AF] text-sm mb-8">
+                  Dein E-Mail-Programm sollte sich geöffnet haben.<br />
+                  Falls nicht, schreib uns direkt an: <a href="mailto:info@thm-michels.de" className="text-[#D97706]">info@thm-michels.de</a>
+                </p>
+                <button
+                  onClick={() => { setIsSubmitted(false); setStep(1); setFormData({ category: '', mobility: '', features: [], contact: { name: '', email: '', message: '' } }); }}
+                  className="text-[#D97706] font-mono text-sm uppercase tracking-widest hover:text-white transition-colors"
+                >
+                  Neue Anfrage starten
+                </button>
               </div>
             )}
           </div>

@@ -11,9 +11,9 @@ const About: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
           <div className="relative">
             <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#D97706]/10 blur-3xl rounded-full"></div>
-            <img 
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800" 
-              alt="Maxim Michels" 
+            <img
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800"
+              alt="Maxim Michels"
               className="w-full h-[600px] object-cover grayscale border-l border-t border-white/10"
             />
             <div className="absolute bottom-8 left-8 bg-[#0F0F0F] p-6 border border-white/10 max-w-xs">
@@ -24,44 +24,40 @@ const About: React.FC = () => {
               </p>
             </div>
           </div>
-          
+
           <div>
-            <h2 className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4">[ EXPERTISE ]</h2>
-            <h3 className="text-4xl md:text-6xl font-display font-black uppercase mb-10 tracking-tight leading-none">
-              Dein Projekt In <br/> Expertenhand
+            <h2 className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4">[ WARUM THM ]</h2>
+            <h3 className="text-4xl md:text-5xl font-display font-black uppercase mb-10 tracking-tight leading-none">
+              Warum Kunden <br />uns vertrauen
             </h3>
-            
+
             <div className="space-y-10">
               <p className="text-[#9CA3AF] text-xl leading-relaxed">
-                Ich betrachte jeden Container nicht als Stahlkiste, sondern als technisches System. Mein Fokus liegt auf der Synergie zwischen robuster Industriequalität und luxuriösem Interieur.
+                Wir bauen nicht einfach nur Container. Wir liefern Lösungen, die leichter, schneller und persönlicher sind als der Standard.
               </p>
-              
-              <div className="grid grid-cols-2 gap-8">
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                 <div>
-                  <h5 className="font-display font-black uppercase text-[#F8F9FA] mb-2 tracking-tighter">Präzision</h5>
-                  <p className="font-mono text-xs text-[#9CA3AF]">Engineering bis ins letzte Detail.</p>
+                  <h5 className="font-display font-black uppercase text-[#F8F9FA] mb-2 tracking-tighter">Bis zu 30% leichter</h5>
+                  <p className="font-mono text-xs text-[#9CA3AF]">Mehr Zuladung, weniger Sprit durch speziellen Stahl.</p>
                 </div>
                 <div>
-                  <h5 className="font-display font-black uppercase text-[#F8F9FA] mb-2 tracking-tighter">Individuell</h5>
-                  <p className="font-mono text-xs text-[#9CA3AF]">Keine Massenware, nur Unikate.</p>
+                  <h5 className="font-display font-black uppercase text-[#F8F9FA] mb-2 tracking-tighter">Sofort startklar</h5>
+                  <p className="font-mono text-xs text-[#9CA3AF]">Fest verbaute Ausstattung. Hinfahren, aufklappen, loslegen.</p>
                 </div>
                 <div>
-                  <h5 className="font-display font-black uppercase text-[#F8F9FA] mb-2 tracking-tighter">Beratung</h5>
-                  <p className="font-mono text-xs text-[#9CA3AF]">Persönlich von der Vision bis zum Ziel.</p>
+                  <h5 className="font-display font-black uppercase text-[#F8F9FA] mb-2 tracking-tighter">Dein Projekt</h5>
+                  <p className="font-mono text-xs text-[#9CA3AF]">Du bestimmst jedes Detail. Wir setzen deine Vision um.</p>
                 </div>
                 <div>
-                  <h5 className="font-display font-black uppercase text-[#F8F9FA] mb-2 tracking-tighter">Netzwerk</h5>
-                  <p className="font-mono text-xs text-[#9CA3AF]">Partnerschaften wie SARIS & mehr.</p>
+                  <h5 className="font-display font-black uppercase text-[#F8F9FA] mb-2 tracking-tighter">Direkt mit Chef</h5>
+                  <p className="font-mono text-xs text-[#9CA3AF]">Kein Callcenter. Persönliche Beratung von Maxim.</p>
                 </div>
               </div>
 
               <div className="pt-8 flex items-center gap-6">
-                 <div className="flex -space-x-3">
-                   {[1,2,3,4].map(i => (
-                     <img key={i} src={`https://picsum.photos/seed/${i+10}/100`} className="w-10 h-10 rounded-full border-2 border-[#0F0F0F]" alt="Partner" />
-                   ))}
-                 </div>
-                 <span className="font-mono text-[10px] text-[#9CA3AF] tracking-widest uppercase">+20 PARTNERS_WORLDWIDE</span>
+                {/* Partner Logos could go here if available, keeping placeholder for now but matching context */}
+                <span className="font-mono text-[10px] text-[#9CA3AF] tracking-widest uppercase">QUALITÄT AUS WAIBLINGEN</span>
               </div>
             </div>
           </div>
