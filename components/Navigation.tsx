@@ -67,8 +67,8 @@ const Navigation: React.FC = () => {
             <Link to="/partner" className="text-sm font-mono text-[#9CA3AF] hover:text-[#F8F9FA] transition-colors uppercase tracking-widest">Partner</Link>
             <Link to="/ueber-uns" className="text-sm font-mono text-[#9CA3AF] hover:text-[#F8F9FA] transition-colors uppercase tracking-widest">Über Uns</Link>
             <Link to="/kontakt" className="text-sm font-mono text-[#9CA3AF] hover:text-[#F8F9FA] transition-colors uppercase tracking-widest">Kontakt</Link>
-            <Link to="/kontakt" className="bg-[#D97706] hover:bg-[#B45309] text-white px-6 py-2 rounded-none font-bold transition-all text-sm uppercase tracking-widest flex items-center gap-2 group">
-              PROJEKT ANFRAGEN
+            <Link to="/konfigurator" className="bg-[#D97706] hover:bg-[#B45309] text-white px-6 py-2 rounded-none font-bold transition-all text-sm uppercase tracking-widest flex items-center gap-2 group">
+              KONFIGURATOR
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
@@ -136,10 +136,10 @@ const Navigation: React.FC = () => {
       {/* Mobile Sticky CTA */}
       <div className={`md:hidden fixed bottom-6 left-6 right-6 z-[60] transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
         <Link
-          to="/kontakt"
+          to="/konfigurator"
           className="w-full bg-[#D97706] hover:bg-[#B45309] text-white py-4 rounded-xl font-bold shadow-2xl flex justify-center items-center gap-3 active:scale-95 transition-transform"
         >
-          <span className="uppercase tracking-widest text-sm">Jetzt anfragen</span>
+          <span className="uppercase tracking-widest text-sm">Konfigurator</span>
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
           </svg>

@@ -4,7 +4,7 @@ import BentoGrid from '../../components/BentoGrid';
 import Process from '../../components/Process';
 import CaseStudy from '../../components/CaseStudy';
 import About from '../../components/About';
-import ProjectPlanner from '../../components/ProjectPlanner';
+import Configurator from '../../components/Configurator';
 import { TestimonialsSection } from '../../components/testimonials-marquee';
 
 const testimonials = [
@@ -70,7 +70,7 @@ const Home: React.FC = () => {
             <div className="scroll-reveal"><Process /></div>
             <div className="scroll-reveal"><CaseStudy /></div>
             <div className="scroll-reveal"><About /></div>
-            <div id="project-planner-container" className="scroll-reveal"><ProjectPlanner /></div>
+            <div id="configurator" className="scroll-reveal"><Configurator /></div>
             <div className="scroll-reveal">
                 <TestimonialsSection
                     title="Vertrauen durch Exzellenz"

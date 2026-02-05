@@ -43,7 +43,7 @@ const Process: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 max-w-5xl">
             {steps.map((step, idx) => (
               <div key={idx} className="relative group">
-                <div className="text-8xl font-display font-black text-white/5 absolute -top-12 -left-4 group-hover:text-[#D97706]/10 transition-colors">
+                <div className="text-8xl font-display font-black text-white/20 absolute -top-12 -left-4 group-hover:text-[#D97706]/30 transition-colors">
                   {step.num}
                 </div>
                 <div className="relative pt-8">

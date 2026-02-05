@@ -11,6 +11,7 @@ import Gallery from './src/pages/Gallery';
 import Partner from './src/pages/Partner';
 import AboutPage from './src/pages/About';
 import Contact from './src/pages/Contact';
+import ConfiguratorPage from './src/pages/Configurator';
 import ScrollToTop from './components/ScrollToTop';
 
 // Simple ScrollToTop component to ensure pages start at top
@@ -34,6 +35,7 @@ function App() {
           <Route path="/partner" element={<Partner />} />
           <Route path="/ueber-uns" element={<AboutPage />} />
           <Route path="/kontakt" element={<Contact />} />
+          <Route path="/konfigurator" element={<ConfiguratorPage />} />
         </Routes>
         <Footer />
       </div>

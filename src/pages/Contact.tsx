@@ -28,9 +28,9 @@ const Contact: React.FC = () => {
                                 <div>
                                     <h3 className="font-display font-black uppercase text-lg mb-2">Adresse</h3>
                                     <p className="font-mono text-[#9CA3AF] text-sm leading-relaxed">
-                                        THM Michels GmbH<br />
-                                        Am Kaltwiesenbach<br />
-                                        71332 Waiblingen<br />
+                                        THM-Maxim Michels<br />
+                                        Seewiesenstraße 18<br />
+                                        71334 Waiblingen<br />
                                         Deutschland
                                     </p>
                                 </div>
@@ -97,7 +97,7 @@ const Contact: React.FC = () => {
                     <div className="h-full min-h-[500px] lg:min-h-full">
                         <div className="border border-white/10 h-full overflow-hidden relative">
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2627.847!2d9.3167!3d48.8308!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4799b0a7a3c2f1a1%3A0x1234567890abcdef!2sWaiblingen!5e0!3m2!1sde!2sde!4v1234567890"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2627.5!2d9.31!3d48.83!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4799b0c8d4c9f8a7%3A0x1234567890abcdef!2sSeewiesenstra%C3%9Fe%2018%2C%2071334%20Waiblingen!5e0!3m2!1sde!2sde!4v1700000000000"
                                 width="100%"
                                 height="100%"
                                 style={{ border: 0, filter: 'grayscale(100%) invert(92%) contrast(83%)' }}
@@ -110,6 +110,19 @@ const Contact: React.FC = () => {
                             <div className="absolute bottom-4 left-4 bg-[#0F0F0F]/90 backdrop-blur-sm border border-white/10 px-4 py-2">
                                 <span className="font-mono text-[10px] text-[#D97706] uppercase tracking-widest">[ STANDORT: WAIBLINGEN ]</span>
                             </div>
+
+                            {/* Route Button */}
+                            <a
+                                href="https://www.google.com/maps/dir/?api=1&destination=Seewiesenstraße+18,+71334+Waiblingen,+Germany"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="absolute bottom-4 right-4 bg-[#D97706] hover:bg-[#B45309] text-white px-5 py-3 font-black text-xs uppercase tracking-widest transition-all hover:-translate-y-1 shadow-[0_10px_20px_-10px_rgba(217,119,6,0.5)] flex items-center gap-2"
+                            >
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                    <polygon points="3 11 22 2 13 21 11 13 3 11"/>
+                                </svg>
+                                Route berechnen
+                            </a>
                         </div>
                     </div>
                 </div>
