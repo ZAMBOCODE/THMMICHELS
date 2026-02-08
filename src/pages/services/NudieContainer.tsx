@@ -15,7 +15,7 @@ const NudieContainer: React.FC = () => {
                 {/* Hero */}
                 <div className="mb-20">
                     <h2 className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4">[ NUDIE-CONTAINER ]</h2>
-                    <h1 className="text-4xl md:text-6xl font-display font-black uppercase mb-8 leading-tight">Nudie-Container –<br />der Container ohne Anhänger</h1>
+                    <h1 className="text-3xl md:text-4xl font-display font-black uppercase mb-8 leading-tight">Nudie-Container –<br />der Container ohne Anhänger</h1>
                     <p className="font-mono text-[#9CA3AF] max-w-3xl text-lg leading-relaxed">
                         Du brauchst einen hochwertigen Container, aber keinen fahrbaren Untersatz? Unsere Nudie-Container sind eigenständige Einheiten ohne Anhänger-Unterbau – flexibel einsetzbar, robust gebaut und direkt von unserem holländischen Partner.
                     </p>

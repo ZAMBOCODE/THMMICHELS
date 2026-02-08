@@ -46,7 +46,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-4 font-mono text-sm text-[#9CA3AF]">
               <li><a href="tel:+491702847337" className="hover:text-[#D97706] transition-colors">+49 170 2847337</a></li>
               <li><a href="mailto:info@thm-michels.de" className="hover:text-[#D97706] transition-colors">info@thm-michels.de</a></li>
-              <li className="text-[#9CA3AF]">Am Kaltwiesenbach<br />71334 Waiblingen</li>
+              <li className="text-[#9CA3AF]">Seewiesenstraße 18<br />71334 Waiblingen</li>
             </ul>
           </div>
 
@@ -66,8 +66,8 @@ const Footer: React.FC = () => {
             © 2026 THM Michels. Alle Rechte vorbehalten.
           </span>
           <div className="flex gap-6 font-mono text-[10px] text-white/30 uppercase tracking-[0.2em]">
-            <a href="#" className="hover:text-white/60 transition-colors">Impressum</a>
-            <a href="#" className="hover:text-white/60 transition-colors">Datenschutz</a>
+            <Link to="/impressum" className="hover:text-white/60 transition-colors">Impressum</Link>
+            <Link to="/datenschutz" className="hover:text-white/60 transition-colors">Datenschutz</Link>
           </div>
         </div>
       </div>

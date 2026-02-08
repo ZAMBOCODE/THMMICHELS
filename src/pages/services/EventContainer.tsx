@@ -22,7 +22,7 @@ const EventContainer: React.FC = () => {
                 {/* Hero */}
                 <div className="mb-20">
                     <h2 className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4">[ EVENT-CONTAINER ]</h2>
-                    <h1 className="text-4xl md:text-6xl font-display font-black uppercase mb-8 leading-tight">Dein Event-Container –<br />gebaut für deinen Einsatz</h1>
+                    <h1 className="text-3xl md:text-4xl font-display font-black uppercase mb-8 leading-tight">Dein Event-Container –<br />gebaut für deinen Einsatz</h1>
                     <p className="font-mono text-[#9CA3AF] max-w-3xl text-lg leading-relaxed">
                         Ob Barwagen, Food-Truck, Hähnchenwagen oder Eiswagen – wir fertigen individuelle Container auf Anhängern, die genau zu deinem Konzept passen. Du bestimmst Design, Ausstattung und Funktion. Wir bauen es – handwerklich präzise, robust und sofort einsatzbereit.
                     </p>

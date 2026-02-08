@@ -5,6 +5,7 @@ import Process from '../../components/Process';
 import CaseStudy from '../../components/CaseStudy';
 import About from '../../components/About';
 import Configurator from '../../components/Configurator';
+import FAQ from '../../components/FAQ';
 import { TestimonialsSection } from '../../components/testimonials-marquee';
 
 const testimonials = [
@@ -57,8 +58,8 @@ const Home: React.FC = () => {
             });
         }, observerOptions);
 
-        const revealElements = document.querySelectorAll('.scroll-reveal');
-        revealElements.forEach(el => observer.observe(el));
+        const animatedElements = document.querySelectorAll('.scroll-reveal, .scroll-animate, .scroll-animate-left, .scroll-animate-right, .scroll-animate-scale');
+        animatedElements.forEach(el => observer.observe(el));
 
         return () => observer.disconnect();
     }, []);
@@ -66,18 +67,17 @@ const Home: React.FC = () => {
     return (
         <main>
             <Hero />
-            <div className="scroll-reveal"><BentoGrid /></div>
-            <div className="scroll-reveal"><Process /></div>
-            <div className="scroll-reveal"><CaseStudy /></div>
-            <div className="scroll-reveal"><About /></div>
-            <div id="configurator" className="scroll-reveal"><Configurator /></div>
-            <div className="scroll-reveal">
-                <TestimonialsSection
+            <div className="scroll-animate"><BentoGrid /></div>
+            <div className="scroll-animate"><Process /></div>
+            <div className="scroll-animate"><CaseStudy /></div>
+            <div className="scroll-animate"><About /></div>
+            <div id="configurator" className="scroll-animate"><Configurator /></div>
+            <TestimonialsSection
                     title="Vertrauen durch Exzellenz"
                     description="Was unsere Partner über die Zusammenarbeit sagen."
                     testimonials={testimonials}
                 />
-            </div>
+            <div className="scroll-animate"><FAQ /></div>
         </main>
     );
 };

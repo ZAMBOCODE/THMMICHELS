@@ -29,7 +29,7 @@ const TrailerRental: React.FC = () => {
                 {/* Hero */}
                 <div className="mb-20">
                     <h2 className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4">[ ANHÄNGER MIETEN ]</h2>
-                    <h1 className="text-4xl md:text-6xl font-display font-black uppercase mb-8 leading-tight">Den Bar-Anhänger<br />mieten statt kaufen</h1>
+                    <h1 className="text-3xl md:text-4xl font-display font-black uppercase mb-8 leading-tight">Den Bar-Anhänger<br />mieten statt kaufen</h1>
                     <p className="font-mono text-[#9CA3AF] max-w-3xl text-lg leading-relaxed">
                         Du planst eine Hochzeit, Firmenfeier, einen Geburtstag oder ein Festival – und brauchst etwas Besonderes? Unser Bar-Anhänger bringt das gewisse Extra zu deinem Event. Voll ausgestattet, stilvoll und garantiert ein Hingucker.
                     </p>

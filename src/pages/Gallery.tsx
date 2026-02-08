@@ -53,7 +53,7 @@ const Gallery: React.FC = () => {
                 {/* Hero */}
                 <div className="mb-16">
                     <h2 className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4">[ GALERIE ]</h2>
-                    <h1 className="text-4xl md:text-6xl font-display font-black uppercase mb-6 leading-tight">Unsere Projekte</h1>
+                    <h1 className="text-3xl md:text-4xl font-display font-black uppercase mb-6 leading-tight">Unsere Projekte</h1>
                     <p className="font-mono text-[#9CA3AF] max-w-2xl text-lg leading-relaxed">
                         Jeder Container erzählt seine eigene Geschichte. Hier siehst du eine Auswahl unserer bisherigen Arbeiten – von der kompakten Bar bis zum voll ausgestatteten Event-Trailer.
                     </p>

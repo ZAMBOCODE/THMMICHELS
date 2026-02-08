@@ -76,7 +76,7 @@ const CaseStudy: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
           <div>
             <h2 className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4">[ GALERIE ]</h2>
-            <h3 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight">Unsere Projekte</h3>
+            <h3 className="text-3xl md:text-4xl font-display font-black uppercase tracking-tight">Unsere Projekte</h3>
             <p className="text-[#9CA3AF] text-lg max-w-xl mt-6 leading-relaxed">
               Jeder Container erzählt seine eigene Geschichte. Swipe durch unsere Arbeiten.
             </p>

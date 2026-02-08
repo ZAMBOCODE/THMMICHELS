@@ -1,16 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useTheme } from '../context/ThemeContext';
 
 const Navigation: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
   const location = useLocation();
+  const { mode, toggleMode, colors } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
+
+      // Calculate scroll progress
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      setScrollProgress(progress);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -67,7 +76,25 @@ const Navigation: React.FC = () => {
             <Link to="/partner" className="text-sm font-mono text-[#9CA3AF] hover:text-[#F8F9FA] transition-colors uppercase tracking-widest">Partner</Link>
             <Link to="/ueber-uns" className="text-sm font-mono text-[#9CA3AF] hover:text-[#F8F9FA] transition-colors uppercase tracking-widest">Über Uns</Link>
             <Link to="/kontakt" className="text-sm font-mono text-[#9CA3AF] hover:text-[#F8F9FA] transition-colors uppercase tracking-widest">Kontakt</Link>
-            <Link to="/konfigurator" className="bg-[#D97706] hover:bg-[#B45309] text-white px-6 py-2 rounded-none font-bold transition-all text-sm uppercase tracking-widest flex items-center gap-2 group">
+
+            {/* Dark/Light Mode Toggle */}
+            <button
+              onClick={toggleMode}
+              className="p-2 rounded-full border border-white/20 hover:border-white/40 transition-all"
+              aria-label={mode === 'dark' ? 'Light Mode aktivieren' : 'Dark Mode aktivieren'}
+            >
+              {mode === 'dark' ? (
+                <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+              ) : (
+                <svg className="w-5 h-5 text-[#0F0F0F]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                </svg>
+              )}
+            </button>
+
+            <Link to="/konfigurator" className="text-white px-6 py-2 rounded-none font-bold transition-all text-sm uppercase tracking-widest flex items-center gap-2 group" style={{ backgroundColor: colors.accent }}>
               KONFIGURATOR
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -85,6 +112,14 @@ const Navigation: React.FC = () => {
             <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
             <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
           </button>
+        </div>
+
+        {/* Scroll Progress Bar */}
+        <div className="absolute bottom-0 left-0 w-full h-0.5 bg-white/5">
+          <div
+            className="h-full"
+            style={{ width: `${scrollProgress}%`, backgroundColor: colors.accent }}
+          />
         </div>
       </nav>
 

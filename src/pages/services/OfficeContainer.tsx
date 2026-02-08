@@ -24,7 +24,7 @@ const OfficeContainer: React.FC = () => {
                 {/* Hero */}
                 <div className="mb-20">
                     <h2 className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4">[ OFFICE-CONTAINER ]</h2>
-                    <h1 className="text-4xl md:text-6xl font-display font-black uppercase mb-8 leading-tight">Dein Büro. Überall.</h1>
+                    <h1 className="text-3xl md:text-4xl font-display font-black uppercase mb-8 leading-tight">Dein Büro. Überall.</h1>
                     <p className="font-mono text-[#9CA3AF] max-w-3xl text-lg leading-relaxed">
                         Vollausgestattete Office-Container mit Küche, Klimaanlage und sanitären Anlagen – schlüsselfertig geliefert, sofort bezugsbereit. Die smarte Alternative zum klassischen Büro.
                     </p>

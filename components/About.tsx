@@ -9,7 +9,7 @@ const About: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
-          <div className="relative">
+          <div className="relative scroll-animate-left">
             <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#D97706]/10 blur-3xl rounded-full"></div>
             <img
               src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800"
@@ -25,9 +25,9 @@ const About: React.FC = () => {
             </div>
           </div>
 
-          <div>
+          <div className="scroll-animate-right">
             <h2 className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4">[ WARUM THM ]</h2>
-            <h3 className="text-4xl md:text-5xl font-display font-black uppercase mb-10 tracking-tight leading-none">
+            <h3 className="text-3xl md:text-4xl font-display font-black uppercase mb-10 tracking-tight leading-none">
               Warum Kunden <br />uns vertrauen
             </h3>
 

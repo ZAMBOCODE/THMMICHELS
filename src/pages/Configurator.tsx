@@ -7,8 +7,8 @@ const ConfiguratorPage: React.FC = () => {
                 {/* Header */}
                 <div className="mb-12">
                     <h2 className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4">[ 3D KONFIGURATOR ]</h2>
-                    <h1 className="text-4xl md:text-6xl font-display font-black uppercase mb-6 leading-tight">
-                        Gestalte deinen<br />Traumcontainer
+                    <h1 className="text-3xl md:text-4xl font-display font-black uppercase mb-6 leading-tight">
+                        Gestalte <span className="relative inline-block">deinen<span className="absolute left-0 bottom-0 w-full h-1 bg-[#D97706] origin-left animate-[underline_1s_ease-out_forwards]"></span></span><br />Traumcontainer
                     </h1>
                     <p className="font-mono text-[#9CA3AF] max-w-2xl text-lg leading-relaxed">
                         Nutze unseren interaktiven 3D-Konfigurator, um deinen Container nach deinen Wünschen zu gestalten.
@@ -17,9 +17,9 @@ const ConfiguratorPage: React.FC = () => {
                 </div>
 
                 {/* Configurator Embed */}
-                <div className="border border-white/10 overflow-hidden mb-12">
+                <div className="border-2 border-[#D97706] overflow-hidden mb-12">
                     <iframe
-                        src="https://container-configurator-bs4ktt0j3-zambocodes-projects.vercel.app/embed"
+                        src="https://container-configurator-nu.vercel.app/embed?theme=dark"
                         width="100%"
                         height="800"
                         style={{ border: 'none' }}

@@ -23,8 +23,8 @@ const Configurator: React.FC<ConfiguratorProps> = ({ showHeader = true }) => {
         {showHeader && (
           <div className="text-center mb-12">
             <h2 className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4">[ 3D KONFIGURATOR ]</h2>
-            <h3 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight mb-6">
-              Gestalte deinen<br />Container
+            <h3 className="text-3xl md:text-4xl font-display font-black uppercase tracking-tight mb-6">
+              Gestalte <span className="relative inline-block">deinen<span className="absolute left-0 bottom-0 w-full h-1 bg-[#D97706] origin-left animate-[underline_1s_ease-out_forwards]"></span></span><br />Container
             </h3>
             <p className="text-[#9CA3AF] text-lg max-w-2xl mx-auto leading-relaxed">
               Nutze unseren interaktiven 3D-Konfigurator, um deinen Traumcontainer zu gestalten. Wähle Größe, Farbe und Ausstattung.
@@ -32,7 +32,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({ showHeader = true }) => {
           </div>
         )}
 
-        <div className="border border-white/10 overflow-hidden relative" style={{ height: '800px' }}>
+        <div className="border-2 border-[#D97706] overflow-hidden relative" style={{ height: '800px' }}>
           {/* Loading Animation */}
           {isLoading && (
             <div className="absolute inset-0 bg-[#0F0F0F] z-10 flex flex-col items-center justify-center">
@@ -74,7 +74,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({ showHeader = true }) => {
 
           {/* Iframe - always rendered but hidden during loading */}
           <iframe
-            src="https://container-configurator-bs4ktt0j3-zambocodes-projects.vercel.app/embed"
+            src="https://container-configurator-nu.vercel.app/embed?theme=dark"
             width="100%"
             height="800"
             style={{ border: 'none', opacity: isLoading ? 0 : 1, transition: 'opacity 0.5s ease-in-out' }}

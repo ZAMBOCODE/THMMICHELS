@@ -6,19 +6,19 @@ const BentoGrid: React.FC = () => {
   return (
     <section id="products" className="py-24 bg-[#0F0F0F] relative">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-4 scroll-animate">
           <div className="max-w-xl">
             <h2 className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4">[ LEISTUNGEN ]</h2>
-            <h3 className="text-4xl md:text-5xl font-display font-black uppercase leading-tight">Alles aus <br />einer Hand</h3>
+            <h3 className="text-3xl md:text-4xl font-display font-black uppercase leading-tight">Alles aus <br />einer Hand</h3>
           </div>
-          <p className="text-[#9CA3AF] max-w-sm text-right font-mono text-sm leading-relaxed opacity-60">
+          <p className="text-[#9CA3AF] max-w-sm text-left md:text-right font-mono text-sm leading-relaxed opacity-60">
             Du brauchst einen mobilen Barwagen, einen Food-Truck oder einen Office-Container? Wir fertigen, vermieten und vertreiben – individuell und präzise.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 auto-rows-[300px]">
           {/* Card 1: Event-Container */}
-          <div className="relative overflow-hidden group border border-white/10 row-span-1 transition-all duration-700 hover:border-[#D97706]/50">
+          <div className="relative overflow-hidden group border border-white/10 row-span-1 transition-all duration-700 hover:border-[#D97706]/50 scroll-animate-scale" style={{ transitionDelay: '0ms' }}>
             <img src="/csm_Gruenbeck_Roadshow_Deutschland_02_7a30455b9f.jpg" alt="Event Container" className="absolute inset-0 w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] via-[#0F0F0F]/40 to-transparent z-10 transition-opacity duration-500 group-hover:opacity-80"></div>
             <div className="absolute inset-0 p-8 flex flex-col justify-end z-20">
@@ -32,7 +32,7 @@ const BentoGrid: React.FC = () => {
           </div>
 
           {/* Card 2: Office-Container */}
-          <div className="relative overflow-hidden group border border-white/10 row-span-1 transition-all duration-700 hover:border-[#D97706]/50">
+          <div className="relative overflow-hidden group border border-white/10 row-span-1 transition-all duration-700 hover:border-[#D97706]/50 scroll-animate-scale" style={{ transitionDelay: '100ms' }}>
             <img src="/Prefabricated-Office-Container.webp" alt="Office Container" className="absolute inset-0 w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] via-[#0F0F0F]/40 to-transparent z-10 transition-opacity duration-500 group-hover:opacity-80"></div>
             <div className="absolute inset-0 p-8 flex flex-col justify-end z-20">
@@ -46,7 +46,7 @@ const BentoGrid: React.FC = () => {
           </div>
 
           {/* Card 3: Nudie-Container */}
-          <div className="relative overflow-hidden group border border-white/10 row-span-1 transition-all duration-700 hover:border-[#D97706]/50">
+          <div className="relative overflow-hidden group border border-white/10 row-span-1 transition-all duration-700 hover:border-[#D97706]/50 scroll-animate-scale" style={{ transitionDelay: '200ms' }}>
             <img src="/pro-spacecube-nudie-lg01.webp" alt="Nudie Container" className="absolute inset-0 w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] via-[#0F0F0F]/40 to-transparent z-10 transition-opacity duration-500 group-hover:opacity-80"></div>
             <div className="absolute inset-0 p-8 flex flex-col justify-end z-20">
@@ -60,7 +60,7 @@ const BentoGrid: React.FC = () => {
           </div>
 
           {/* Card 4: Anhänger mieten */}
-          <div className="relative overflow-hidden group border border-white/10 row-span-1 transition-all duration-700 hover:border-[#D97706]/50">
+          <div className="relative overflow-hidden group border border-white/10 row-span-1 transition-all duration-700 hover:border-[#D97706]/50 scroll-animate-scale" style={{ transitionDelay: '300ms' }}>
             <img src="/11.jpg" alt="Anhänger mieten" className="absolute inset-0 w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] via-[#0F0F0F]/40 to-transparent z-10 transition-opacity duration-500 group-hover:opacity-80"></div>
             <div className="absolute inset-0 p-8 flex flex-col justify-end z-20">

@@ -7,7 +7,7 @@ const Contact: React.FC = () => {
                 {/* Header */}
                 <div className="mb-16">
                     <h2 className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4">[ KONTAKT ]</h2>
-                    <h1 className="text-4xl md:text-6xl font-display font-black uppercase mb-6 leading-tight">Schreib uns oder<br />komm vorbei</h1>
+                    <h1 className="text-3xl md:text-4xl font-display font-black uppercase mb-6 leading-tight">Schreib uns oder<br />komm vorbei</h1>
                     <p className="font-mono text-[#9CA3AF] max-w-2xl text-lg leading-relaxed">
                         Wir freuen uns auf dein Projekt. Ruf an, schreib eine Mail oder besuche uns direkt in Waiblingen.
                     </p>
@@ -102,7 +102,7 @@ const Contact: React.FC = () => {
                                 height="100%"
                                 style={{ border: 0, filter: 'grayscale(100%) invert(92%) contrast(83%)' }}
                                 allowFullScreen
-                                loading="lazy"
+                                loading="eager"
                                 referrerPolicy="no-referrer-when-downgrade"
                                 title="THM Michels Standort"
                                 className="absolute inset-0"

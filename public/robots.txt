@@ -1,0 +1,9 @@
+# Robots.txt für THM Michels
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://thm-michels.de/sitemap.xml
+
+# Crawl-delay für respektvolles Crawling
+Crawl-delay: 1
