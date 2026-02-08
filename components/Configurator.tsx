@@ -7,6 +7,34 @@ interface ConfiguratorProps {
 
 const Configurator: React.FC<ConfiguratorProps> = ({ showHeader = true }) => {
   const [isLoading, setIsLoading] = useState(true);
+  const [isLandscape, setIsLandscape] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  useEffect(() => {
+    const checkOrientation = () => {
+      const isMobile = window.innerWidth <= 1024;
+      const landscape = window.innerWidth > window.innerHeight;
+      setIsLandscape(isMobile && landscape);
+    };
+
+    checkOrientation();
+    window.addEventListener('resize', checkOrientation);
+    window.addEventListener('orientationchange', () => setTimeout(checkOrientation, 100));
+
+    return () => {
+      window.removeEventListener('resize', checkOrientation);
+      window.removeEventListener('orientationchange', checkOrientation);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isFullscreen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [isFullscreen]);
 
   useEffect(() => {
     // Show loading for 5 seconds
@@ -72,6 +100,22 @@ const Configurator: React.FC<ConfiguratorProps> = ({ showHeader = true }) => {
             </div>
           )}
 
+          {/* Landscape "Fortfahren" overlay */}
+          {isLandscape && !isFullscreen && !isLoading && (
+            <div className="absolute inset-0 bg-[#0F0F0F]/90 z-20 flex flex-col items-center justify-center">
+              <svg className="w-10 h-10 text-[#D97706] mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
+              </svg>
+              <p className="font-mono text-[#9CA3AF] text-xs mb-4 uppercase tracking-widest">Vollbild für beste Erfahrung</p>
+              <button
+                onClick={() => setIsFullscreen(true)}
+                className="bg-[#D97706] hover:bg-[#B45309] text-white px-8 py-3 font-black text-sm uppercase tracking-widest transition-all"
+              >
+                Fortfahren
+              </button>
+            </div>
+          )}
+
           {/* Iframe - always rendered but hidden during loading */}
           <iframe
             src="https://container-configurator-nu.vercel.app/embed?theme=dark"
@@ -82,6 +126,28 @@ const Configurator: React.FC<ConfiguratorProps> = ({ showHeader = true }) => {
             title="THM Michels 3D Konfigurator"
           />
         </div>
+
+        {/* Fullscreen Overlay */}
+        {isFullscreen && (
+          <div className="fixed inset-0 z-[9999] bg-[#0F0F0F]">
+            <button
+              onClick={() => setIsFullscreen(false)}
+              className="absolute top-4 right-4 z-[10000] w-10 h-10 bg-[#0F0F0F]/80 border border-white/20 flex items-center justify-center hover:border-[#D97706] transition-colors"
+            >
+              <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <iframe
+              src="https://container-configurator-nu.vercel.app/embed?theme=dark"
+              width="100%"
+              height="100%"
+              style={{ border: 'none' }}
+              allow="clipboard-write"
+              title="THM Michels 3D Konfigurator Fullscreen"
+            />
+          </div>
+        )}
 
         <div className="mt-8 text-center">
           <p className="font-mono text-[#9CA3AF] text-sm">
