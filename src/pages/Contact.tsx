@@ -1,6 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Contact: React.FC = () => {
+    const [formData, setFormData] = useState({ name: '', email: '', phone: '', service: '', message: '' });
+    const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setStatus('sending');
+
+        try {
+            const res = await fetch('https://formsubmit.co/ajax/info@thm-michels.de', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({
+                    name: formData.name,
+                    email: formData.email,
+                    phone: formData.phone,
+                    service: formData.service,
+                    message: formData.message,
+                    _subject: `Neue Anfrage von ${formData.name} – ${formData.service || 'Allgemein'}`,
+                }),
+            });
+
+            if (res.ok) {
+                setStatus('success');
+                setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+            } else {
+                setStatus('error');
+            }
+        } catch {
+            setStatus('error');
+        }
+    };
+
     return (
         <div className="pt-32 pb-24 bg-[#0F0F0F] min-h-screen">
             <div className="max-w-7xl mx-auto px-6">
@@ -14,81 +46,122 @@ const Contact: React.FC = () => {
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                    {/* Left: Contact Info */}
-                    <div className="space-y-12">
-                        {/* Address */}
-                        <div className="border border-white/10 p-8 hover:border-[#D97706]/50 transition-colors">
-                            <div className="flex items-start gap-4">
-                                <div className="w-12 h-12 border border-[#D97706] flex items-center justify-center flex-shrink-0">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D97706" strokeWidth="1.5">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                                        <circle cx="12" cy="10" r="3"/>
-                                    </svg>
+                    {/* Left: Contact Form + Info */}
+                    <div className="space-y-10">
+                        {/* Contact Form */}
+                        <form onSubmit={handleSubmit} className="border border-white/10 p-8 space-y-6">
+                            <h3 className="font-display font-black uppercase text-lg mb-2">Projekt anfragen</h3>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label className="block font-mono text-[10px] text-[#9CA3AF] uppercase tracking-widest mb-2">Name *</label>
+                                    <input
+                                        type="text"
+                                        required
+                                        value={formData.name}
+                                        onChange={e => setFormData({ ...formData, name: e.target.value })}
+                                        className="w-full bg-white/5 border border-white/10 px-4 py-3 text-sm font-mono text-white placeholder-white/30 focus:border-[#D97706] focus:outline-none transition-colors"
+                                        placeholder="Dein Name"
+                                    />
                                 </div>
                                 <div>
-                                    <h3 className="font-display font-black uppercase text-lg mb-2">Adresse</h3>
-                                    <p className="font-mono text-[#9CA3AF] text-sm leading-relaxed">
-                                        THM-Maxim Michels<br />
-                                        Seewiesenstraße 18<br />
-                                        71334 Waiblingen<br />
-                                        Deutschland
-                                    </p>
+                                    <label className="block font-mono text-[10px] text-[#9CA3AF] uppercase tracking-widest mb-2">E-Mail *</label>
+                                    <input
+                                        type="email"
+                                        required
+                                        value={formData.email}
+                                        onChange={e => setFormData({ ...formData, email: e.target.value })}
+                                        className="w-full bg-white/5 border border-white/10 px-4 py-3 text-sm font-mono text-white placeholder-white/30 focus:border-[#D97706] focus:outline-none transition-colors"
+                                        placeholder="deine@email.de"
+                                    />
                                 </div>
                             </div>
-                        </div>
 
-                        {/* Phone */}
-                        <div className="border border-white/10 p-8 hover:border-[#D97706]/50 transition-colors">
-                            <div className="flex items-start gap-4">
-                                <div className="w-12 h-12 border border-[#D97706] flex items-center justify-center flex-shrink-0">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D97706" strokeWidth="1.5">
-                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                                    </svg>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label className="block font-mono text-[10px] text-[#9CA3AF] uppercase tracking-widest mb-2">Telefon</label>
+                                    <input
+                                        type="tel"
+                                        value={formData.phone}
+                                        onChange={e => setFormData({ ...formData, phone: e.target.value })}
+                                        className="w-full bg-white/5 border border-white/10 px-4 py-3 text-sm font-mono text-white placeholder-white/30 focus:border-[#D97706] focus:outline-none transition-colors"
+                                        placeholder="+49 ..."
+                                    />
                                 </div>
                                 <div>
-                                    <h3 className="font-display font-black uppercase text-lg mb-2">Telefon</h3>
-                                    <a href="tel:+491702847337" className="font-mono text-[#9CA3AF] text-sm hover:text-[#D97706] transition-colors">
-                                        +49 170 2847337
-                                    </a>
+                                    <label className="block font-mono text-[10px] text-[#9CA3AF] uppercase tracking-widest mb-2">Leistung</label>
+                                    <select
+                                        value={formData.service}
+                                        onChange={e => setFormData({ ...formData, service: e.target.value })}
+                                        className="w-full bg-white/5 border border-white/10 px-4 py-3 text-sm font-mono text-white focus:border-[#D97706] focus:outline-none transition-colors"
+                                    >
+                                        <option value="" className="bg-[#1A1A1A]">Bitte wählen</option>
+                                        <option value="Event-Container" className="bg-[#1A1A1A]">Event-Container</option>
+                                        <option value="Office-Container" className="bg-[#1A1A1A]">Office-Container</option>
+                                        <option value="Nudie-Container" className="bg-[#1A1A1A]">Nudie-Container</option>
+                                        <option value="Anhänger mieten" className="bg-[#1A1A1A]">Anhänger mieten</option>
+                                        <option value="Sonstiges" className="bg-[#1A1A1A]">Sonstiges</option>
+                                    </select>
                                 </div>
                             </div>
-                        </div>
 
-                        {/* Email */}
-                        <div className="border border-white/10 p-8 hover:border-[#D97706]/50 transition-colors">
-                            <div className="flex items-start gap-4">
-                                <div className="w-12 h-12 border border-[#D97706] flex items-center justify-center flex-shrink-0">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D97706" strokeWidth="1.5">
-                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                                        <polyline points="22,6 12,13 2,6"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h3 className="font-display font-black uppercase text-lg mb-2">E-Mail</h3>
-                                    <a href="mailto:info@thm-michels.de" className="font-mono text-[#9CA3AF] text-sm hover:text-[#D97706] transition-colors">
-                                        info@thm-michels.de
-                                    </a>
-                                </div>
+                            <div>
+                                <label className="block font-mono text-[10px] text-[#9CA3AF] uppercase tracking-widest mb-2">Nachricht *</label>
+                                <textarea
+                                    required
+                                    rows={5}
+                                    value={formData.message}
+                                    onChange={e => setFormData({ ...formData, message: e.target.value })}
+                                    className="w-full bg-white/5 border border-white/10 px-4 py-3 text-sm font-mono text-white placeholder-white/30 focus:border-[#D97706] focus:outline-none transition-colors resize-none"
+                                    placeholder="Erzähl uns von deinem Projekt..."
+                                />
                             </div>
-                        </div>
 
-                        {/* Opening Hours */}
-                        <div className="border border-white/10 p-8 hover:border-[#D97706]/50 transition-colors">
-                            <div className="flex items-start gap-4">
-                                <div className="w-12 h-12 border border-[#D97706] flex items-center justify-center flex-shrink-0">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D97706" strokeWidth="1.5">
-                                        <circle cx="12" cy="12" r="10"/>
-                                        <polyline points="12 6 12 12 16 14"/>
-                                    </svg>
-                                </div>
-                                <div className="flex-1">
-                                    <h3 className="font-display font-black uppercase text-lg mb-4">Öffnungszeiten</h3>
-                                    <div className="space-y-2 font-mono text-sm text-[#9CA3AF]">
-                                        <div className="flex justify-between"><span>Montag – Freitag</span> <span>08:00 – 18:00</span></div>
-                                        <div className="flex justify-between"><span>Samstag</span> <span>10:00 – 15:00</span></div>
-                                        <div className="flex justify-between"><span>Sonntag</span> <span className="text-[#D97706]">Geschlossen</span></div>
-                                    </div>
-                                </div>
+                            <button
+                                type="submit"
+                                disabled={status === 'sending'}
+                                className="w-full bg-[#D97706] hover:bg-[#B45309] disabled:opacity-50 text-white px-8 py-4 font-black text-sm uppercase tracking-widest transition-all hover:-translate-y-0.5 shadow-[0_10px_20px_-10px_rgba(217,119,6,0.5)]"
+                            >
+                                {status === 'sending' ? 'Wird gesendet...' : 'Nachricht senden'}
+                            </button>
+
+                            {status === 'success' && (
+                                <p className="font-mono text-sm text-green-400 text-center">
+                                    Nachricht erfolgreich gesendet! Wir melden uns innerhalb von 24h.
+                                </p>
+                            )}
+                            {status === 'error' && (
+                                <p className="font-mono text-sm text-red-400 text-center">
+                                    Fehler beim Senden. Bitte versuche es erneut oder schreib direkt an info@thm-michels.de
+                                </p>
+                            )}
+                        </form>
+
+                        {/* Quick Contact Info */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div className="border border-white/10 p-6 hover:border-[#D97706]/50 transition-colors">
+                                <h3 className="font-display font-black uppercase text-sm mb-2">Telefon</h3>
+                                <a href="tel:+491702847337" className="font-mono text-[#9CA3AF] text-sm hover:text-[#D97706] transition-colors">
+                                    +49 170 2847337
+                                </a>
+                            </div>
+                            <div className="border border-white/10 p-6 hover:border-[#D97706]/50 transition-colors">
+                                <h3 className="font-display font-black uppercase text-sm mb-2">E-Mail</h3>
+                                <a href="mailto:info@thm-michels.de" className="font-mono text-[#9CA3AF] text-sm hover:text-[#D97706] transition-colors">
+                                    info@thm-michels.de
+                                </a>
+                            </div>
+                            <div className="border border-white/10 p-6 hover:border-[#D97706]/50 transition-colors">
+                                <h3 className="font-display font-black uppercase text-sm mb-2">Adresse</h3>
+                                <p className="font-mono text-[#9CA3AF] text-xs leading-relaxed">
+                                    Seewiesenstraße 18<br />71334 Waiblingen
+                                </p>
+                            </div>
+                            <div className="border border-white/10 p-6 hover:border-[#D97706]/50 transition-colors">
+                                <h3 className="font-display font-black uppercase text-sm mb-2">Öffnungszeiten</h3>
+                                <p className="font-mono text-[#9CA3AF] text-xs leading-relaxed">
+                                    Mo–Fr 08–18 Uhr<br />Sa 10–15 Uhr
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -111,7 +184,6 @@ const Contact: React.FC = () => {
                                 <span className="font-mono text-[10px] text-[#D97706] uppercase tracking-widest">[ STANDORT: WAIBLINGEN ]</span>
                             </div>
 
-                            {/* Route Button */}
                             <a
                                 href="https://www.google.com/maps/dir/?api=1&destination=Seewiesenstraße+18,+71334+Waiblingen,+Germany"
                                 target="_blank"
@@ -125,20 +197,6 @@ const Contact: React.FC = () => {
                             </a>
                         </div>
                     </div>
-                </div>
-
-                {/* CTA Section */}
-                <div className="mt-20 text-center border-t border-white/10 pt-16">
-                    <h3 className="text-2xl md:text-3xl font-display font-black uppercase mb-4">Projekt im Kopf?</h3>
-                    <p className="font-mono text-[#9CA3AF] mb-8 max-w-lg mx-auto">
-                        Erzähl uns davon. Wir melden uns innerhalb von 24 Stunden bei dir.
-                    </p>
-                    <a
-                        href="mailto:info@thm-michels.de?subject=Projektanfrage"
-                        className="inline-block bg-[#D97706] hover:bg-[#B45309] text-white px-10 py-5 font-black text-sm uppercase tracking-widest transition-all hover:-translate-y-1 shadow-[0_10px_20px_-10px_rgba(217,119,6,0.5)]"
-                    >
-                        E-Mail schreiben
-                    </a>
                 </div>
             </div>
         </div>

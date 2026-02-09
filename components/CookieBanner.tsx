@@ -1,6 +1,40 @@
 
 import React, { useState, useEffect } from 'react';
 
+const GA_ID = 'G-XXXXXXXXXX'; // TODO: Replace with your GA4 Measurement ID
+
+function loadGA4() {
+  if (document.getElementById('ga4-script')) return;
+
+  const script = document.createElement('script');
+  script.id = 'ga4-script';
+  script.async = true;
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+  document.head.appendChild(script);
+
+  script.onload = () => {
+    (window as any).dataLayer = (window as any).dataLayer || [];
+    function gtag(...args: any[]) { (window as any).dataLayer.push(args); }
+    gtag('js', new Date());
+    gtag('config', GA_ID, { anonymize_ip: true });
+    (window as any).gtag = gtag;
+  };
+}
+
+function removeGA4() {
+  const script = document.getElementById('ga4-script');
+  if (script) script.remove();
+
+  // Clear GA cookies
+  document.cookie.split(';').forEach(c => {
+    const name = c.trim().split('=')[0];
+    if (name.startsWith('_ga') || name.startsWith('_gid')) {
+      document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain=${window.location.hostname}`;
+      document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
+    }
+  });
+}
+
 const CookieBanner: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -8,16 +42,20 @@ const CookieBanner: React.FC = () => {
     const consent = localStorage.getItem('cookie-consent');
     if (!consent) {
       setIsVisible(true);
+    } else if (consent === 'all') {
+      loadGA4();
     }
   }, []);
 
   const acceptAll = () => {
     localStorage.setItem('cookie-consent', 'all');
+    loadGA4();
     setIsVisible(false);
   };
 
   const acceptEssential = () => {
     localStorage.setItem('cookie-consent', 'essential');
+    removeGA4();
     setIsVisible(false);
   };
 
@@ -30,7 +68,7 @@ const CookieBanner: React.FC = () => {
           <div className="flex-1">
             <h3 className="font-display font-bold text-lg mb-2">Cookie-Einstellungen</h3>
             <p className="text-[#9CA3AF] text-sm font-mono leading-relaxed">
-              Wir nutzen Cookies, um dir die bestmögliche Erfahrung zu bieten.
+              Wir nutzen Cookies für Analyse (Google Analytics), um unsere Website zu verbessern.
               Mehr Infos in unserer <a href="/datenschutz" className="text-[#D97706] hover:underline">Datenschutzerklärung</a>.
             </p>
           </div>

@@ -73,6 +73,7 @@ const Navigation: React.FC = () => {
               </div>
             </div>
             <Link to="/galerie" className="text-sm font-mono text-[#9CA3AF] hover:text-[#F8F9FA] transition-colors uppercase tracking-widest">Galerie</Link>
+            <Link to="/blog" className="text-sm font-mono text-[#9CA3AF] hover:text-[#F8F9FA] transition-colors uppercase tracking-widest">Blog</Link>
             <Link to="/partner" className="text-sm font-mono text-[#9CA3AF] hover:text-[#F8F9FA] transition-colors uppercase tracking-widest">Partner</Link>
             <Link to="/ueber-uns" className="text-sm font-mono text-[#9CA3AF] hover:text-[#F8F9FA] transition-colors uppercase tracking-widest">Über Uns</Link>
             <Link to="/kontakt" className="text-sm font-mono text-[#9CA3AF] hover:text-[#F8F9FA] transition-colors uppercase tracking-widest">Kontakt</Link>
@@ -153,6 +154,7 @@ const Navigation: React.FC = () => {
             </div>
 
             <Link to="/galerie" className="py-4 border-b border-white/10 font-mono text-sm uppercase tracking-widest text-white hover:text-[#D97706]">Galerie</Link>
+            <Link to="/blog" className="py-4 border-b border-white/10 font-mono text-sm uppercase tracking-widest text-white hover:text-[#D97706]">Blog</Link>
             <Link to="/partner" className="py-4 border-b border-white/10 font-mono text-sm uppercase tracking-widest text-white hover:text-[#D97706]">Partner</Link>
             <Link to="/ueber-uns" className="py-4 border-b border-white/10 font-mono text-sm uppercase tracking-widest text-white hover:text-[#D97706]">Über Uns</Link>
             <Link to="/kontakt" className="py-4 border-b border-white/10 font-mono text-sm uppercase tracking-widest text-white hover:text-[#D97706]">Kontakt</Link>

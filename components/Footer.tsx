@@ -32,10 +32,9 @@ const Footer: React.FC = () => {
             <h5 className="font-mono text-[#F8F9FA] text-[10px] uppercase tracking-widest mb-8">Navigation</h5>
             <ul className="space-y-4 font-mono text-sm text-[#9CA3AF]">
               <li><Link to="/" className="hover:text-[#D97706] transition-colors">Startseite</Link></li>
-              <li><Link to="/leistungen/event-container" className="hover:text-[#D97706] transition-colors">Event-Container</Link></li>
+              <li><Link to="/leistungen/event-container" className="hover:text-[#D97706] transition-colors">Leistungen</Link></li>
               <li><Link to="/galerie" className="hover:text-[#D97706] transition-colors">Galerie</Link></li>
-              <li><Link to="/partner" className="hover:text-[#D97706] transition-colors">Partner</Link></li>
-              <li><Link to="/ueber-uns" className="hover:text-[#D97706] transition-colors">Über uns</Link></li>
+              <li><Link to="/blog" className="hover:text-[#D97706] transition-colors">Blog</Link></li>
               <li><Link to="/kontakt" className="hover:text-[#D97706] transition-colors">Kontakt</Link></li>
             </ul>
           </div>

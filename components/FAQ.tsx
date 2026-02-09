@@ -15,24 +15,8 @@ const faqData: FAQItem[] = [
     answer: "Ja, Sie können gerne unsere Werkstatt in Waiblingen besuchen und sich aktuelle Projekte anschauen. Vereinbaren Sie einfach einen Termin über unser Kontaktformular oder telefonisch."
   },
   {
-    question: "Welche Genehmigungen brauche ich für einen Container?",
-    answer: "Das hängt vom Standort und der Nutzung ab. Für mobile Event-Container auf Anhängern benötigen Sie meist nur eine Straßenzulassung. Für fest installierte Container kann eine Baugenehmigung erforderlich sein. Wir beraten Sie gerne zu Ihrem spezifischen Fall."
-  },
-  {
-    question: "Sind die Container wetterfest und isoliert?",
-    answer: "Ja, alle unsere Container sind vollständig wetterfest. Je nach Einsatzzweck bieten wir verschiedene Isolierungsoptionen an – von der Basisvariante bis zur Vollwärmeisolierung für ganzjährigen Einsatz."
-  },
-  {
     question: "Kann ich einen Container auch mieten statt kaufen?",
     answer: "Ja, wir bieten auch Mietoptionen für Event-Container und Anhänger an. Ideal für einmalige Veranstaltungen oder zum Testen, bevor Sie sich für einen Kauf entscheiden."
-  },
-  {
-    question: "Wie wird der Container geliefert?",
-    answer: "Container auf Anhängern können Sie selbst abholen oder wir liefern deutschlandweit. Größere Container werden per Spezialtransport geliefert und bei Bedarf vor Ort mit einem Kran positioniert."
-  },
-  {
-    question: "Welche Zahlungsmöglichkeiten gibt es?",
-    answer: "Wir bieten flexible Zahlungsoptionen: Anzahlung bei Auftragserteilung, Zwischenzahlung bei Fertigstellung des Rohbaus und Restzahlung bei Übergabe. Auf Wunsch auch Finanzierung oder Leasing."
   },
   {
     question: "Gibt es eine Garantie auf die Container?",
@@ -49,18 +33,18 @@ const FAQ: React.FC = () => {
 
   return (
     <section className="py-24 bg-[#0F0F0F]">
-      <div className="max-w-4xl mx-auto px-6">
-        <div className="text-center mb-16 scroll-animate">
-          <h2 className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4">[ FAQ ]</h2>
-          <h3 className="text-3xl md:text-4xl font-display font-black uppercase tracking-tight mb-6">
-            Häufig gestellte<br />Fragen
+      <div className="max-w-3xl mx-auto px-6">
+        <div className="text-center mb-10 scroll-animate">
+          <h2 className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-3">[ FAQ ]</h2>
+          <h3 className="text-2xl md:text-3xl font-display font-black uppercase tracking-tight mb-4">
+            Häufig gestellte Fragen
           </h3>
-          <p className="text-[#9CA3AF] text-lg max-w-2xl mx-auto">
-            Hier finden Sie Antworten auf die häufigsten Fragen rund um unsere Container und den Bestellprozess.
+          <p className="text-[#9CA3AF] text-sm max-w-xl mx-auto">
+            Antworten auf die häufigsten Fragen rund um unsere Container und den Bestellprozess.
           </p>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-2">
           {faqData.map((faq, index) => (
             <div
               key={index}
@@ -69,17 +53,17 @@ const FAQ: React.FC = () => {
             >
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full px-6 py-5 flex justify-between items-center text-left"
+                className="w-full px-5 py-3.5 flex justify-between items-center text-left"
               >
-                <span className="font-display font-bold text-lg pr-4">{faq.question}</span>
-                <span className={`flex-shrink-0 w-8 h-8 border border-[#D97706] flex items-center justify-center transition-transform ${openIndex === index ? 'rotate-45' : ''}`}>
-                  <svg className="w-4 h-4 text-[#D97706]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <span className="font-display font-bold text-sm pr-4">{faq.question}</span>
+                <span className={`flex-shrink-0 w-6 h-6 border border-[#D97706] flex items-center justify-center transition-transform ${openIndex === index ? 'rotate-45' : ''}`}>
+                  <svg className="w-3 h-3 text-[#D97706]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
                   </svg>
                 </span>
               </button>
               <div className={`overflow-hidden transition-all duration-300 ${openIndex === index ? 'max-h-96' : 'max-h-0'}`}>
-                <p className="px-6 pb-6 text-[#9CA3AF] font-mono text-sm leading-relaxed">
+                <p className="px-5 pb-4 text-[#9CA3AF] font-mono text-xs leading-relaxed">
                   {faq.answer}
                 </p>
               </div>
@@ -87,16 +71,16 @@ const FAQ: React.FC = () => {
           ))}
         </div>
 
-        <div className="mt-12 text-center scroll-animate">
-          <p className="text-[#9CA3AF] font-mono text-sm mb-4">
+        <div className="mt-8 text-center scroll-animate">
+          <p className="text-[#9CA3AF] font-mono text-xs mb-3">
             Noch Fragen? Wir helfen gerne weiter.
           </p>
           <a
             href="/kontakt"
-            className="inline-flex items-center gap-2 text-[#D97706] hover:text-white transition-colors font-mono text-sm"
+            className="inline-flex items-center gap-2 text-[#D97706] hover:text-white transition-colors font-mono text-xs"
           >
             Kontakt aufnehmen
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
           </a>
