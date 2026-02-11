@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../../components/SEO';
 
 const Partner: React.FC = () => {
     const partners = [
@@ -17,10 +18,14 @@ const Partner: React.FC = () => {
 
     return (
         <div className="pt-32 pb-24 px-6 min-h-screen bg-[#0F0F0F] text-white">
+            <SEO
+                title="Unsere Partner | Qualität durch Zusammenarbeit"
+                description="THM Michels arbeitet mit bewährten Partnern: holländische Container-Rohbauten und SARIS Anhänger. Qualität, Verlässlichkeit und Expertise für jedes Projekt."
+            />
             <div className="max-w-7xl mx-auto">
                 {/* Hero */}
                 <div className="mb-20">
-                    <h2 className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4">[ PARTNER ]</h2>
+                    <span className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4 block">[ PARTNER ]</span>
                     <h1 className="text-3xl md:text-4xl font-display font-black uppercase mb-6 leading-tight">Unsere Partner</h1>
                     <p className="font-mono text-[#9CA3AF] max-w-2xl text-lg leading-relaxed">
                         Gute Arbeit braucht gute Partner. Wir setzen auf bewährte Zusammenarbeit mit Unternehmen, die unsere Ansprüche an Qualität teilen.

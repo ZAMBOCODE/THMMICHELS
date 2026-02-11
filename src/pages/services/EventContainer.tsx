@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../../../components/SEO';
 
 const EventContainer: React.FC = () => {
     const sizes = [
@@ -18,10 +19,14 @@ const EventContainer: React.FC = () => {
 
     return (
         <div className="pt-24 pb-16 md:pt-32 md:pb-24 px-6 min-h-screen bg-[#0F0F0F] text-white">
+            <SEO
+                title="Event-Container kaufen | Mobile Bars & Food-Trucks"
+                description="Individuelle Event-Container auf Anhängern: Barwagen, Food-Trucks, Eiswagen – maßgefertigt in Waiblingen. Leichtbauweise, fest verbaute Ausstattung, sofort einsatzbereit."
+            />
             <div className="max-w-7xl mx-auto">
                 {/* Hero */}
                 <div className="mb-12 md:mb-20">
-                    <h2 className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4">[ EVENT-CONTAINER ]</h2>
+                    <span className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4 block">[ EVENT-CONTAINER ]</span>
                     <h1 className="text-2xl md:text-3xl lg:text-4xl font-display font-black uppercase mb-6 md:mb-8 leading-tight">Dein Event-Container –<br />gebaut für deinen Einsatz</h1>
                     <p className="font-mono text-[#9CA3AF] max-w-3xl text-lg leading-relaxed">
                         Ob Barwagen, Food-Truck, Hähnchenwagen oder Eiswagen – wir fertigen individuelle Container auf Anhängern, die genau zu deinem Konzept passen. Du bestimmst Design, Ausstattung und Funktion. Wir bauen es – handwerklich präzise, robust und sofort einsatzbereit.

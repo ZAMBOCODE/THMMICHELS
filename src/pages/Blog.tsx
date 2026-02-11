@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../../components/SEO';
 
 const posts = [
   {
@@ -55,10 +56,14 @@ const Blog: React.FC = () => {
 
   return (
     <div className="pt-24 pb-16 md:pt-32 md:pb-24 bg-[#0F0F0F] min-h-screen">
+      <SEO
+        title="Blog & Referenzen | Projekte, Wissen & Einblicke"
+        description="Referenzen aus unserer Werkstatt, Ratgeber rund um Container-Bau und Einblicke in die Arbeitsweise von THM Michels. Tipps zu Genehmigungen, Nachhaltigkeit und mehr."
+      />
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="mb-16">
-          <h2 className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4">[ BLOG & REFERENZEN ]</h2>
+          <span className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4 block">[ BLOG & REFERENZEN ]</span>
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-display font-black uppercase mb-6 leading-tight">
             Projekte, Wissen<br />& Einblicke
           </h1>
@@ -92,7 +97,8 @@ const Blog: React.FC = () => {
                 <div className="relative h-52 overflow-hidden">
                   <img
                     src={post.image}
-                    alt={post.title}
+                    alt={`${post.title} – THM Michels Blog`}
+                    loading="lazy"
                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
                   />
                   <div className="absolute top-4 left-4">

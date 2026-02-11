@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTheme } from '../../context/ThemeContext';
+import SEO from '../../components/SEO';
 import Hero from '../../components/Hero';
 import BentoGrid from '../../components/BentoGrid';
 import Process from '../../components/Process';
@@ -69,6 +70,11 @@ const Home: React.FC = () => {
 
     return (
         <main>
+            <SEO
+                title="Individuelle Container & Event-Trailer aus Waiblingen"
+                description="THM Michels baut individuelle Event-Container, Office-Container und Gastronomie-Trailer in Waiblingen. Maßanfertigung, 3D-Konfigurator, persönliche Beratung. Made in Germany, 2 Jahre Garantie."
+                canonical="https://thm-michels.de/"
+            />
             <Hero />
             <div className="scroll-animate"><BentoGrid /></div>
             <div className="scroll-animate"><Process /></div>
@@ -81,7 +87,8 @@ const Home: React.FC = () => {
                 <div className="absolute inset-0 z-0">
                   <img
                     src="/configurator-hero.png"
-                    alt="3D Container Konfigurator"
+                    alt="THM Michels interaktiver 3D Container Konfigurator – Größe, Farbe und Ausstattung wählen"
+                    loading="lazy"
                     className="w-full h-full object-cover object-left"
                   />
                   {isDark && <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#0F0F0F]/40 to-[#0F0F0F]/90 z-10"></div>}

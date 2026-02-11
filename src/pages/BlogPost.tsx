@@ -1,9 +1,11 @@
 import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
+import SEO from '../../components/SEO';
 
 const posts: Record<string, {
   tag: string;
   title: string;
+  description: string;
   date: string;
   image: string;
   content: string[];
@@ -11,6 +13,7 @@ const posts: Record<string, {
   'event-container-festival': {
     tag: 'REFERENZ',
     title: 'Mobile Bar für Streetfood-Festival',
+    description: 'Voll ausgestatteter Bar-Container auf SARIS-Anhänger für Streetfood-Festivals. 6x2m mit Hydraulik, LED-Beleuchtung und Kühlanlage – gebaut in Waiblingen.',
     date: '2025-01-15',
     image: '/csm_Gruenbeck_Roadshow_Deutschland_02_7a30455b9f.jpg',
     content: [
@@ -23,6 +26,7 @@ const posts: Record<string, {
   'office-container-startup': {
     tag: 'REFERENZ',
     title: 'Office-Container für Tech-Startup',
+    description: 'Vollausgestatteter Office-Container für ein Stuttgarter Tech-Startup: 20m² mit Klimaanlage, Küche und WC. Schlüsselfertig in nur 8 Wochen.',
     date: '2024-11-20',
     image: '/Prefabricated-Office-Container.webp',
     content: [
@@ -35,6 +39,7 @@ const posts: Record<string, {
   'warum-container-statt-festbau': {
     tag: 'RATGEBER',
     title: 'Container vs. Festbau: Was lohnt sich mehr?',
+    description: 'Container oder Festbau? Wir vergleichen Kosten, Flexibilität und Genehmigungen. Erfahre, wann sich modulare Container-Lösungen lohnen.',
     date: '2024-10-05',
     image: '/pro-spacecube-nudie-lg01.webp',
     content: [
@@ -48,6 +53,7 @@ const posts: Record<string, {
   'container-genehmigungen-deutschland': {
     tag: 'RATGEBER',
     title: 'Container-Genehmigungen in Deutschland',
+    description: 'Welche Genehmigungen brauchst du für einen Container? Von Straßenzulassung bis Baugenehmigung – alles was du in Deutschland wissen musst.',
     date: '2024-09-12',
     image: '/11.jpg',
     content: [
@@ -61,6 +67,7 @@ const posts: Record<string, {
   'nachhaltigkeit-container-bau': {
     tag: 'EINBLICK',
     title: 'Nachhaltigkeit im Container-Bau',
+    description: 'Upcycling, regionale Fertigung, langlebige Materialien – wie THM Michels nachhaltig Container baut und den ökologischen Fußabdruck minimiert.',
     date: '2024-08-01',
     image: '/Shipping-container-bar-landing.webp',
     content: [
@@ -83,6 +90,12 @@ const BlogPost: React.FC = () => {
 
   return (
     <div className="pt-24 pb-16 md:pt-32 md:pb-24 bg-[#0F0F0F] min-h-screen">
+      <SEO
+        title={post.title}
+        description={post.description}
+        ogType="article"
+        ogImage={`https://thm-michels.de${post.image}`}
+      />
       <div className="max-w-3xl mx-auto px-6">
         {/* Back Link */}
         <Link
@@ -114,7 +127,7 @@ const BlogPost: React.FC = () => {
         <div className="relative w-full h-64 md:h-96 mb-10 overflow-hidden border border-white/10">
           <img
             src={post.image}
-            alt={post.title}
+            alt={`${post.title} – THM Michels`}
             className="w-full h-full object-cover"
           />
         </div>

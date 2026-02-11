@@ -1,10 +1,16 @@
 import React from 'react';
+import SEO from '../../components/SEO';
 
 const Impressum: React.FC = () => {
     return (
         <div className="pt-32 pb-24 bg-[#0F0F0F] min-h-screen">
+            <SEO
+                title="Impressum"
+                description="Impressum von THM Michels, Seewiesenstraße 18, 71334 Waiblingen. Angaben gemäß § 5 TMG."
+                noindex
+            />
             <div className="max-w-4xl mx-auto px-6">
-                <h2 className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4">[ RECHTLICHES ]</h2>
+                <span className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4 block">[ RECHTLICHES ]</span>
                 <h1 className="text-3xl md:text-4xl font-display font-black uppercase mb-12">Impressum</h1>
 
                 <div className="space-y-12 font-mono text-[#9CA3AF] text-sm leading-relaxed">

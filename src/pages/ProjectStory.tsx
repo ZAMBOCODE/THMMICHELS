@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
+import SEO from '../../components/SEO';
 
 interface ProjectData {
   title: string;
@@ -208,6 +209,11 @@ const ProjectStory: React.FC = () => {
 
   return (
     <div className="pt-24 pb-16 md:pt-32 md:pb-24 bg-[#0F0F0F] min-h-screen">
+      <SEO
+        title={`${project.title} | ${project.category} Projekt`}
+        description={project.story.intro}
+        ogImage={project.image.startsWith('http') ? project.image : `https://thm-michels.de${project.image}`}
+      />
       <div className="max-w-4xl mx-auto px-6">
         {/* Back Link */}
         <Link

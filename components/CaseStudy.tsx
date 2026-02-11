@@ -142,7 +142,8 @@ const CaseStudy: React.FC = () => {
                 <div className="relative overflow-hidden border border-white/10 group-hover:border-[#D97706]/50 transition-all duration-500">
                   <img
                     src={study.image}
-                    alt={study.title}
+                    alt={`${study.title} – Container-Projekt von THM Michels`}
+                    loading="lazy"
                     className={`w-full h-[400px] md:h-[500px] object-cover transition-all duration-500 ${
                       index === activeIndex ? 'grayscale-0' : 'grayscale'
                     }`}

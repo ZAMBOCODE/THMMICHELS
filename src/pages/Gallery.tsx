@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTheme } from '../../context/ThemeContext';
+import SEO from '../../components/SEO';
 
 const Gallery: React.FC = () => {
     const { mode } = useTheme();
@@ -58,10 +59,14 @@ const Gallery: React.FC = () => {
 
     return (
         <div className="pt-24 pb-16 md:pt-32 md:pb-24 px-6 min-h-screen bg-[#0F0F0F] text-white">
+            <SEO
+                title="Galerie | Unsere Container-Projekte"
+                description="Entdecke unsere realisierten Container-Projekte: Event-Bars, Office-Container, Food-Trucks und Pop-up Stores. Jeder Container erzählt seine eigene Geschichte."
+            />
             <div className="max-w-7xl mx-auto">
                 {/* Hero */}
                 <div className="mb-16">
-                    <h2 className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4">[ GALERIE ]</h2>
+                    <span className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4 block">[ GALERIE ]</span>
                     <h1 className="text-2xl md:text-3xl lg:text-4xl font-display font-black uppercase mb-6 leading-tight">Unsere Projekte</h1>
                     <p className="font-mono text-[#9CA3AF] max-w-2xl text-lg leading-relaxed">
                         Jeder Container erzählt seine eigene Geschichte. Hier siehst du eine Auswahl unserer bisherigen Arbeiten – von der kompakten Bar bis zum voll ausgestatteten Event-Trailer.
@@ -75,7 +80,8 @@ const Gallery: React.FC = () => {
                             <div className="group relative overflow-hidden border border-white/10 hover:border-[#D97706]/50 transition-all duration-500 cursor-pointer">
                                 <img
                                     src={project.image}
-                                    alt={project.title}
+                                    alt={`${project.title} – ${project.category} von THM Michels`}
+                                    loading="lazy"
                                     className="w-full h-80 md:h-72 object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
                                 />
                                 {isDark && <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] via-[#0F0F0F]/40 to-transparent z-10"></div>}

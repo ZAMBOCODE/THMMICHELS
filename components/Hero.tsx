@@ -13,8 +13,9 @@ const Hero: React.FC = () => {
         {isDark && <div className="absolute inset-0 bg-[#0F0F0F]/60 z-10"></div>}
         <img
           src="/Shipping-container-bar-landing.webp"
-          alt="Container Bar"
+          alt="THM Michels Event-Container Bar mit industriellem Design und LED-Beleuchtung"
           className="w-full h-full object-cover"
+          fetchPriority="high"
         />
         {isDark && <div className="absolute inset-0 blueprint-grid opacity-30 z-20 pointer-events-none"></div>}
       </div>

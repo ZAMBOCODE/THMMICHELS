@@ -1,12 +1,17 @@
 import React from 'react';
+import SEO from '../../components/SEO';
 
 const ConfiguratorPage: React.FC = () => {
     return (
         <div className="pt-32 pb-24 bg-[#0F0F0F] min-h-screen">
+            <SEO
+                title="3D Container Konfigurator | Online konfigurieren"
+                description="Gestalte deinen Traumcontainer im interaktiven 3D-Konfigurator. Wähle Größe, Farbe und Ausstattung – und erhalte ein unverbindliches Angebot von THM Michels."
+            />
             <div className="max-w-7xl mx-auto px-6">
                 {/* Header */}
                 <div className="mb-12">
-                    <h2 className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4">[ 3D KONFIGURATOR ]</h2>
+                    <span className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4 block">[ 3D KONFIGURATOR ]</span>
                     <h1 className="text-3xl md:text-4xl font-display font-black uppercase mb-6 leading-tight">
                         Gestalte <span className="relative inline-block">deinen<span className="absolute left-0 bottom-0 w-full h-1 bg-[#D97706] origin-left animate-[underline_1s_ease-out_forwards]"></span></span><br />Traumcontainer
                     </h1>

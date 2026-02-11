@@ -22,7 +22,7 @@ const BentoGrid: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 auto-rows-[300px]">
           {/* Card 1: Event-Container */}
           <div className="relative overflow-hidden group border border-white/10 row-span-1 transition-all duration-700 hover:border-[#D97706]/50 scroll-animate-scale" style={{ transitionDelay: '0ms' }}>
-            <img src="/csm_Gruenbeck_Roadshow_Deutschland_02_7a30455b9f.jpg" alt="Event Container" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <img src="/csm_Gruenbeck_Roadshow_Deutschland_02_7a30455b9f.jpg" alt="Individueller Event-Container auf Anhänger für Festivals und Veranstaltungen" loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
             {isDark && <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] via-[#0F0F0F]/40 to-transparent z-10 transition-opacity duration-500 group-hover:opacity-80"></div>}
             <div className="absolute inset-0 p-8 flex flex-col justify-end z-20">
               <span className="font-mono text-[#D97706] text-[10px] tracking-widest mb-2 block">INDIVIDUELL & ROBUST</span>
@@ -36,7 +36,7 @@ const BentoGrid: React.FC = () => {
 
           {/* Card 2: Office-Container */}
           <div className="relative overflow-hidden group border border-white/10 row-span-1 transition-all duration-700 hover:border-[#D97706]/50 scroll-animate-scale" style={{ transitionDelay: '100ms' }}>
-            <img src="/Prefabricated-Office-Container.webp" alt="Office Container" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <img src="/Prefabricated-Office-Container.webp" alt="Vollausgestatteter Office-Container mit Klimaanlage und Büroeinrichtung" loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
             {isDark && <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] via-[#0F0F0F]/40 to-transparent z-10 transition-opacity duration-500 group-hover:opacity-80"></div>}
             <div className="absolute inset-0 p-8 flex flex-col justify-end z-20">
               <span className="font-mono text-[#D97706] text-[10px] tracking-widest mb-2 block">WORK ANYWHERE</span>
@@ -50,7 +50,7 @@ const BentoGrid: React.FC = () => {
 
           {/* Card 3: Nudie-Container */}
           <div className="relative overflow-hidden group border border-white/10 row-span-1 transition-all duration-700 hover:border-[#D97706]/50 scroll-animate-scale" style={{ transitionDelay: '200ms' }}>
-            <img src="/pro-spacecube-nudie-lg01.webp" alt="Nudie Container" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <img src="/pro-spacecube-nudie-lg01.webp" alt="Nudie-Container ohne Anhänger – flexibel einsetzbar als Verkaufsstand oder Lager" loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
             {isDark && <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] via-[#0F0F0F]/40 to-transparent z-10 transition-opacity duration-500 group-hover:opacity-80"></div>}
             <div className="absolute inset-0 p-8 flex flex-col justify-end z-20">
               <span className="font-mono text-[#D97706] text-[10px] tracking-widest mb-2 block">PURE FLEXIBILITY</span>
@@ -64,7 +64,7 @@ const BentoGrid: React.FC = () => {
 
           {/* Card 4: Anhänger mieten */}
           <div className="relative overflow-hidden group border border-white/10 row-span-1 transition-all duration-700 hover:border-[#D97706]/50 scroll-animate-scale" style={{ transitionDelay: '300ms' }}>
-            <img src="/11.jpg" alt="Anhänger mieten" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <img src="/11.jpg" alt="Stylischer Bar-Anhänger zum Mieten für Hochzeiten und Events" loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
             {isDark && <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] via-[#0F0F0F]/40 to-transparent z-10 transition-opacity duration-500 group-hover:opacity-80"></div>}
             <div className="absolute inset-0 p-8 flex flex-col justify-end z-20">
               <span className="font-mono text-[#D97706] text-[10px] tracking-widest mb-2 block">RENTAL SERVICE</span>

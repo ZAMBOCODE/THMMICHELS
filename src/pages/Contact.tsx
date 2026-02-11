@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SEO from '../../components/SEO';
 
 const Contact: React.FC = () => {
     const [formData, setFormData] = useState({ name: '', email: '', phone: '', service: '', message: '' });
@@ -35,10 +36,14 @@ const Contact: React.FC = () => {
 
     return (
         <div className="pt-24 pb-16 md:pt-32 md:pb-24 bg-[#0F0F0F] min-h-screen">
+            <SEO
+                title="Kontakt | Projekt anfragen oder Werkstatt besuchen"
+                description="Kontaktiere THM Michels in Waiblingen: Telefon +49 170 2847337, E-Mail info@thm-michels.de. Werkstatt-Besichtigung nach Vereinbarung. Mo–Fr 08–18, Sa 10–15 Uhr."
+            />
             <div className="max-w-7xl mx-auto px-6">
                 {/* Header */}
                 <div className="mb-16">
-                    <h2 className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4">[ KONTAKT ]</h2>
+                    <span className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4 block">[ KONTAKT ]</span>
                     <h1 className="text-2xl md:text-3xl lg:text-4xl font-display font-black uppercase mb-6 leading-tight">Schreib uns oder<br />komm vorbei</h1>
                     <p className="font-mono text-[#9CA3AF] max-w-2xl text-lg leading-relaxed">
                         Wir freuen uns auf dein Projekt. Ruf an, schreib eine Mail oder besuche uns direkt in Waiblingen.

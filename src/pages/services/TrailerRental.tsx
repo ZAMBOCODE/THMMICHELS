@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../../../components/SEO';
 
 const TrailerRental: React.FC = () => {
     const features = [
@@ -25,10 +26,14 @@ const TrailerRental: React.FC = () => {
 
     return (
         <div className="pt-24 pb-16 md:pt-32 md:pb-24 px-6 min-h-screen bg-[#0F0F0F] text-white">
+            <SEO
+                title="Bar-Anhänger mieten | Event-Trailer für Hochzeit & Firmenfeier"
+                description="Stylischen Bar-Anhänger mieten für Hochzeiten, Firmenfeiern und Festivals. Voll ausgestattet mit Zapfanlage, Lieferung inklusive. Jetzt Verfügbarkeit anfragen."
+            />
             <div className="max-w-7xl mx-auto">
                 {/* Hero */}
                 <div className="mb-12 md:mb-20">
-                    <h2 className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4">[ ANHÄNGER MIETEN ]</h2>
+                    <span className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4 block">[ ANHÄNGER MIETEN ]</span>
                     <h1 className="text-2xl md:text-3xl lg:text-4xl font-display font-black uppercase mb-6 md:mb-8 leading-tight">Den Bar-Anhänger<br />mieten statt kaufen</h1>
                     <p className="font-mono text-[#9CA3AF] max-w-3xl text-lg leading-relaxed">
                         Du planst eine Hochzeit, Firmenfeier, einen Geburtstag oder ein Festival – und brauchst etwas Besonderes? Unser Bar-Anhänger bringt das gewisse Extra zu deinem Event. Voll ausgestattet, stilvoll und garantiert ein Hingucker.
