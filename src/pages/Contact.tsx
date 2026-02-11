@@ -34,18 +34,18 @@ const Contact: React.FC = () => {
     };
 
     return (
-        <div className="pt-32 pb-24 bg-[#0F0F0F] min-h-screen">
+        <div className="pt-24 pb-16 md:pt-32 md:pb-24 bg-[#0F0F0F] min-h-screen">
             <div className="max-w-7xl mx-auto px-6">
                 {/* Header */}
                 <div className="mb-16">
                     <h2 className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4">[ KONTAKT ]</h2>
-                    <h1 className="text-3xl md:text-4xl font-display font-black uppercase mb-6 leading-tight">Schreib uns oder<br />komm vorbei</h1>
+                    <h1 className="text-2xl md:text-3xl lg:text-4xl font-display font-black uppercase mb-6 leading-tight">Schreib uns oder<br />komm vorbei</h1>
                     <p className="font-mono text-[#9CA3AF] max-w-2xl text-lg leading-relaxed">
                         Wir freuen uns auf dein Projekt. Ruf an, schreib eine Mail oder besuche uns direkt in Waiblingen.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
                     {/* Left: Contact Form + Info */}
                     <div className="space-y-10">
                         {/* Contact Form */}
@@ -167,7 +167,7 @@ const Contact: React.FC = () => {
                     </div>
 
                     {/* Right: Google Maps */}
-                    <div className="h-full min-h-[500px] lg:min-h-full">
+                    <div className="h-full min-h-[300px] md:min-h-[500px] lg:min-h-full">
                         <div className="border border-white/10 h-full overflow-hidden relative">
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2627.5!2d9.31!3d48.83!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4799b0c8d4c9f8a7%3A0x1234567890abcdef!2sSeewiesenstra%C3%9Fe%2018%2C%2071334%20Waiblingen!5e0!3m2!1sde!2sde!4v1700000000000"

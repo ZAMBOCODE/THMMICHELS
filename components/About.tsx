@@ -3,18 +3,18 @@ import React from 'react';
 
 const About: React.FC = () => {
   return (
-    <section className="py-24 bg-[#0F0F0F] relative overflow-hidden">
+    <section className="py-12 md:py-20 lg:py-24 bg-[#0F0F0F] relative overflow-hidden">
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-full h-[1px] bg-white/5"></div>
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-full bg-white/5"></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-center">
           <div className="relative scroll-animate-left">
             <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#D97706]/10 blur-3xl rounded-full"></div>
             <img
               src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800"
               alt="Maxim Michels"
-              className="w-full h-[600px] object-cover grayscale border-l border-t border-white/10"
+              className="w-full h-[350px] md:h-[500px] lg:h-[600px] object-cover grayscale border-l border-t border-white/10"
             />
             <div className="absolute bottom-8 left-8 bg-[#0F0F0F] p-6 border border-white/10 max-w-xs">
               <span className="font-mono text-[#D97706] text-[10px] block mb-2 tracking-[0.3em] font-bold">THE_FOUNDER</span>
@@ -27,7 +27,7 @@ const About: React.FC = () => {
 
           <div className="scroll-animate-right">
             <h2 className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4">[ WARUM THM ]</h2>
-            <h3 className="text-3xl md:text-4xl font-display font-black uppercase mb-10 tracking-tight leading-none">
+            <h3 className="text-2xl md:text-3xl lg:text-4xl font-display font-black uppercase mb-6 md:mb-10 tracking-tight leading-none">
               Warum Kunden <br />uns vertrauen
             </h3>
 

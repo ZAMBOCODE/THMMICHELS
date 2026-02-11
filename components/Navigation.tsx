@@ -171,15 +171,12 @@ const Navigation: React.FC = () => {
       </div>
 
       {/* Mobile Sticky CTA */}
-      <div className={`md:hidden fixed bottom-6 left-6 right-6 z-[60] transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+      <div className={`md:hidden fixed bottom-4 right-4 z-[60] transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
         <Link
           to="/konfigurator"
-          className="w-full bg-[#D97706] hover:bg-[#B45309] text-white py-4 rounded-xl font-bold shadow-2xl flex justify-center items-center gap-3 active:scale-95 transition-transform"
+          className="bg-[#D97706] hover:bg-[#B45309] text-white px-4 py-2 rounded-lg font-bold shadow-lg active:scale-95 transition-transform uppercase tracking-widest text-[10px]"
         >
-          <span className="uppercase tracking-widest text-sm">Konfigurator</span>
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-          </svg>
+          3D Konfigurator
         </Link>
       </div>
     </>

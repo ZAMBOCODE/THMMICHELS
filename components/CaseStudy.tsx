@@ -1,8 +1,11 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { CASE_STUDIES } from '../constants';
+import { useTheme } from '../context/ThemeContext';
 
 const CaseStudy: React.FC = () => {
+  const { mode } = useTheme();
+  const isDark = mode === 'dark';
   const [activeIndex, setActiveIndex] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
 
@@ -71,68 +74,66 @@ const CaseStudy: React.FC = () => {
   }, []);
 
   return (
-    <section id="showcase" className="py-24 bg-[#0F0F0F] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 mb-12">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
-          <div>
-            <h2 className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4">[ GALERIE ]</h2>
-            <h3 className="text-3xl md:text-4xl font-display font-black uppercase tracking-tight">Unsere Projekte</h3>
-            <p className="text-[#9CA3AF] text-lg max-w-xl mt-6 leading-relaxed">
-              Jeder Container erzählt seine eigene Geschichte. Swipe durch unsere Arbeiten.
-            </p>
-          </div>
-
-          {/* Navigation Arrows */}
-          <div className="flex gap-4">
-            <button
-              onClick={() => navigate('prev')}
-              className="group relative w-16 h-16 overflow-hidden"
-            >
-              <div className="absolute inset-0 border border-white/20 group-hover:border-[#D97706] transition-all duration-500"></div>
-              <div className="absolute inset-0 bg-[#D97706] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="relative z-10 group-hover:text-[#0F0F0F] transition-colors duration-500">
-                  <path d="M19 12H5M12 19l-7-7 7-7" />
-                </svg>
-              </div>
-              <span className="absolute bottom-2 left-2 font-mono text-[8px] text-white/30 group-hover:text-[#0F0F0F]/50 transition-colors duration-500">PREV</span>
-            </button>
-            <button
-              onClick={() => navigate('next')}
-              className="group relative w-16 h-16 overflow-hidden"
-            >
-              <div className="absolute inset-0 border border-white/20 group-hover:border-[#D97706] transition-all duration-500"></div>
-              <div className="absolute inset-0 bg-[#D97706] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="relative z-10 group-hover:text-[#0F0F0F] transition-colors duration-500">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </div>
-              <span className="absolute bottom-2 right-2 font-mono text-[8px] text-white/30 group-hover:text-[#0F0F0F]/50 transition-colors duration-500">NEXT</span>
-            </button>
-          </div>
+    <section id="showcase" className="py-12 md:py-20 lg:py-24 bg-[#0F0F0F] overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 mb-8 md:mb-12">
+        <div>
+          <h2 className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4">[ GALERIE ]</h2>
+          <h3 className="text-2xl md:text-3xl lg:text-4xl font-display font-black uppercase tracking-tight">Unsere Projekte</h3>
+          <p className="text-[#9CA3AF] text-base md:text-lg max-w-xl mt-4 md:mt-6 leading-relaxed">
+            Jeder Container erzählt seine eigene Geschichte. Swipe durch unsere Arbeiten.
+          </p>
         </div>
       </div>
 
-      {/* Carousel Container */}
+      {/* Carousel Container with side nav buttons */}
       <div className="relative">
         {/* Left Fade */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#0F0F0F] to-transparent z-10 pointer-events-none"></div>
+        {isDark && <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-[#0F0F0F] to-transparent z-10 pointer-events-none"></div>}
 
         {/* Right Fade */}
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#0F0F0F] to-transparent z-10 pointer-events-none"></div>
+        {isDark && <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-[#0F0F0F] to-transparent z-10 pointer-events-none"></div>}
+
+        {/* PREV Button - left side */}
+        <button
+          onClick={() => navigate('prev')}
+          className="group absolute left-2 md:left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-16 md:h-16 overflow-hidden"
+        >
+          <div className="absolute inset-0 border border-white/20 group-hover:border-[#D97706] transition-all duration-500"></div>
+          <div className="absolute inset-0 bg-[#D97706] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></div>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="relative z-10 group-hover:text-[#0F0F0F] transition-colors duration-500">
+              <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+          </div>
+          <span className="absolute bottom-1 left-1 md:bottom-2 md:left-2 font-mono text-[8px] text-white/30 group-hover:text-[#0F0F0F]/50 transition-colors duration-500 hidden md:block">PREV</span>
+        </button>
+
+        {/* NEXT Button - right side */}
+        <button
+          onClick={() => navigate('next')}
+          className="group absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-16 md:h-16 overflow-hidden"
+        >
+          <div className="absolute inset-0 border border-white/20 group-hover:border-[#D97706] transition-all duration-500"></div>
+          <div className="absolute inset-0 bg-[#D97706] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></div>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="relative z-10 group-hover:text-[#0F0F0F] transition-colors duration-500">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </div>
+          <span className="absolute bottom-1 right-1 md:bottom-2 md:right-2 font-mono text-[8px] text-white/30 group-hover:text-[#0F0F0F]/50 transition-colors duration-500 hidden md:block">NEXT</span>
+        </button>
 
         {/* Carousel */}
         <div
           ref={carouselRef}
-          className="flex gap-6 overflow-x-auto scrollbar-hide px-[15%] pb-4 snap-x snap-mandatory"
+          className="flex gap-4 md:gap-6 overflow-x-auto scrollbar-hide px-[5%] md:px-[10%] lg:px-[15%] pb-4 snap-x snap-mandatory"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {CASE_STUDIES.map((study, index) => (
             <div
               key={study.id}
               onClick={() => scrollToIndex(index)}
-              className={`flex-shrink-0 w-[70%] md:w-[60%] cursor-pointer transition-all duration-500 snap-center ${
+              className={`flex-shrink-0 w-[85%] md:w-[60%] cursor-pointer transition-all duration-500 snap-center ${
                 index === activeIndex ? 'opacity-100 scale-100' : 'opacity-50 scale-95'
               }`}
             >
@@ -147,10 +148,10 @@ const CaseStudy: React.FC = () => {
                     }`}
                     draggable={false}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] via-transparent to-transparent"></div>
+                  {isDark && <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] via-transparent to-transparent"></div>}
 
                   {/* Specs Overlay */}
-                  <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2">
+                  <div className="absolute bottom-4 left-4 right-4 hidden md:flex flex-wrap gap-2">
                     {study.specs.map((spec, i) => (
                       <span key={i} className="bg-[#0F0F0F]/80 backdrop-blur-sm border border-white/10 px-3 py-1 font-mono text-[10px] text-[#9CA3AF]">
                         {spec}

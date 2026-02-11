@@ -32,7 +32,7 @@ const FAQ: React.FC = () => {
   };
 
   return (
-    <section className="py-24 bg-[#0F0F0F]">
+    <section className="py-12 md:py-20 lg:py-24 bg-[#0F0F0F]">
       <div className="max-w-3xl mx-auto px-6">
         <div className="text-center mb-10 scroll-animate">
           <h2 className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-3">[ FAQ ]</h2>
@@ -49,7 +49,7 @@ const FAQ: React.FC = () => {
             <div
               key={index}
               className="scroll-animate border border-white/10 hover:border-[#D97706]/30 transition-colors"
-              style={{ animationDelay: `${index * 100}ms` }}
+              style={{ transitionDelay: `${index * 100}ms` }}
             >
               <button
                 onClick={() => toggleFAQ(index)}

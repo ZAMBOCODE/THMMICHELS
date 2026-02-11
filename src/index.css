@@ -170,31 +170,41 @@ html.lenis, html.lenis body { height: auto; }
 
 .scroll-animate {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transform: translateY(15px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 .scroll-animate.visible { opacity: 1; transform: translateY(0); }
 
 .scroll-animate-left {
   opacity: 0;
-  transform: translateX(-50px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transform: translateX(-20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 .scroll-animate-left.visible { opacity: 1; transform: translateX(0); }
 
 .scroll-animate-right {
   opacity: 0;
-  transform: translateX(50px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transform: translateX(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 .scroll-animate-right.visible { opacity: 1; transform: translateX(0); }
 
 .scroll-animate-scale {
   opacity: 0;
-  transform: scale(0.9);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transform: scale(0.95);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 .scroll-animate-scale.visible { opacity: 1; transform: scale(1); }
+
+@media (min-width: 768px) {
+  .scroll-animate { transform: translateY(30px); }
+  .scroll-animate-left { transform: translateX(-40px); }
+  .scroll-animate-right { transform: translateX(40px); }
+  .scroll-animate-scale { transform: scale(0.9); }
+  .scroll-animate, .scroll-animate-left, .scroll-animate-right, .scroll-animate-scale {
+    transition-duration: 0.6s;
+  }
+}
 
 .scroll-animate[style*="animation-delay"] {
   transition-delay: var(--delay, 0ms);

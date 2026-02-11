@@ -17,20 +17,20 @@ const EventContainer: React.FC = () => {
     ];
 
     return (
-        <div className="pt-32 pb-24 px-6 min-h-screen bg-[#0F0F0F] text-white">
+        <div className="pt-24 pb-16 md:pt-32 md:pb-24 px-6 min-h-screen bg-[#0F0F0F] text-white">
             <div className="max-w-7xl mx-auto">
                 {/* Hero */}
-                <div className="mb-20">
+                <div className="mb-12 md:mb-20">
                     <h2 className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4">[ EVENT-CONTAINER ]</h2>
-                    <h1 className="text-3xl md:text-4xl font-display font-black uppercase mb-8 leading-tight">Dein Event-Container –<br />gebaut für deinen Einsatz</h1>
+                    <h1 className="text-2xl md:text-3xl lg:text-4xl font-display font-black uppercase mb-6 md:mb-8 leading-tight">Dein Event-Container –<br />gebaut für deinen Einsatz</h1>
                     <p className="font-mono text-[#9CA3AF] max-w-3xl text-lg leading-relaxed">
                         Ob Barwagen, Food-Truck, Hähnchenwagen oder Eiswagen – wir fertigen individuelle Container auf Anhängern, die genau zu deinem Konzept passen. Du bestimmst Design, Ausstattung und Funktion. Wir bauen es – handwerklich präzise, robust und sofort einsatzbereit.
                     </p>
                 </div>
 
                 {/* Features */}
-                <div className="mb-24">
-                    <h3 className="text-3xl font-display font-black uppercase mb-12 tracking-tight">Nicht irgendein Container – deiner.</h3>
+                <div className="mb-16 md:mb-24">
+                    <h3 className="text-2xl md:text-3xl font-display font-black uppercase mb-8 md:mb-12 tracking-tight">Nicht irgendein Container – deiner.</h3>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div className="border border-white/10 p-8 hover:border-[#D97706]/50 transition-colors">
                             <h4 className="text-xl font-display font-black uppercase mb-4">Leichtbauweise</h4>
@@ -54,8 +54,8 @@ const EventContainer: React.FC = () => {
                 </div>
 
                 {/* Sizes Table */}
-                <div className="mb-24">
-                    <h3 className="text-3xl font-display font-black uppercase mb-8 tracking-tight">Finde die passende Größe</h3>
+                <div className="mb-16 md:mb-24">
+                    <h3 className="text-2xl md:text-3xl font-display font-black uppercase mb-8 tracking-tight">Finde die passende Größe</h3>
                     <p className="font-mono text-[#9CA3AF] mb-8 max-w-2xl">
                         Unsere Container gibt es in vier Standardgrößen. Jede Variante lässt sich individuell ausstatten.
                     </p>
@@ -82,8 +82,8 @@ const EventContainer: React.FC = () => {
                 </div>
 
                 {/* Audience */}
-                <div className="mb-24">
-                    <h3 className="text-3xl font-display font-black uppercase mb-12 tracking-tight">Für wen wir bauen</h3>
+                <div className="mb-16 md:mb-24">
+                    <h3 className="text-2xl md:text-3xl font-display font-black uppercase mb-8 md:mb-12 tracking-tight">Für wen wir bauen</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {audiences.map((item, i) => (
                             <div key={i} className="flex gap-4 items-start p-6 border border-white/10 hover:border-[#D97706]/50 transition-colors">
@@ -99,7 +99,7 @@ const EventContainer: React.FC = () => {
 
                 {/* CTA */}
                 <div className="text-center py-16 border-t border-white/10">
-                    <h3 className="text-3xl font-display font-black uppercase mb-4">Bereit für deinen eigenen Container?</h3>
+                    <h3 className="text-2xl md:text-3xl font-display font-black uppercase mb-4">Bereit für deinen eigenen Container?</h3>
                     <p className="font-mono text-[#9CA3AF] mb-8">Erzähl uns von deinem Projekt. Wir melden uns innerhalb von 24 Stunden.</p>
                     <Link
                         to="/kontakt"

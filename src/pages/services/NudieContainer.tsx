@@ -10,12 +10,12 @@ const NudieContainer: React.FC = () => {
     ];
 
     return (
-        <div className="pt-32 pb-24 px-6 min-h-screen bg-[#0F0F0F] text-white">
+        <div className="pt-24 pb-16 md:pt-32 md:pb-24 px-6 min-h-screen bg-[#0F0F0F] text-white">
             <div className="max-w-7xl mx-auto">
                 {/* Hero */}
-                <div className="mb-20">
+                <div className="mb-12 md:mb-20">
                     <h2 className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4">[ NUDIE-CONTAINER ]</h2>
-                    <h1 className="text-3xl md:text-4xl font-display font-black uppercase mb-8 leading-tight">Nudie-Container –<br />der Container ohne Anhänger</h1>
+                    <h1 className="text-2xl md:text-3xl lg:text-4xl font-display font-black uppercase mb-6 md:mb-8 leading-tight">Nudie-Container –<br />der Container ohne Anhänger</h1>
                     <p className="font-mono text-[#9CA3AF] max-w-3xl text-lg leading-relaxed">
                         Du brauchst einen hochwertigen Container, aber keinen fahrbaren Untersatz? Unsere Nudie-Container sind eigenständige Einheiten ohne Anhänger-Unterbau – flexibel einsetzbar, robust gebaut und direkt von unserem holländischen Partner.
                     </p>
@@ -24,7 +24,7 @@ const NudieContainer: React.FC = () => {
                 {/* What is it */}
                 <div className="mb-24 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <h3 className="text-3xl font-display font-black uppercase mb-6 tracking-tight">Pur, praktisch, vielseitig</h3>
+                        <h3 className="text-2xl md:text-3xl font-display font-black uppercase mb-6 tracking-tight">Pur, praktisch, vielseitig</h3>
                         <p className="font-mono text-[#9CA3AF] leading-relaxed mb-6">
                             Ein Nudie-Container ist ein Container in seiner reinsten Form: kein Fahrgestell, kein Anhänger – nur der Container selbst.
                         </p>
@@ -38,8 +38,8 @@ const NudieContainer: React.FC = () => {
                 </div>
 
                 {/* Use Cases */}
-                <div className="mb-24">
-                    <h3 className="text-3xl font-display font-black uppercase mb-12 tracking-tight">Wofür ein Nudie-Container?</h3>
+                <div className="mb-16 md:mb-24">
+                    <h3 className="text-2xl md:text-3xl font-display font-black uppercase mb-12 tracking-tight">Wofür ein Nudie-Container?</h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         {useCases.map((item, i) => (
                             <div key={i} className="flex gap-4 items-start p-6 border border-white/10 hover:border-[#D97706]/50 transition-colors">
@@ -55,7 +55,7 @@ const NudieContainer: React.FC = () => {
 
                 {/* CTA */}
                 <div className="text-center py-16 border-t border-white/10">
-                    <h3 className="text-3xl font-display font-black uppercase mb-4">Klingt interessant?</h3>
+                    <h3 className="text-2xl md:text-3xl font-display font-black uppercase mb-4">Klingt interessant?</h3>
                     <p className="font-mono text-[#9CA3AF] mb-8">Sag uns, wofür du den Container brauchst. Wir klären Größe, Ausstattung und Lieferung – unkompliziert und persönlich.</p>
                     <Link
                         to="/kontakt"

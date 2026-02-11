@@ -39,7 +39,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({ showHeader = true }) => {
 
   return (
     <>
-      <section id="configurator" className="py-24 bg-[#0F0F0F]">
+      <section id="configurator" className="py-12 md:py-20 lg:py-24 bg-[#0F0F0F]">
         <div className="max-w-7xl mx-auto px-6">
           {showHeader && (
             <div className="text-center mb-12">
@@ -53,7 +53,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({ showHeader = true }) => {
             </div>
           )}
 
-          <div className="border-2 border-[#D97706] overflow-hidden relative" style={{ height: '800px' }}>
+          <div className="border-2 border-[#D97706] overflow-hidden relative h-[400px] md:h-[600px] lg:h-[800px]">
             {/* Loading Animation */}
             {isLoading && (
               <div className="absolute inset-0 bg-[#0F0F0F] z-10 flex flex-col items-center justify-center">

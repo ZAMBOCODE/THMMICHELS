@@ -1,10 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTheme } from '../../context/ThemeContext';
 
 const Gallery: React.FC = () => {
+    const { mode } = useTheme();
+    const isDark = mode === 'dark';
     const projects = [
         {
             id: 1,
+            slug: 'rooftop-gin-bar',
             title: 'The Rooftop Gin Bar',
             category: 'Event-Container',
             image: '/csm_Gruenbeck_Roadshow_Deutschland_02_7a30455b9f.jpg',
@@ -12,6 +16,7 @@ const Gallery: React.FC = () => {
         },
         {
             id: 2,
+            slug: 'mobile-office-unit',
             title: 'Mobile Office Unit',
             category: 'Office-Container',
             image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800',
@@ -19,6 +24,7 @@ const Gallery: React.FC = () => {
         },
         {
             id: 3,
+            slug: 'street-food-trailer',
             title: 'Street Food Trailer',
             category: 'Event-Container',
             image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&q=80&w=800',
@@ -26,6 +32,7 @@ const Gallery: React.FC = () => {
         },
         {
             id: 4,
+            slug: 'pop-up-store',
             title: 'Pop-up Store',
             category: 'Nudie-Container',
             image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=800',
@@ -33,6 +40,7 @@ const Gallery: React.FC = () => {
         },
         {
             id: 5,
+            slug: 'eiswagen-deluxe',
             title: 'Eiswagen Deluxe',
             category: 'Event-Container',
             image: 'https://images.unsplash.com/photo-1501443762994-82bd5dace89a?auto=format&fit=crop&q=80&w=800',
@@ -40,6 +48,7 @@ const Gallery: React.FC = () => {
         },
         {
             id: 6,
+            slug: 'festival-bar',
             title: 'Festival Bar',
             category: 'Anhänger mieten',
             image: 'https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&q=80&w=800',
@@ -48,12 +57,12 @@ const Gallery: React.FC = () => {
     ];
 
     return (
-        <div className="pt-32 pb-24 px-6 min-h-screen bg-[#0F0F0F] text-white">
+        <div className="pt-24 pb-16 md:pt-32 md:pb-24 px-6 min-h-screen bg-[#0F0F0F] text-white">
             <div className="max-w-7xl mx-auto">
                 {/* Hero */}
                 <div className="mb-16">
                     <h2 className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4">[ GALERIE ]</h2>
-                    <h1 className="text-3xl md:text-4xl font-display font-black uppercase mb-6 leading-tight">Unsere Projekte</h1>
+                    <h1 className="text-2xl md:text-3xl lg:text-4xl font-display font-black uppercase mb-6 leading-tight">Unsere Projekte</h1>
                     <p className="font-mono text-[#9CA3AF] max-w-2xl text-lg leading-relaxed">
                         Jeder Container erzählt seine eigene Geschichte. Hier siehst du eine Auswahl unserer bisherigen Arbeiten – von der kompakten Bar bis zum voll ausgestatteten Event-Trailer.
                     </p>
@@ -62,23 +71,25 @@ const Gallery: React.FC = () => {
                 {/* Projects Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
                     {projects.map((project) => (
-                        <div key={project.id} className="group relative overflow-hidden border border-white/10 hover:border-[#D97706]/50 transition-all duration-500">
-                            <img
-                                src={project.image}
-                                alt={project.title}
-                                className="w-full h-72 object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] via-[#0F0F0F]/40 to-transparent z-10"></div>
-                            <div className="absolute inset-0 p-6 flex flex-col justify-end z-20">
-                                <span className="font-mono text-[#D97706] text-[10px] tracking-widest mb-2">{project.category.toUpperCase()}</span>
-                                <h3 className="text-xl font-display font-black uppercase mb-3">{project.title}</h3>
-                                <div className="flex gap-2 flex-wrap">
-                                    {project.specs.map((spec, i) => (
-                                        <span key={i} className="px-2 py-1 bg-white/10 text-[10px] font-mono text-[#9CA3AF]">{spec}</span>
-                                    ))}
+                        <Link key={project.id} to={`/galerie/${project.slug}`}>
+                            <div className="group relative overflow-hidden border border-white/10 hover:border-[#D97706]/50 transition-all duration-500 cursor-pointer">
+                                <img
+                                    src={project.image}
+                                    alt={project.title}
+                                    className="w-full h-80 md:h-72 object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                                />
+                                {isDark && <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] via-[#0F0F0F]/40 to-transparent z-10"></div>}
+                                <div className="absolute inset-0 p-6 flex flex-col justify-end z-20">
+                                    <span className="font-mono text-[#D97706] text-[10px] tracking-widest mb-2">{project.category.toUpperCase()}</span>
+                                    <h3 className="text-xl font-display font-black uppercase mb-3 group-hover:text-[#D97706] transition-colors">{project.title}</h3>
+                                    <div className="hidden md:flex gap-2 flex-wrap">
+                                        {project.specs.map((spec, i) => (
+                                            <span key={i} className="px-2 py-1 bg-white/10 text-[10px] font-mono text-[#9CA3AF]">{spec}</span>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
 

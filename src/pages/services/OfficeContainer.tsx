@@ -19,20 +19,20 @@ const OfficeContainer: React.FC = () => {
     ];
 
     return (
-        <div className="pt-32 pb-24 px-6 min-h-screen bg-[#0F0F0F] text-white">
+        <div className="pt-24 pb-16 md:pt-32 md:pb-24 px-6 min-h-screen bg-[#0F0F0F] text-white">
             <div className="max-w-7xl mx-auto">
                 {/* Hero */}
-                <div className="mb-20">
+                <div className="mb-12 md:mb-20">
                     <h2 className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4">[ OFFICE-CONTAINER ]</h2>
-                    <h1 className="text-3xl md:text-4xl font-display font-black uppercase mb-8 leading-tight">Dein Büro. Überall.</h1>
+                    <h1 className="text-2xl md:text-3xl lg:text-4xl font-display font-black uppercase mb-6 md:mb-8 leading-tight">Dein Büro. Überall.</h1>
                     <p className="font-mono text-[#9CA3AF] max-w-3xl text-lg leading-relaxed">
                         Vollausgestattete Office-Container mit Küche, Klimaanlage und sanitären Anlagen – schlüsselfertig geliefert, sofort bezugsbereit. Die smarte Alternative zum klassischen Büro.
                     </p>
                 </div>
 
                 {/* Features Grid */}
-                <div className="mb-24">
-                    <h3 className="text-3xl font-display font-black uppercase mb-8 tracking-tight">Komplett ausgestattet – nicht nur vier Wände</h3>
+                <div className="mb-16 md:mb-24">
+                    <h3 className="text-2xl md:text-3xl font-display font-black uppercase mb-8 tracking-tight">Komplett ausgestattet – nicht nur vier Wände</h3>
                     <p className="font-mono text-[#9CA3AF] mb-12 max-w-2xl">
                         Unsere Office-Container kommen über unseren holländischen Partner und bieten alles, was ein moderner Arbeitsplatz braucht:
                     </p>
@@ -47,8 +47,8 @@ const OfficeContainer: React.FC = () => {
                 </div>
 
                 {/* Audience */}
-                <div className="mb-24">
-                    <h3 className="text-3xl font-display font-black uppercase mb-12 tracking-tight">Flexibel arbeiten – ohne Kompromisse</h3>
+                <div className="mb-16 md:mb-24">
+                    <h3 className="text-2xl md:text-3xl font-display font-black uppercase mb-12 tracking-tight">Flexibel arbeiten – ohne Kompromisse</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {audiences.map((item, i) => (
                             <div key={i} className="p-8 border border-white/10 hover:border-[#D97706]/50 transition-colors">
@@ -74,7 +74,7 @@ const OfficeContainer: React.FC = () => {
 
                 {/* CTA */}
                 <div className="text-center py-16 border-t border-white/10">
-                    <h3 className="text-3xl font-display font-black uppercase mb-4">Interesse an einem Office-Container?</h3>
+                    <h3 className="text-2xl md:text-3xl font-display font-black uppercase mb-4">Interesse an einem Office-Container?</h3>
                     <p className="font-mono text-[#9CA3AF] mb-8">Erzähl uns, was du brauchst – wir erstellen dir ein unverbindliches Angebot.</p>
                     <Link
                         to="/kontakt"

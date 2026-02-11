@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { useTheme } from '../../context/ThemeContext';
 import Hero from '../../components/Hero';
 import BentoGrid from '../../components/BentoGrid';
 import Process from '../../components/Process';
 import CaseStudy from '../../components/CaseStudy';
 import About from '../../components/About';
-import Configurator from '../../components/Configurator';
 import FAQ from '../../components/FAQ';
 import { TestimonialsSection } from '../../components/testimonials-marquee';
 
@@ -44,6 +45,8 @@ const testimonials = [
 ];
 
 const Home: React.FC = () => {
+  const { mode } = useTheme();
+  const isDark = mode === 'dark';
     useEffect(() => {
         const observerOptions = {
             threshold: 0.1,
@@ -71,7 +74,65 @@ const Home: React.FC = () => {
             <div className="scroll-animate"><Process /></div>
             <div className="scroll-animate"><CaseStudy /></div>
             <div className="scroll-animate"><About /></div>
-            <div id="configurator" className="scroll-animate"><Configurator /></div>
+            {/* Configurator CTA - Hero Style */}
+            <div className="scroll-animate">
+              <section id="configurator" className="relative min-h-[60vh] md:min-h-[80vh] flex items-center overflow-hidden">
+                {/* Background */}
+                <div className="absolute inset-0 z-0">
+                  <img
+                    src="/configurator-hero.png"
+                    alt="3D Container Konfigurator"
+                    className="w-full h-full object-cover object-left"
+                  />
+                  {isDark && <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#0F0F0F]/40 to-[#0F0F0F]/90 z-10"></div>}
+                  {isDark && <div className="absolute inset-0 bg-[#0F0F0F]/30 z-[5]"></div>}
+                  {isDark && <div className="absolute inset-0 blueprint-grid opacity-20 z-20 pointer-events-none"></div>}
+                </div>
+
+                {/* Content - Right Aligned */}
+                <div className="relative z-30 w-full px-6 md:px-12 lg:px-20 text-white">
+                  <div className="ml-auto max-w-xl text-right">
+                    <div className="inline-block px-4 py-1 border border-white/20 bg-white/5 backdrop-blur-sm mb-6">
+                      <span className="font-mono text-xs text-[#D97706] uppercase tracking-[0.3em] font-bold">3D Konfigurator</span>
+                    </div>
+
+                    <h3 className="font-display font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-none mb-6 md:mb-8 uppercase tracking-tighter text-white">
+                      Bau deinen<br />eigenen<br />
+                      <span className="text-[#D97706] drop-shadow-[0_10px_10px_rgba(217,119,6,0.2)]">Container.</span>
+                    </h3>
+
+                    <p className="text-white/70 text-sm md:text-lg leading-relaxed mb-8 ml-auto max-w-md">
+                      Nutze unseren interaktiven 3D-Konfigurator und stelle deinen Traumcontainer zusammen – Größe, Farbe und Ausstattung, alles nach deinen Wünschen.
+                    </p>
+
+                    <div className="flex flex-col sm:flex-row gap-4 justify-end">
+                      <Link
+                        to="/konfigurator"
+                        className="bg-[#D97706] hover:bg-[#B45309] text-white px-6 py-3 md:px-10 md:py-5 font-black text-xs md:text-sm uppercase tracking-widest transition-all hover:-translate-y-1 shadow-[0_10px_20px_-10px_rgba(217,119,6,0.5)] text-center"
+                      >
+                        Jetzt konfigurieren
+                      </Link>
+                      <Link
+                        to="/kontakt"
+                        className="px-6 py-3 md:px-10 md:py-5 border border-white/20 hover:border-white/40 font-black text-xs md:text-sm uppercase tracking-widest transition-all bg-white/5 backdrop-blur-sm text-center"
+                      >
+                        Beratung anfragen
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Blueprint Labels */}
+                <div className="absolute bottom-8 left-8 hidden lg:block z-30 opacity-50 font-mono text-[10px]">
+                  <div className="mb-2">[ INTERACTIVE_3D_MODEL ]</div>
+                  <div>KONFIGURATOR_V2.0</div>
+                </div>
+                <div className="absolute bottom-8 right-8 hidden lg:block z-30 opacity-50 font-mono text-[10px] text-right">
+                  <div className="mb-2">SPEC: CUSTOM_BUILD</div>
+                  <div>MODE: REALTIME_RENDER</div>
+                </div>
+              </section>
+            </div>
             <TestimonialsSection
                     title="Vertrauen durch Exzellenz"
                     description="Was unsere Partner über die Zusammenarbeit sagen."

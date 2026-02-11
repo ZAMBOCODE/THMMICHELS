@@ -1,18 +1,22 @@
 
 import React from 'react';
+import { useTheme } from '../context/ThemeContext';
 
 const Hero: React.FC = () => {
+  const { mode } = useTheme();
+  const isDark = mode === 'dark';
+
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
+    <section className="relative min-h-[75vh] md:min-h-screen flex items-center overflow-hidden pt-20">
       {/* Background with Grid and Image */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-[#0F0F0F]/60 z-10"></div>
+        {isDark && <div className="absolute inset-0 bg-[#0F0F0F]/60 z-10"></div>}
         <img
           src="/Shipping-container-bar-landing.webp"
           alt="Container Bar"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 blueprint-grid opacity-30 z-20 pointer-events-none"></div>
+        {isDark && <div className="absolute inset-0 blueprint-grid opacity-30 z-20 pointer-events-none"></div>}
       </div>
 
       <div className="relative z-30 w-full px-6 md:px-12 lg:px-20 text-left">
@@ -20,7 +24,7 @@ const Hero: React.FC = () => {
           <span className="font-mono text-xs text-[#D97706] uppercase tracking-[0.3em] font-bold">Industrial Craftsmanship</span>
         </div>
 
-        <h1 className="font-display font-black text-4xl md:text-6xl lg:text-7xl leading-none mb-8 uppercase tracking-tighter">
+        <h1 className="font-display font-black text-3xl sm:text-4xl md:text-6xl lg:text-7xl leading-none mb-6 md:mb-8 uppercase tracking-tighter">
           Dein Container. <br className="hidden md:block" /> Dein Konzept. <br />
           <span className="text-[#D97706] drop-shadow-[0_10px_10px_rgba(217,119,6,0.2)]">Von Hand gebaut.</span>
         </h1>
@@ -33,13 +37,13 @@ const Hero: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4 sm:justify-start">
             <button
               onClick={() => (window as any).lenis?.scrollTo('#configurator', { offset: -100 })}
-              className="bg-[#D97706] hover:bg-[#B45309] text-white px-10 py-5 font-black text-sm uppercase tracking-widest transition-all hover:-translate-y-1 shadow-[0_10px_20px_-10px_rgba(217,119,6,0.5)]"
+              className="bg-[#D97706] hover:bg-[#B45309] text-white px-6 py-3 md:px-10 md:py-5 font-black text-xs md:text-sm uppercase tracking-widest transition-all hover:-translate-y-1 shadow-[0_10px_20px_-10px_rgba(217,119,6,0.5)]"
             >
               PROJEKT ANFRAGEN
             </button>
             <button
               onClick={() => (window as any).lenis?.scrollTo('#showcase', { offset: -100 })}
-              className="px-10 py-5 border border-white/20 hover:border-white/40 font-black text-sm uppercase tracking-widest transition-all bg-white/5 backdrop-blur-sm"
+              className="px-6 py-3 md:px-10 md:py-5 border border-white/20 hover:border-white/40 font-black text-xs md:text-sm uppercase tracking-widest transition-all bg-white/5 backdrop-blur-sm"
             >
               UNSERE ARBEITEN
             </button>

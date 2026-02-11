@@ -1,5 +1,6 @@
 import { cn } from "../lib/utils"
 import { TestimonialCard, TestimonialAuthor } from "./ui/testimonial-card"
+import { useTheme } from "../context/ThemeContext"
 
 interface TestimonialsSectionProps {
     title: string
@@ -18,9 +19,11 @@ export function TestimonialsSection({
     testimonials,
     className
 }: TestimonialsSectionProps) {
+    const { mode } = useTheme()
+    const isDark = mode === 'dark'
     return (
         <section className={cn(
-            "text-white py-24 px-0 overflow-hidden",
+            "text-white py-12 md:py-20 lg:py-24 px-0 overflow-hidden",
             className
         )}>
             <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 text-center sm:gap-16">
@@ -51,8 +54,8 @@ export function TestimonialsSection({
                         </div>
                     </div>
 
-                    <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-1/3 bg-gradient-to-r from-[#0F0F0F] to-transparent sm:block"></div>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/3 bg-gradient-to-l from-[#0F0F0F] to-transparent sm:block"></div>
+                    {isDark && <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-1/3 bg-gradient-to-r from-[#0F0F0F] to-transparent sm:block"></div>}
+                    {isDark && <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/3 bg-gradient-to-l from-[#0F0F0F] to-transparent sm:block"></div>}
                 </div>
             </div>
         </section>

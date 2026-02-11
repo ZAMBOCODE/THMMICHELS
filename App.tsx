@@ -16,6 +16,7 @@ const OfficeContainer = React.lazy(() => import('./src/pages/services/OfficeCont
 const NudieContainer = React.lazy(() => import('./src/pages/services/NudieContainer'));
 const TrailerRental = React.lazy(() => import('./src/pages/services/TrailerRental'));
 const Gallery = React.lazy(() => import('./src/pages/Gallery'));
+const ProjectStory = React.lazy(() => import('./src/pages/ProjectStory'));
 const Partner = React.lazy(() => import('./src/pages/Partner'));
 const AboutPage = React.lazy(() => import('./src/pages/About'));
 const Contact = React.lazy(() => import('./src/pages/Contact'));
@@ -23,6 +24,7 @@ const ConfiguratorPage = React.lazy(() => import('./src/pages/Configurator'));
 const Impressum = React.lazy(() => import('./src/pages/Impressum'));
 const Datenschutz = React.lazy(() => import('./src/pages/Datenschutz'));
 const Blog = React.lazy(() => import('./src/pages/Blog'));
+const BlogPost = React.lazy(() => import('./src/pages/BlogPost'));
 const NotFound = React.lazy(() => import('./src/pages/NotFound'));
 
 const PageLoader = () => (
@@ -50,6 +52,7 @@ function App() {
                 <Route path="/leistungen/nudie-container" element={<NudieContainer />} />
                 <Route path="/leistungen/anhaenger-mieten" element={<TrailerRental />} />
                 <Route path="/galerie" element={<Gallery />} />
+                <Route path="/galerie/:slug" element={<ProjectStory />} />
                 <Route path="/partner" element={<Partner />} />
                 <Route path="/ueber-uns" element={<AboutPage />} />
                 <Route path="/kontakt" element={<Contact />} />
@@ -57,6 +60,7 @@ function App() {
                 <Route path="/impressum" element={<Impressum />} />
                 <Route path="/datenschutz" element={<Datenschutz />} />
                 <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:slug" element={<BlogPost />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>

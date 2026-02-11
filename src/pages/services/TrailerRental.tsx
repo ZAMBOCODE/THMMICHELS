@@ -24,20 +24,20 @@ const TrailerRental: React.FC = () => {
     ];
 
     return (
-        <div className="pt-32 pb-24 px-6 min-h-screen bg-[#0F0F0F] text-white">
+        <div className="pt-24 pb-16 md:pt-32 md:pb-24 px-6 min-h-screen bg-[#0F0F0F] text-white">
             <div className="max-w-7xl mx-auto">
                 {/* Hero */}
-                <div className="mb-20">
+                <div className="mb-12 md:mb-20">
                     <h2 className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4">[ ANHÄNGER MIETEN ]</h2>
-                    <h1 className="text-3xl md:text-4xl font-display font-black uppercase mb-8 leading-tight">Den Bar-Anhänger<br />mieten statt kaufen</h1>
+                    <h1 className="text-2xl md:text-3xl lg:text-4xl font-display font-black uppercase mb-6 md:mb-8 leading-tight">Den Bar-Anhänger<br />mieten statt kaufen</h1>
                     <p className="font-mono text-[#9CA3AF] max-w-3xl text-lg leading-relaxed">
                         Du planst eine Hochzeit, Firmenfeier, einen Geburtstag oder ein Festival – und brauchst etwas Besonderes? Unser Bar-Anhänger bringt das gewisse Extra zu deinem Event. Voll ausgestattet, stilvoll und garantiert ein Hingucker.
                     </p>
                 </div>
 
                 {/* What you get */}
-                <div className="mb-24">
-                    <h3 className="text-3xl font-display font-black uppercase mb-8 tracking-tight">Dein Event verdient mehr als eine Klapptheke</h3>
+                <div className="mb-16 md:mb-24">
+                    <h3 className="text-2xl md:text-3xl font-display font-black uppercase mb-8 tracking-tight">Dein Event verdient mehr als eine Klapptheke</h3>
                     <p className="font-mono text-[#9CA3AF] mb-12 max-w-2xl">
                         Unser Bar-Anhänger ist kein gewöhnlicher Getränkestand. Er ist ein voll ausgestatteter, stylischer Bar-Trailer, der jede Location in eine einladende Eventfläche verwandelt.
                     </p>
@@ -52,8 +52,8 @@ const TrailerRental: React.FC = () => {
                 </div>
 
                 {/* Occasions */}
-                <div className="mb-24">
-                    <h3 className="text-3xl font-display font-black uppercase mb-12 tracking-tight">Für Anlässe, die in Erinnerung bleiben</h3>
+                <div className="mb-16 md:mb-24">
+                    <h3 className="text-2xl md:text-3xl font-display font-black uppercase mb-12 tracking-tight">Für Anlässe, die in Erinnerung bleiben</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {occasions.map((item, i) => (
                             <div key={i} className="p-8 border border-white/10 hover:border-[#D97706]/50 transition-colors">
@@ -65,12 +65,12 @@ const TrailerRental: React.FC = () => {
                 </div>
 
                 {/* Process */}
-                <div className="mb-24">
-                    <h3 className="text-3xl font-display font-black uppercase mb-12 tracking-tight">Mieten in 3 Schritten</h3>
+                <div className="mb-16 md:mb-24">
+                    <h3 className="text-2xl md:text-3xl font-display font-black uppercase mb-12 tracking-tight">Mieten in 3 Schritten</h3>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {steps.map((step) => (
                             <div key={step.num} className="relative">
-                                <span className="text-8xl font-display font-black text-white/5 absolute -top-8 -left-2">{step.num}</span>
+                                <span className="text-6xl md:text-8xl font-display font-black text-white/5 absolute -top-8 -left-2">{step.num}</span>
                                 <div className="relative pt-8">
                                     <div className="w-12 h-1 bg-[#D97706] mb-6"></div>
                                     <h4 className="text-xl font-display font-black uppercase mb-3">{step.title}</h4>
@@ -83,7 +83,7 @@ const TrailerRental: React.FC = () => {
 
                 {/* CTA */}
                 <div className="text-center py-16 border-t border-white/10">
-                    <h3 className="text-3xl font-display font-black uppercase mb-4">Dein nächstes Event steht an?</h3>
+                    <h3 className="text-2xl md:text-3xl font-display font-black uppercase mb-4">Dein nächstes Event steht an?</h3>
                     <p className="font-mono text-[#9CA3AF] mb-8">Die Nachfrage ist hoch – frag am besten frühzeitig an.</p>
                     <Link
                         to="/kontakt"
