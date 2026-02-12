@@ -51,7 +51,7 @@ const Navigation: React.FC = () => {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex gap-8 items-center">
+          <div className="hidden xl:flex gap-8 items-center">
             <div
               className="relative group"
               onMouseEnter={() => setIsServicesOpen(true)}
@@ -103,9 +103,9 @@ const Navigation: React.FC = () => {
             </Link>
           </div>
 
-          {/* Mobile Hamburger */}
+          {/* Mobile/Tablet Hamburger */}
           <button
-            className="md:hidden flex flex-col gap-1.5 p-3"
+            className="xl:hidden flex flex-col gap-1.5 p-3"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -128,12 +128,12 @@ const Navigation: React.FC = () => {
       <button
         type="button"
         aria-label="Menü schließen"
-        className={`md:hidden fixed inset-0 bg-black/80 z-40 transition-opacity duration-200 ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+        className={`xl:hidden fixed inset-0 bg-black/80 z-40 transition-opacity duration-200 ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         onClick={() => setIsMobileMenuOpen(false)}
       />
 
       {/* Mobile Menu Drawer */}
-      <div className={`md:hidden fixed top-0 right-0 h-dvh w-80 max-w-[90vw] bg-[#0F0F0F] z-50 transform transition-transform duration-300 ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`} style={{ transitionTimingFunction: 'var(--ease-smooth)' }}>
+      <div className={`xl:hidden fixed top-0 right-0 h-dvh w-80 max-w-[90vw] bg-[#0F0F0F] z-50 transform transition-transform duration-300 ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`} style={{ transitionTimingFunction: 'var(--ease-smooth)' }}>
         <div className="p-6 pt-24 h-full overflow-y-auto">
           <div className="flex flex-col gap-2">
             {/* Leistungen Accordion */}
@@ -161,6 +161,24 @@ const Navigation: React.FC = () => {
             <Link to="/ueber-uns" className="py-4 border-b border-white/10 font-mono text-sm uppercase tracking-widest text-white hover:text-[#D97706]">Über Uns</Link>
             <Link to="/kontakt" className="py-4 border-b border-white/10 font-mono text-sm uppercase tracking-widest text-white hover:text-[#D97706]">Kontakt</Link>
 
+            {/* Theme Toggle */}
+            <button
+              onClick={toggleMode}
+              className="flex items-center gap-3 py-4 border-b border-white/10 text-white hover:text-[#D97706] transition-colors"
+              aria-label={mode === 'dark' ? 'Light Mode aktivieren' : 'Dark Mode aktivieren'}
+            >
+              {mode === 'dark' ? (
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+              ) : (
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                </svg>
+              )}
+              <span className="font-mono text-sm uppercase tracking-widest">{mode === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>
+            </button>
+
             {/* Phone Number */}
             <a href="tel:+491702847337" className="mt-6 flex items-center gap-3 py-2 text-[#D97706]">
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -173,7 +191,7 @@ const Navigation: React.FC = () => {
       </div>
 
       {/* Mobile Sticky CTA */}
-      <div className={`md:hidden fixed bottom-4 right-4 z-[60] transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+      <div className={`xl:hidden fixed bottom-4 right-4 z-[60] transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
         <Link
           to="/konfigurator"
           className="btn-press bg-[#D97706] hover:bg-[#B45309] text-white px-5 py-3 rounded-lg font-bold shadow-lg transition-transform uppercase tracking-widest text-[10px]"
