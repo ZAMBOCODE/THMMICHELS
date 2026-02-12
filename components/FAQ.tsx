@@ -37,7 +37,7 @@ const FAQ: React.FC = () => {
       <div className="max-w-3xl mx-auto px-6">
         <div className="text-center mb-10 scroll-animate">
           <h2 className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-3">[ FAQ ]</h2>
-          <h3 className="text-2xl md:text-3xl font-display font-black uppercase tracking-tight mb-4">
+          <h3 className="text-fluid-section font-display font-black uppercase tracking-tight mb-4">
             Häufig gestellte Fragen
           </h3>
           <p className="text-[#9CA3AF] text-sm max-w-xl mx-auto">
@@ -78,7 +78,7 @@ const FAQ: React.FC = () => {
           </p>
           <Link
             to="/kontakt"
-            className="inline-flex items-center gap-2 text-[#D97706] hover:text-white transition-colors font-mono text-xs focus-visible:ring-2 focus-visible:ring-[#D97706] focus-visible:outline-none rounded"
+            className="inline-flex items-center gap-2 text-[#D97706] hover:text-white transition-colors font-mono text-xs focus-visible:ring-2 focus-visible:ring-[#D97706] focus-visible:outline-none rounded py-3 px-1"
           >
             Kontakt aufnehmen
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">

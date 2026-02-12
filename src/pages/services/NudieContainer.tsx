@@ -18,7 +18,7 @@ const NudieContainer: React.FC = () => {
             />
 
             {/* Hero with full-width image */}
-            <section className="relative min-h-[50vh] md:min-h-[65vh] flex items-end overflow-hidden">
+            <section className="relative min-h-[50dvh] md:min-h-[65dvh] flex items-end overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <img
                         src="/pro-spacecube-nudie-lg01.webp"
@@ -33,7 +33,7 @@ const NudieContainer: React.FC = () => {
                 </div>
                 <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pb-12 md:pb-16 pt-32">
                     <span className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4 block">[ NUDIE-CONTAINER ]</span>
-                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-black uppercase mb-6 leading-[0.95] tracking-tighter">
+                    <h1 className="text-fluid-hero font-display font-black uppercase mb-6 leading-[0.95] tracking-tighter">
                         Nudie-Container &ndash;<br />der Container ohne Anhänger
                     </h1>
                     <p className="font-mono text-white/70 max-w-2xl text-base md:text-lg leading-relaxed">
@@ -72,7 +72,7 @@ const NudieContainer: React.FC = () => {
 
                 {/* Use Cases */}
                 <section className="pb-16 md:pb-24">
-                    <h2 className="text-2xl md:text-3xl font-display font-black uppercase mb-4 tracking-tight">Wofür ein Nudie-Container?</h2>
+                    <h2 className="text-fluid-section font-display font-black uppercase mb-4 tracking-tight">Wofür ein Nudie-Container?</h2>
                     <div className="w-16 h-1 bg-[#D97706] mb-12"></div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         {useCases.map((item, i) => (
@@ -106,7 +106,7 @@ const NudieContainer: React.FC = () => {
 
                 {/* CTA */}
                 <section className="text-center py-16 border-t border-white/10">
-                    <h3 className="text-2xl md:text-3xl font-display font-black uppercase mb-4">Klingt interessant?</h3>
+                    <h3 className="text-fluid-section font-display font-black uppercase mb-4">Klingt interessant?</h3>
                     <p className="font-mono text-[#9CA3AF] mb-8">Sag uns, wofür du den Container brauchst. Wir klären Größe, Ausstattung und Lieferung &ndash; unkompliziert und persönlich.</p>
                     <Link
                         to="/kontakt"

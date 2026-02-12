@@ -25,7 +25,7 @@ const EventContainer: React.FC = () => {
             />
 
             {/* Hero with full-width image */}
-            <section className="relative min-h-[50vh] md:min-h-[65vh] flex items-end overflow-hidden">
+            <section className="relative min-h-[50dvh] md:min-h-[65dvh] flex items-end overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <img
                         src="/csm_Gruenbeck_Roadshow_Deutschland_02_7a30455b9f.jpg"
@@ -40,7 +40,7 @@ const EventContainer: React.FC = () => {
                 </div>
                 <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pb-12 md:pb-16 pt-32">
                     <span className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4 block">[ EVENT-CONTAINER ]</span>
-                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-black uppercase mb-6 leading-[0.95] tracking-tighter">
+                    <h1 className="text-fluid-hero font-display font-black uppercase mb-6 leading-[0.95] tracking-tighter">
                         Dein Event-Container &ndash;<br />gebaut für deinen Einsatz
                     </h1>
                     <p className="font-mono text-white/70 max-w-2xl text-base md:text-lg leading-relaxed">
@@ -53,7 +53,7 @@ const EventContainer: React.FC = () => {
 
                 {/* Features - 3 columns with icon-style tops */}
                 <section className="py-16 md:py-24">
-                    <h2 className="text-2xl md:text-3xl font-display font-black uppercase mb-4 tracking-tight">Nicht irgendein Container &ndash; deiner.</h2>
+                    <h2 className="text-fluid-section font-display font-black uppercase mb-4 tracking-tight">Nicht irgendein Container &ndash; deiner.</h2>
                     <div className="w-16 h-1 bg-[#D97706] mb-12"></div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {[
@@ -100,7 +100,7 @@ const EventContainer: React.FC = () => {
 
                 {/* Sizes Table */}
                 <section className="pb-16 md:pb-24">
-                    <h2 className="text-2xl md:text-3xl font-display font-black uppercase mb-4 tracking-tight">Finde die passende Größe</h2>
+                    <h2 className="text-fluid-section font-display font-black uppercase mb-4 tracking-tight">Finde die passende Größe</h2>
                     <p className="font-mono text-[#9CA3AF] mb-8 max-w-2xl">
                         Unsere Container gibt es in vier Standardgrößen. Jede Variante lässt sich individuell ausstatten.
                     </p>
@@ -128,7 +128,7 @@ const EventContainer: React.FC = () => {
 
                 {/* Audience */}
                 <section className="pb-16 md:pb-24">
-                    <h2 className="text-2xl md:text-3xl font-display font-black uppercase mb-4 tracking-tight">Für wen wir bauen</h2>
+                    <h2 className="text-fluid-section font-display font-black uppercase mb-4 tracking-tight">Für wen wir bauen</h2>
                     <div className="w-16 h-1 bg-[#D97706] mb-12"></div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {audiences.map((item, i) => (
@@ -145,7 +145,7 @@ const EventContainer: React.FC = () => {
 
                 {/* CTA */}
                 <section className="text-center py-16 border-t border-white/10">
-                    <h3 className="text-2xl md:text-3xl font-display font-black uppercase mb-4">Bereit für deinen eigenen Container?</h3>
+                    <h3 className="text-fluid-section font-display font-black uppercase mb-4">Bereit für deinen eigenen Container?</h3>
                     <p className="font-mono text-[#9CA3AF] mb-8">Erzähl uns von deinem Projekt. Wir melden uns innerhalb von 24 Stunden.</p>
                     <Link
                         to="/kontakt"

@@ -51,7 +51,7 @@ const BentoGrid: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-4 scroll-animate">
           <div className="max-w-xl">
             <h2 className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4">[ LEISTUNGEN ]</h2>
-            <h3 className="text-2xl md:text-3xl lg:text-4xl font-display font-black uppercase leading-tight">Alles aus <br />einer Hand</h3>
+            <h3 className="text-fluid-section font-display font-black uppercase leading-tight">Alles aus <br />einer Hand</h3>
           </div>
           <p className="text-[#9CA3AF] max-w-sm text-left md:text-right font-mono text-sm leading-relaxed opacity-60">
             Du brauchst einen mobilen Barwagen, einen Food-Truck oder einen Office-Container? Wir fertigen, vermieten und vertreiben – individuell und präzise.
@@ -71,10 +71,10 @@ const BentoGrid: React.FC = () => {
               <div className="absolute inset-0 p-8 flex flex-col justify-end z-20">
                 <span className="font-mono text-[#D97706] text-[10px] tracking-widest mb-2 block">{card.label}</span>
                 <h4 className="text-2xl md:text-3xl font-display font-black uppercase mb-3 tracking-tighter">{card.title}</h4>
-                <p className="text-[#9CA3AF] text-sm max-w-xs transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-[opacity,transform] duration-300 font-mono" style={{ transitionTimingFunction: 'var(--ease-smooth)' }}>
+                <p className="text-[#9CA3AF] text-sm max-w-xs font-mono md:transform md:translate-y-4 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 md:transition-[opacity,transform] md:duration-300" style={{ transitionTimingFunction: 'var(--ease-smooth)' }}>
                   {card.desc}
                 </p>
-                <span className="mt-4 text-[#D97706] text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-[opacity] duration-300 delay-75 flex items-center gap-2" style={{ transitionTimingFunction: 'var(--ease-smooth)' }}>Mehr erfahren <span className="text-lg">→</span></span>
+                <span className="mt-4 text-[#D97706] text-xs font-bold uppercase tracking-widest md:opacity-0 md:group-hover:opacity-100 md:transition-[opacity] md:duration-300 md:delay-75 flex items-center gap-2" style={{ transitionTimingFunction: 'var(--ease-smooth)' }}>Mehr erfahren <span className="text-lg">→</span></span>
               </div>
             </Link>
           ))}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Gem, Building2, PartyPopper, Music, Check, type LucideIcon } from 'lucide-react';
 import SEO from '../../../components/SEO';
 
 const TrailerRental: React.FC = () => {
@@ -11,11 +12,11 @@ const TrailerRental: React.FC = () => {
         'Persönliche Einweisung vor Ort',
     ];
 
-    const occasions = [
-        { title: 'Hochzeiten', desc: 'Die Bar, über die deine Gäste noch lange reden werden', icon: '💍' },
-        { title: 'Firmenfeiern', desc: 'Professionell, stilvoll und unkompliziert', icon: '🏢' },
-        { title: 'Geburtstage & Privatfeiern', desc: 'Das besondere Extra für deinen großen Tag', icon: '🎉' },
-        { title: 'Festivals & Open-Airs', desc: 'Robust, funktional und ready to go', icon: '🎵' },
+    const occasions: { title: string; desc: string; icon: LucideIcon }[] = [
+        { title: 'Hochzeiten', desc: 'Die Bar, über die deine Gäste noch lange reden werden', icon: Gem },
+        { title: 'Firmenfeiern', desc: 'Professionell, stilvoll und unkompliziert', icon: Building2 },
+        { title: 'Geburtstage & Privatfeiern', desc: 'Das besondere Extra für deinen großen Tag', icon: PartyPopper },
+        { title: 'Festivals & Open-Airs', desc: 'Robust, funktional und ready to go', icon: Music },
     ];
 
     const steps = [
@@ -32,7 +33,7 @@ const TrailerRental: React.FC = () => {
             />
 
             {/* Hero with full-width image */}
-            <section className="relative min-h-[50vh] md:min-h-[65vh] flex items-end overflow-hidden">
+            <section className="relative min-h-[50dvh] md:min-h-[65dvh] flex items-end overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <img
                         src="/11.jpg"
@@ -47,7 +48,7 @@ const TrailerRental: React.FC = () => {
                 </div>
                 <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pb-12 md:pb-16 pt-32">
                     <span className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4 block">[ ANHÄNGER MIETEN ]</span>
-                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-black uppercase mb-6 leading-[0.95] tracking-tighter">
+                    <h1 className="text-fluid-hero font-display font-black uppercase mb-6 leading-[0.95] tracking-tighter">
                         Den Bar-Anhänger<br />mieten statt kaufen
                     </h1>
                     <p className="font-mono text-white/70 max-w-2xl text-base md:text-lg leading-relaxed">
@@ -77,7 +78,7 @@ const TrailerRental: React.FC = () => {
                             <div className="space-y-3">
                                 {features.map((feature, i) => (
                                     <div key={i} className="flex items-center gap-3">
-                                        <span className="text-[#D97706] text-sm">✓</span>
+                                        <Check className="w-4 h-4 text-[#D97706] shrink-0" aria-hidden="true" />
                                         <span className="font-mono text-sm text-[#9CA3AF]">{feature}</span>
                                     </div>
                                 ))}
@@ -88,22 +89,25 @@ const TrailerRental: React.FC = () => {
 
                 {/* Occasions */}
                 <section className="pb-16 md:pb-24">
-                    <h2 className="text-2xl md:text-3xl font-display font-black uppercase mb-4 tracking-tight">Für Anlässe, die in Erinnerung bleiben</h2>
+                    <h2 className="text-fluid-section font-display font-black uppercase mb-4 tracking-tight">Für Anlässe, die in Erinnerung bleiben</h2>
                     <div className="w-16 h-1 bg-[#D97706] mb-12"></div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        {occasions.map((item, i) => (
-                            <div key={i} className="p-8 border border-white/10 hover:border-[#D97706]/50 transition-colors">
-                                <span className="text-3xl block mb-4" role="img" aria-hidden="true">{item.icon}</span>
-                                <h4 className="font-display font-black uppercase mb-3 text-xl">{item.title}</h4>
-                                <p className="font-mono text-sm text-[#9CA3AF]">{item.desc}</p>
-                            </div>
-                        ))}
+                        {occasions.map((item, i) => {
+                            const Icon = item.icon;
+                            return (
+                                <div key={i} className="group p-8 border border-white/10 hover:border-[#D97706]/50 transition-colors">
+                                    <Icon className="w-7 h-7 text-white group-hover:text-[#D97706] transition-colors mb-4" aria-hidden="true" />
+                                    <h4 className="font-display font-black uppercase mb-3 text-xl">{item.title}</h4>
+                                    <p className="font-mono text-sm text-[#9CA3AF]">{item.desc}</p>
+                                </div>
+                            );
+                        })}
                     </div>
                 </section>
 
                 {/* Process */}
                 <section className="pb-16 md:pb-24">
-                    <h2 className="text-2xl md:text-3xl font-display font-black uppercase mb-4 tracking-tight">Mieten in 3 Schritten</h2>
+                    <h2 className="text-fluid-section font-display font-black uppercase mb-4 tracking-tight">Mieten in 3 Schritten</h2>
                     <div className="w-16 h-1 bg-[#D97706] mb-12"></div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {steps.map((step) => (
@@ -121,7 +125,7 @@ const TrailerRental: React.FC = () => {
 
                 {/* CTA */}
                 <section className="text-center py-16 border-t border-white/10">
-                    <h3 className="text-2xl md:text-3xl font-display font-black uppercase mb-4">Dein nächstes Event steht an?</h3>
+                    <h3 className="text-fluid-section font-display font-black uppercase mb-4">Dein nächstes Event steht an?</h3>
                     <p className="font-mono text-[#9CA3AF] mb-8">Die Nachfrage ist hoch &ndash; frag am besten frühzeitig an.</p>
                     <Link
                         to="/kontakt"

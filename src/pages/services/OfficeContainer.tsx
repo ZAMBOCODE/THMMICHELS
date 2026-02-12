@@ -1,15 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Snowflake, ChefHat, ShowerHead, Zap, House, CircleCheckBig, type LucideIcon } from 'lucide-react';
 import SEO from '../../../components/SEO';
 
 const OfficeContainer: React.FC = () => {
-    const features = [
-        { icon: '❄', label: 'Klimaanlage', desc: 'Für Sommer und Winter' },
-        { icon: '🍳', label: 'Vollküche', desc: 'Komplett eingerichtet' },
-        { icon: '🚿', label: '2 WC-Einheiten', desc: 'Sanitär inklusive' },
-        { icon: '⚡', label: 'Elektroinstallation', desc: 'Strom und Beleuchtung' },
-        { icon: '🏠', label: 'Vollisolierung', desc: 'Ganzjähriger Einsatz' },
-        { icon: '✅', label: 'Sofort bezugsbereit', desc: 'Schlüsselfertig geliefert' },
+    const features: { icon: LucideIcon; label: string; desc: string }[] = [
+        { icon: Snowflake, label: 'Klimaanlage', desc: 'Für Sommer und Winter' },
+        { icon: ChefHat, label: 'Vollküche', desc: 'Komplett eingerichtet' },
+        { icon: ShowerHead, label: '2 WC-Einheiten', desc: 'Sanitär inklusive' },
+        { icon: Zap, label: 'Elektroinstallation', desc: 'Strom und Beleuchtung' },
+        { icon: House, label: 'Vollisolierung', desc: 'Ganzjähriger Einsatz' },
+        { icon: CircleCheckBig, label: 'Sofort bezugsbereit', desc: 'Schlüsselfertig geliefert' },
     ];
 
     const audiences = [
@@ -27,7 +28,7 @@ const OfficeContainer: React.FC = () => {
             />
 
             {/* Hero with full-width image */}
-            <section className="relative min-h-[50vh] md:min-h-[65vh] flex items-end overflow-hidden">
+            <section className="relative min-h-[50dvh] md:min-h-[65dvh] flex items-end overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <img
                         src="/Prefabricated-Office-Container.webp"
@@ -42,7 +43,7 @@ const OfficeContainer: React.FC = () => {
                 </div>
                 <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pb-12 md:pb-16 pt-32">
                     <span className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4 block">[ OFFICE-CONTAINER ]</span>
-                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-black uppercase mb-6 leading-[0.95] tracking-tighter">
+                    <h1 className="text-fluid-hero font-display font-black uppercase mb-6 leading-[0.95] tracking-tighter">
                         Dein Büro. Überall.
                     </h1>
                     <p className="font-mono text-white/70 max-w-2xl text-base md:text-lg leading-relaxed">
@@ -55,18 +56,21 @@ const OfficeContainer: React.FC = () => {
 
                 {/* Features Grid */}
                 <section className="py-16 md:py-24">
-                    <h2 className="text-2xl md:text-3xl font-display font-black uppercase mb-4 tracking-tight">Komplett ausgestattet &ndash; nicht nur vier Wände</h2>
+                    <h2 className="text-fluid-section font-display font-black uppercase mb-4 tracking-tight">Komplett ausgestattet &ndash; nicht nur vier Wände</h2>
                     <div className="w-16 h-1 bg-[#D97706] mb-12"></div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                        {features.map((feature, i) => (
-                            <div key={i} className="flex items-start gap-4 p-5 border border-white/10 hover:border-[#D97706]/50 transition-colors">
-                                <span className="text-2xl shrink-0" role="img" aria-hidden="true">{feature.icon}</span>
-                                <div>
-                                    <span className="font-display font-black uppercase text-sm block">{feature.label}</span>
-                                    <span className="font-mono text-xs text-[#9CA3AF]">{feature.desc}</span>
+                        {features.map((feature, i) => {
+                            const Icon = feature.icon;
+                            return (
+                                <div key={i} className="group flex items-start gap-4 p-5 border border-white/10 hover:border-[#D97706]/50 transition-colors">
+                                    <Icon className="w-6 h-6 shrink-0 text-white group-hover:text-[#D97706] transition-colors" aria-hidden="true" />
+                                    <div>
+                                        <span className="font-display font-black uppercase text-sm block">{feature.label}</span>
+                                        <span className="font-mono text-xs text-[#9CA3AF]">{feature.desc}</span>
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
                 </section>
 
@@ -100,7 +104,7 @@ const OfficeContainer: React.FC = () => {
 
                 {/* Audience */}
                 <section className="pb-16 md:pb-24">
-                    <h2 className="text-2xl md:text-3xl font-display font-black uppercase mb-4 tracking-tight">Flexibel arbeiten &ndash; ohne Kompromisse</h2>
+                    <h2 className="text-fluid-section font-display font-black uppercase mb-4 tracking-tight">Flexibel arbeiten &ndash; ohne Kompromisse</h2>
                     <div className="w-16 h-1 bg-[#D97706] mb-12"></div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {audiences.map((item, i) => (
@@ -134,7 +138,7 @@ const OfficeContainer: React.FC = () => {
 
                 {/* CTA */}
                 <section className="text-center py-16 border-t border-white/10">
-                    <h3 className="text-2xl md:text-3xl font-display font-black uppercase mb-4">Interesse an einem Office-Container?</h3>
+                    <h3 className="text-fluid-section font-display font-black uppercase mb-4">Interesse an einem Office-Container?</h3>
                     <p className="font-mono text-[#9CA3AF] mb-8">Erzähl uns, was du brauchst &ndash; wir erstellen dir ein unverbindliches Angebot.</p>
                     <Link
                         to="/kontakt"

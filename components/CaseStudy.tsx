@@ -79,7 +79,7 @@ const CaseStudy: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 mb-8 md:mb-12">
         <div>
           <h2 className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4">[ GALERIE ]</h2>
-          <h3 className="text-2xl md:text-3xl lg:text-4xl font-display font-black uppercase tracking-tight">Unsere Projekte</h3>
+          <h3 className="text-fluid-section font-display font-black uppercase tracking-tight">Unsere Projekte</h3>
           <p className="text-[#9CA3AF] text-base md:text-lg max-w-xl mt-4 md:mt-6 leading-relaxed">
             Jeder Container erzählt seine eigene Geschichte. Swipe durch unsere Arbeiten.
           </p>
@@ -187,7 +187,7 @@ const CaseStudy: React.FC = () => {
       <div className="text-center mt-12">
         <Link
           to="/galerie"
-          className="inline-flex items-center gap-3 text-[#D97706] hover:text-white font-black uppercase tracking-widest text-sm group focus-visible:ring-2 focus-visible:ring-[#D97706] focus-visible:outline-none rounded"
+          className="inline-flex items-center gap-3 text-[#D97706] hover:text-white font-black uppercase tracking-widest text-sm group focus-visible:ring-2 focus-visible:ring-[#D97706] focus-visible:outline-none rounded py-3 px-1"
         >
           Alle Projekte ansehen
           <span className="w-8 h-[1px] bg-[#D97706] group-hover:w-16 transition-[width] duration-300" style={{ transitionTimingFunction: 'var(--ease-smooth)' }}></span>

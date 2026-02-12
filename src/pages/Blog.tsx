@@ -64,7 +64,7 @@ const Blog: React.FC = () => {
         {/* Header */}
         <div className="mb-16">
           <span className="font-mono text-[#D97706] text-xs font-bold uppercase tracking-[0.3em] mb-4 block">[ BLOG & REFERENZEN ]</span>
-          <h1 className="text-2xl md:text-3xl lg:text-4xl font-display font-black uppercase mb-6 leading-tight">
+          <h1 className="text-fluid-section font-display font-black uppercase mb-6 leading-tight">
             Projekte, Wissen<br />& Einblicke
           </h1>
           <p className="font-mono text-[#9CA3AF] max-w-2xl text-lg leading-relaxed">
@@ -78,7 +78,7 @@ const Blog: React.FC = () => {
             <button
               key={tag}
               onClick={() => setActiveTag(tag)}
-              className={`px-4 py-2 font-mono text-xs uppercase tracking-widest transition-[border-color,background-color,color] border ${
+              className={`px-4 py-2.5 font-mono text-xs uppercase tracking-widest transition-[border-color,background-color,color] border ${
                 activeTag === tag
                   ? 'bg-[#D97706] border-[#D97706] text-white'
                   : 'border-white/10 text-[#9CA3AF] hover:border-[#D97706]/50 hover:text-white'

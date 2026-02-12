@@ -7,7 +7,7 @@ const Hero: React.FC = () => {
   const isDark = mode === 'dark';
 
   return (
-    <section className="relative min-h-[75vh] md:min-h-screen flex items-center overflow-hidden pt-20">
+    <section className="relative min-h-[75dvh] md:min-h-screen flex items-center overflow-hidden pt-20">
       {/* Background with Grid and Image */}
       <div className="absolute inset-0 z-0">
         {isDark && <div className="absolute inset-0 bg-[#0F0F0F]/60 z-10"></div>}
