@@ -12,8 +12,8 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 z-0">
         {isDark && <div className="absolute inset-0 bg-[#0F0F0F]/60 z-10"></div>}
         <img
-          src="/Shipping-container-bar-landing.webp"
-          alt="THM Michels Event-Container Bar mit industriellem Design und LED-Beleuchtung"
+          src="/Prefabricated-Office-Container.webp"
+          alt="THM Michels Office-Container – vollausgestattetes mobiles Büro"
           className="w-full h-full object-cover"
           width={1920}
           height={1080}

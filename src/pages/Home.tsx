@@ -80,53 +80,6 @@ const Home: React.FC = () => {
             <div className="scroll-animate"><Process /></div>
             <div className="scroll-animate"><CaseStudy /></div>
             <div className="scroll-animate"><About /></div>
-            {/* Office Container CTA - Hero Style */}
-            <div className="scroll-animate">
-              <section className="relative min-h-[50dvh] md:min-h-[70dvh] flex items-center overflow-hidden">
-                <div className="absolute inset-0 z-0">
-                  <img
-                    src="/Prefabricated-Office-Container.webp"
-                    alt="Vollausgestatteter Office-Container – dein Büro, überall"
-                    loading="lazy"
-                    width={1200}
-                    height={800}
-                    className="w-full h-full object-cover"
-                  />
-                  {isDark && <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#0F0F0F]/50 to-[#0F0F0F]/90 z-10"></div>}
-                  {isDark && <div className="absolute inset-0 bg-[#0F0F0F]/20 z-[5]"></div>}
-                  {isDark && <div className="absolute inset-0 blueprint-grid opacity-20 z-20 pointer-events-none"></div>}
-                </div>
-
-                <div className="relative z-30 w-full px-6 md:px-12 lg:px-20 text-white">
-                  <div className="max-w-xl">
-                    <div className="inline-block px-4 py-1 border border-white/20 bg-white/5 backdrop-blur-sm mb-6">
-                      <span className="font-mono text-xs text-[#D97706] uppercase tracking-[0.3em] font-bold">Office-Container</span>
-                    </div>
-
-                    <h3 className="font-display font-black text-3xl sm:text-4xl md:text-5xl leading-none mb-6 uppercase tracking-tighter text-white">
-                      Dein Büro.<br />
-                      <span className="text-[#D97706] drop-shadow-[0_10px_10px_rgba(217,119,6,0.2)]">Überall.</span>
-                    </h3>
-
-                    <p className="text-white/70 text-sm md:text-lg leading-relaxed mb-8 max-w-md">
-                      Vollausgestattete Office-Container mit Küche, Klimaanlage und WC &ndash; schlüsselfertig geliefert, sofort bezugsbereit.
-                    </p>
-
-                    <Link
-                      to="/leistungen/office-container"
-                      className="btn-press inline-block bg-[#D97706] hover:bg-[#B45309] text-white px-6 py-3 md:px-10 md:py-5 font-black text-xs md:text-sm uppercase tracking-widest transition-[background-color,transform,box-shadow] duration-300 hover:-translate-y-1 shadow-[0_10px_20px_-10px_rgba(217,119,6,0.5)]"
-                    >
-                      Mehr erfahren
-                    </Link>
-                  </div>
-                </div>
-
-                <div className="absolute bottom-8 left-8 hidden lg:block z-30 opacity-50 font-mono text-[10px]">
-                  <div className="mb-2">[ OFFICE_MODULE ]</div>
-                  <div>READY_TO_DEPLOY</div>
-                </div>
-              </section>
-            </div>
             {/* Configurator CTA - Hero Style */}
             <div className="scroll-animate">
               <section id="configurator" className="relative min-h-[60dvh] md:min-h-[80dvh] flex items-center overflow-hidden">
