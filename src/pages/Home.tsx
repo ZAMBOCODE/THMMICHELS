@@ -86,12 +86,20 @@ const Home: React.FC = () => {
                 {/* Background */}
                 <div className="absolute inset-0 z-0">
                   <img
-                    src="/configurator-hero.png"
-                    alt="THM Michels interaktiver 3D Container Konfigurator – Größe, Farbe und Ausstattung wählen"
+                    src="/container-3d-render-mobile.png"
+                    alt="THM Michels 3D Container-Render – individueller Konfigurator für Event- und Gastronomie-Container"
+                    loading="lazy"
+                    width={1080}
+                    height={1920}
+                    className="w-full h-full object-cover md:hidden"
+                  />
+                  <img
+                    src="/container-3d-render.png"
+                    alt="THM Michels 3D Container-Render – individueller Konfigurator für Event- und Gastronomie-Container"
                     loading="lazy"
                     width={1920}
                     height={1080}
-                    className="w-full h-full object-cover object-left"
+                    className="w-full h-full object-cover object-left hidden md:block"
                   />
                   {isDark && <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#0F0F0F]/40 to-[#0F0F0F]/90 z-10"></div>}
                   {isDark && <div className="absolute inset-0 bg-[#0F0F0F]/30 z-[5]"></div>}
