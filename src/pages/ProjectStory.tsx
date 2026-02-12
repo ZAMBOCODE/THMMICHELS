@@ -292,7 +292,7 @@ const ProjectStory: React.FC = () => {
           <p className="font-mono text-[#9CA3AF] text-sm mb-8">Erzähl uns von deiner Idee und wir bauen sie.</p>
           <Link
             to="/kontakt"
-            className="btn-press inline-block bg-[#D97706] hover:bg-[#B45309] text-white px-8 py-4 font-black text-sm uppercase tracking-widest transition-all duration-300"
+            className="btn-press inline-block bg-[#D97706] hover:bg-[#B45309] text-white px-8 py-4 font-black text-sm uppercase tracking-widest transition-[background-color,transform] duration-300"
           >
             Jetzt Projekt anfragen
           </Link>

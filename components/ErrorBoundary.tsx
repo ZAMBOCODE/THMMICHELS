@@ -60,14 +60,14 @@ class ErrorBoundary extends Component<Props, State> {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={() => window.location.reload()}
-                className="bg-red-500 hover:bg-red-600 text-white px-10 py-5 font-black text-sm uppercase tracking-widest transition-all hover:-translate-y-1 shadow-[0_10px_20px_-10px_rgba(239,68,68,0.5)]"
+                className="bg-red-500 hover:bg-red-600 text-white px-10 py-5 font-black text-sm uppercase tracking-widest transition-[background-color,transform,box-shadow] hover:-translate-y-1 shadow-[0_10px_20px_-10px_rgba(239,68,68,0.5)]"
               >
                 Seite neu laden
               </button>
               <Link
                 to="/"
                 onClick={() => this.setState({ hasError: false })}
-                className="px-10 py-5 border border-white/20 hover:border-white/40 font-black text-sm uppercase tracking-widest transition-all"
+                className="px-10 py-5 border border-white/20 hover:border-white/40 font-black text-sm uppercase tracking-widest transition-[border-color]"
               >
                 Zur Startseite
               </Link>

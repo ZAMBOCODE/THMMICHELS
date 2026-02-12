@@ -5,13 +5,17 @@ interface LazyImageProps {
   alt: string;
   className?: string;
   placeholderClassName?: string;
+  width?: number;
+  height?: number;
 }
 
 const LazyImage: React.FC<LazyImageProps> = ({
   src,
   alt,
   className = '',
-  placeholderClassName = ''
+  placeholderClassName = '',
+  width,
+  height
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
@@ -48,6 +52,7 @@ const LazyImage: React.FC<LazyImageProps> = ({
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
+            aria-hidden="true"
           >
             <path
               strokeLinecap="round"
@@ -64,7 +69,9 @@ const LazyImage: React.FC<LazyImageProps> = ({
         <img
           src={src}
           alt={alt}
-          className={`${className} transition-all duration-400 ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-[0.98]'}`}
+          width={width}
+          height={height}
+          className={`${className} transition-[opacity,transform] duration-400 ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-[0.98]'}`}
           style={{ transitionTimingFunction: 'var(--ease-smooth)' }}
           onLoad={() => setIsLoaded(true)}
           loading="lazy"

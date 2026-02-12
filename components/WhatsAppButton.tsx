@@ -15,7 +15,7 @@ const WhatsAppButton: React.FC = () => {
       aria-label="Kontakt über WhatsApp"
     >
       {/* Button */}
-      <div className="flex items-center justify-center w-11 h-11 bg-[#25D366] rounded-full shadow-md hover:bg-[#20BA5C] transition-all hover:scale-105">
+      <div className="flex items-center justify-center w-11 h-11 bg-[#25D366] rounded-full shadow-md hover:bg-[#20BA5C] transition-[background-color,transform] hover:scale-105">
         <svg
           className="w-5 h-5 text-white"
           fill="currentColor"

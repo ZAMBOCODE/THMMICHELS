@@ -66,7 +66,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({ showHeader = true }) => {
                   </div>
                   <div className="absolute -bottom-4 left-0 right-0 h-1 bg-white/10 overflow-hidden">
                     <div
-                      className="h-full bg-[#D97706] transition-all duration-[5000ms] ease-linear"
+                      className="h-full bg-[#D97706] transition-[width] duration-[5000ms] ease-linear"
                       style={{ width: isLoading ? '100%' : '0%' }}
                     ></div>
                   </div>
@@ -91,7 +91,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({ showHeader = true }) => {
             {!isLoading && (
               <button
                 onClick={() => setIsFullscreen(true)}
-                className="absolute top-4 right-4 z-20 w-10 h-10 bg-[#0F0F0F]/80 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:border-[#D97706] hover:bg-[#D97706]/10 transition-all"
+                className="absolute top-4 right-4 z-20 w-10 h-10 bg-[#0F0F0F]/80 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:border-[#D97706] hover:bg-[#D97706]/10 transition-[border-color,background-color]"
                 title="Vollbild"
               >
                 <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -137,7 +137,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({ showHeader = true }) => {
           {/* Close button - bottom right */}
           <button
             onClick={() => setIsFullscreen(false)}
-            className="absolute bottom-6 right-6 z-50 px-6 py-3 bg-[#0F0F0F]/90 backdrop-blur-sm border border-white/20 flex items-center gap-2 hover:border-[#D97706] hover:bg-[#D97706]/10 transition-all"
+            className="absolute bottom-6 right-6 z-50 px-6 py-3 bg-[#0F0F0F]/90 backdrop-blur-sm border border-white/20 flex items-center gap-2 hover:border-[#D97706] hover:bg-[#D97706]/10 transition-[border-color,background-color]"
           >
             <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />

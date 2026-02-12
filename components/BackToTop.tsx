@@ -27,7 +27,7 @@ const BackToTop: React.FC = () => {
   return (
     <button
       onClick={scrollToTop}
-      className={`btn-press fixed bottom-6 left-6 z-50 w-11 h-11 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full flex items-center justify-center transition-all duration-300 backdrop-blur-sm ${
+      className={`btn-press fixed bottom-6 left-6 z-50 w-11 h-11 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full flex items-center justify-center transition-[opacity,transform,background-color] duration-300 backdrop-blur-sm ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
       }`}
       style={{ transitionTimingFunction: 'var(--ease-smooth)' }}

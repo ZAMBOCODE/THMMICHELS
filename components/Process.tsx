@@ -40,7 +40,7 @@ const Process: React.FC = () => {
                 {step.num}
               </div>
               <div className="relative">
-                <div className="w-8 md:w-12 h-1 bg-[#D97706] mb-4 md:mb-8 group-hover:w-16 md:group-hover:w-24 transition-all duration-300 mx-auto" style={{ transitionTimingFunction: 'var(--ease-smooth)' }}></div>
+                <div className="w-8 md:w-12 h-1 bg-[#D97706] mb-4 md:mb-8 group-hover:w-16 md:group-hover:w-24 transition-[width] duration-300 mx-auto" style={{ transitionTimingFunction: 'var(--ease-smooth)' }}></div>
                 <h4 className="text-sm md:text-2xl font-display font-black uppercase mb-2 md:mb-4 tracking-tighter">{step.title}</h4>
                 <p className="text-[#9CA3AF] leading-relaxed mb-3 md:mb-6 font-mono text-[10px] md:text-sm">
                   {step.desc}
@@ -52,7 +52,7 @@ const Process: React.FC = () => {
 
               {idx < steps.length - 1 && (
                 <div className="hidden lg:block absolute top-1/2 -right-6 transform -translate-y-1/2 opacity-20">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
                 </div>

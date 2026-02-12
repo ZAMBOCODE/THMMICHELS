@@ -36,13 +36,13 @@ const NotFound: React.FC = () => {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Link
                         to="/"
-                        className="btn-press bg-[#D97706] hover:bg-[#B45309] text-white px-10 py-5 font-black text-sm uppercase tracking-widest transition-all duration-300 hover:-translate-y-1 shadow-[0_10px_20px_-10px_rgba(217,119,6,0.5)]"
+                        className="btn-press bg-[#D97706] hover:bg-[#B45309] text-white px-10 py-5 font-black text-sm uppercase tracking-widest transition-[background-color,transform,box-shadow] duration-300 hover:-translate-y-1 shadow-[0_10px_20px_-10px_rgba(217,119,6,0.5)]"
                     >
                         Zur Startseite
                     </Link>
                     <Link
                         to="/kontakt"
-                        className="btn-press px-10 py-5 border border-white/20 hover:border-white/40 font-black text-sm uppercase tracking-widest transition-all duration-300"
+                        className="btn-press px-10 py-5 border border-white/20 hover:border-white/40 font-black text-sm uppercase tracking-widest transition-[border-color] duration-300"
                     >
                         Kontakt
                     </Link>

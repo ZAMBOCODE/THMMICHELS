@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 interface FAQItem {
   question: string;
@@ -57,12 +58,12 @@ const FAQ: React.FC = () => {
               >
                 <span className="font-display font-bold text-sm pr-4">{faq.question}</span>
                 <span className={`flex-shrink-0 w-6 h-6 border border-[#D97706] flex items-center justify-center transition-transform duration-250 ${openIndex === index ? 'rotate-45' : ''}`} style={{ transitionTimingFunction: 'var(--ease-smooth)' }}>
-                  <svg className="w-3 h-3 text-[#D97706]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="w-3 h-3 text-[#D97706]" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
                   </svg>
                 </span>
               </button>
-              <div className={`overflow-hidden transition-all duration-250 ${openIndex === index ? 'max-h-96' : 'max-h-0'}`} style={{ transitionTimingFunction: 'var(--ease-smooth)' }}>
+              <div className={`overflow-hidden transition-[max-height] duration-250 ${openIndex === index ? 'max-h-96' : 'max-h-0'}`} style={{ transitionTimingFunction: 'var(--ease-smooth)' }}>
                 <p className="px-5 pb-4 text-[#9CA3AF] font-mono text-xs leading-relaxed">
                   {faq.answer}
                 </p>
@@ -75,15 +76,15 @@ const FAQ: React.FC = () => {
           <p className="text-[#9CA3AF] font-mono text-xs mb-3">
             Noch Fragen? Wir helfen gerne weiter.
           </p>
-          <a
-            href="/kontakt"
-            className="inline-flex items-center gap-2 text-[#D97706] hover:text-white transition-colors font-mono text-xs"
+          <Link
+            to="/kontakt"
+            className="inline-flex items-center gap-2 text-[#D97706] hover:text-white transition-colors font-mono text-xs focus-visible:ring-2 focus-visible:ring-[#D97706] focus-visible:outline-none rounded"
           >
             Kontakt aufnehmen
-            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
     </section>

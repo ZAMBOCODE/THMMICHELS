@@ -75,13 +75,13 @@ const CookieBanner: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
             <button
               onClick={acceptEssential}
-              className="btn-press px-6 py-3 border border-white/20 hover:border-white/40 font-bold text-sm uppercase tracking-widest transition-all duration-200"
+              className="btn-press px-6 py-3 border border-white/20 hover:border-white/40 font-bold text-sm uppercase tracking-widest transition-[background-color,border-color,transform] duration-200"
             >
               Nur Essenzielle
             </button>
             <button
               onClick={acceptAll}
-              className="btn-press px-6 py-3 bg-[#D97706] hover:bg-[#B45309] text-white font-bold text-sm uppercase tracking-widest transition-all duration-200"
+              className="btn-press px-6 py-3 bg-[#D97706] hover:bg-[#B45309] text-white font-bold text-sm uppercase tracking-widest transition-[background-color,border-color,transform] duration-200"
             >
               Alle akzeptieren
             </button>

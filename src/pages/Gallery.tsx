@@ -77,12 +77,12 @@ const Gallery: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
                     {projects.map((project) => (
                         <Link key={project.id} to={`/galerie/${project.slug}`}>
-                            <div className="group relative overflow-hidden border border-white/10 hover:border-[#D97706]/50 transition-all duration-500 cursor-pointer">
+                            <div className="group relative overflow-hidden border border-white/10 hover:border-[#D97706]/50 transition-[border-color] duration-500 cursor-pointer">
                                 <img
                                     src={project.image}
                                     alt={`${project.title} – ${project.category} von THM Michels`}
                                     loading="lazy"
-                                    className="w-full h-80 md:h-72 object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                                    className="w-full h-80 md:h-72 object-cover grayscale group-hover:grayscale-0 transition-[filter,transform] duration-700 group-hover:scale-105"
                                 />
                                 {isDark && <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] via-[#0F0F0F]/40 to-transparent z-10"></div>}
                                 <div className="absolute inset-0 p-6 flex flex-col justify-end z-20">
@@ -105,7 +105,7 @@ const Gallery: React.FC = () => {
                     <p className="font-mono text-[#9CA3AF] mb-8">Erzähl uns von deiner Idee – wir machen daraus Realität.</p>
                     <Link
                         to="/kontakt"
-                        className="btn-press inline-block bg-[#D97706] hover:bg-[#B45309] text-white px-10 py-5 font-black text-sm uppercase tracking-widest transition-all duration-300"
+                        className="btn-press inline-block bg-[#D97706] hover:bg-[#B45309] text-white px-10 py-5 font-black text-sm uppercase tracking-widest transition-[background-color,transform] duration-300"
                     >
                         Jetzt Projekt anfragen
                     </Link>

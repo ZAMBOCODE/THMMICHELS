@@ -23,6 +23,15 @@
   to { transform: translateX(calc(-100% - var(--gap))); }
 }
 
+/* ===== Focus Visible (Web Interface Guidelines) ===== */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
 /* ===== Base Styles ===== */
 body {
   background-color: var(--color-bg);

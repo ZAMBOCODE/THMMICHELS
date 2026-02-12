@@ -78,7 +78,7 @@ const Blog: React.FC = () => {
             <button
               key={tag}
               onClick={() => setActiveTag(tag)}
-              className={`px-4 py-2 font-mono text-xs uppercase tracking-widest transition-all border ${
+              className={`px-4 py-2 font-mono text-xs uppercase tracking-widest transition-[border-color,background-color,color] border ${
                 activeTag === tag
                   ? 'bg-[#D97706] border-[#D97706] text-white'
                   : 'border-white/10 text-[#9CA3AF] hover:border-[#D97706]/50 hover:text-white'
@@ -93,13 +93,13 @@ const Blog: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredPosts.map((post) => (
             <Link key={post.slug} to={`/blog/${post.slug}`}>
-              <article className="group border border-white/10 hover:border-[#D97706]/50 transition-all overflow-hidden cursor-pointer h-full">
+              <article className="group border border-white/10 hover:border-[#D97706]/50 transition-[border-color] overflow-hidden cursor-pointer h-full">
                 <div className="relative h-52 overflow-hidden">
                   <img
                     src={post.image}
                     alt={`${post.title} – THM Michels Blog`}
                     loading="lazy"
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-[filter,transform] duration-700 group-hover:scale-105"
                   />
                   <div className="absolute top-4 left-4">
                     <span className="bg-[#D97706] px-3 py-1 font-mono text-[10px] text-white uppercase tracking-widest">
@@ -117,7 +117,7 @@ const Blog: React.FC = () => {
                   <p className="font-mono text-[#9CA3AF] text-xs leading-relaxed mb-4">
                     {post.excerpt}
                   </p>
-                  <span className="inline-flex items-center gap-2 text-[#D97706] font-mono text-xs uppercase tracking-widest group-hover:gap-3 transition-all">
+                  <span className="inline-flex items-center gap-2 text-[#D97706] font-mono text-xs uppercase tracking-widest group-hover:gap-3 transition-[gap]">
                     Weiterlesen
                     <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />

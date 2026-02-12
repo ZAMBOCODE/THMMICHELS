@@ -1,5 +1,6 @@
 
 import React, { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { CASE_STUDIES } from '../constants';
 import { useTheme } from '../context/ThemeContext';
 
@@ -96,12 +97,13 @@ const CaseStudy: React.FC = () => {
         {/* PREV Button - left side */}
         <button
           onClick={() => navigate('prev')}
+          aria-label="Vorheriges Projekt"
           className="btn-press group absolute left-2 md:left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-16 md:h-16 overflow-hidden"
         >
-          <div className="absolute inset-0 border border-white/20 group-hover:border-[#D97706] transition-all duration-300" style={{ transitionTimingFunction: 'var(--ease-smooth)' }}></div>
+          <div className="absolute inset-0 border border-white/20 group-hover:border-[#D97706] transition-[border-color] duration-300" style={{ transitionTimingFunction: 'var(--ease-smooth)' }}></div>
           <div className="absolute inset-0 bg-[#D97706] translate-y-full group-hover:translate-y-0 transition-transform duration-300" style={{ transitionTimingFunction: 'var(--ease-smooth)' }}></div>
           <div className="absolute inset-0 flex items-center justify-center">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="relative z-10 group-hover:text-[#0F0F0F] transition-colors duration-300">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true" className="relative z-10 group-hover:text-[#0F0F0F] transition-colors duration-300">
               <path d="M19 12H5M12 19l-7-7 7-7" />
             </svg>
           </div>
@@ -111,12 +113,13 @@ const CaseStudy: React.FC = () => {
         {/* NEXT Button - right side */}
         <button
           onClick={() => navigate('next')}
+          aria-label="Nächstes Projekt"
           className="btn-press group absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-16 md:h-16 overflow-hidden"
         >
-          <div className="absolute inset-0 border border-white/20 group-hover:border-[#D97706] transition-all duration-300" style={{ transitionTimingFunction: 'var(--ease-smooth)' }}></div>
+          <div className="absolute inset-0 border border-white/20 group-hover:border-[#D97706] transition-[border-color] duration-300" style={{ transitionTimingFunction: 'var(--ease-smooth)' }}></div>
           <div className="absolute inset-0 bg-[#D97706] translate-y-full group-hover:translate-y-0 transition-transform duration-300" style={{ transitionTimingFunction: 'var(--ease-smooth)' }}></div>
           <div className="absolute inset-0 flex items-center justify-center">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="relative z-10 group-hover:text-[#0F0F0F] transition-colors duration-300">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true" className="relative z-10 group-hover:text-[#0F0F0F] transition-colors duration-300">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </div>
@@ -130,21 +133,25 @@ const CaseStudy: React.FC = () => {
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {CASE_STUDIES.map((study, index) => (
-            <div
+            <button
+              type="button"
               key={study.id}
               onClick={() => scrollToIndex(index)}
-              className={`flex-shrink-0 w-[85%] md:w-[60%] cursor-pointer transition-all duration-400 snap-center ${
+              aria-label={`Projekt ${study.title} anzeigen`}
+              className={`flex-shrink-0 w-[85%] md:w-[60%] cursor-pointer transition-[opacity,transform] duration-400 snap-center text-left ${
                 index === activeIndex ? 'opacity-100 scale-100' : 'opacity-50 scale-95'
               }`}
             >
               <div className="relative group">
                 {/* Image */}
-                <div className="relative overflow-hidden border border-white/10 group-hover:border-[#D97706]/50 transition-all duration-300" style={{ transitionTimingFunction: 'var(--ease-smooth)' }}>
+                <div className="relative overflow-hidden border border-white/10 group-hover:border-[#D97706]/50 transition-[border-color] duration-300" style={{ transitionTimingFunction: 'var(--ease-smooth)' }}>
                   <img
                     src={study.image}
                     alt={`${study.title} – Container-Projekt von THM Michels`}
                     loading="lazy"
-                    className={`w-full h-[400px] md:h-[500px] object-cover transition-all duration-400 ${
+                    width={1200}
+                    height={800}
+                    className={`w-full h-[400px] md:h-[500px] object-cover transition-[filter,transform] duration-400 ${
                       index === activeIndex ? 'grayscale-0' : 'grayscale'
                     }`}
                     draggable={false}
@@ -171,20 +178,20 @@ const CaseStudy: React.FC = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </button>
           ))}
         </div>
       </div>
 
       {/* View All Link */}
       <div className="text-center mt-12">
-        <a
-          href="/galerie"
-          className="inline-flex items-center gap-3 text-[#D97706] font-black uppercase tracking-widest text-sm group"
+        <Link
+          to="/galerie"
+          className="inline-flex items-center gap-3 text-[#D97706] hover:text-white font-black uppercase tracking-widest text-sm group focus-visible:ring-2 focus-visible:ring-[#D97706] focus-visible:outline-none rounded"
         >
           Alle Projekte ansehen
-          <span className="w-8 h-[1px] bg-[#D97706] group-hover:w-16 transition-all duration-300" style={{ transitionTimingFunction: 'var(--ease-smooth)' }}></span>
-        </a>
+          <span className="w-8 h-[1px] bg-[#D97706] group-hover:w-16 transition-[width] duration-300" style={{ transitionTimingFunction: 'var(--ease-smooth)' }}></span>
+        </Link>
       </div>
     </section>
   );

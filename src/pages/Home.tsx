@@ -89,6 +89,8 @@ const Home: React.FC = () => {
                     src="/configurator-hero.png"
                     alt="THM Michels interaktiver 3D Container Konfigurator – Größe, Farbe und Ausstattung wählen"
                     loading="lazy"
+                    width={1920}
+                    height={1080}
                     className="w-full h-full object-cover object-left"
                   />
                   {isDark && <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#0F0F0F]/40 to-[#0F0F0F]/90 z-10"></div>}
@@ -115,13 +117,13 @@ const Home: React.FC = () => {
                     <div className="flex flex-col sm:flex-row gap-4 justify-end">
                       <Link
                         to="/konfigurator"
-                        className="btn-press bg-[#D97706] hover:bg-[#B45309] text-white px-6 py-3 md:px-10 md:py-5 font-black text-xs md:text-sm uppercase tracking-widest transition-all duration-300 hover:-translate-y-1 shadow-[0_10px_20px_-10px_rgba(217,119,6,0.5)] text-center"
+                        className="btn-press bg-[#D97706] hover:bg-[#B45309] text-white px-6 py-3 md:px-10 md:py-5 font-black text-xs md:text-sm uppercase tracking-widest transition-[background-color,transform,box-shadow] duration-300 hover:-translate-y-1 shadow-[0_10px_20px_-10px_rgba(217,119,6,0.5)] text-center"
                       >
                         Jetzt konfigurieren
                       </Link>
                       <Link
                         to="/kontakt"
-                        className="btn-press px-6 py-3 md:px-10 md:py-5 border border-white/20 hover:border-white/40 font-black text-xs md:text-sm uppercase tracking-widest transition-all duration-300 bg-white/5 backdrop-blur-sm text-center"
+                        className="btn-press px-6 py-3 md:px-10 md:py-5 border border-white/20 hover:border-white/40 font-black text-xs md:text-sm uppercase tracking-widest transition-[border-color,background-color] duration-300 bg-white/5 backdrop-blur-sm text-center"
                       >
                         Beratung anfragen
                       </Link>

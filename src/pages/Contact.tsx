@@ -59,24 +59,31 @@ const Contact: React.FC = () => {
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div>
-                                    <label className="block font-mono text-[10px] text-[#9CA3AF] uppercase tracking-widest mb-2">Name *</label>
+                                    <label htmlFor="contact-name" className="block font-mono text-[10px] text-[#9CA3AF] uppercase tracking-widest mb-2">Name *</label>
                                     <input
+                                        id="contact-name"
+                                        name="name"
                                         type="text"
                                         required
+                                        autoComplete="name"
                                         value={formData.name}
                                         onChange={e => setFormData({ ...formData, name: e.target.value })}
-                                        className="w-full bg-white/5 border border-white/10 px-4 py-3 text-sm font-mono text-white placeholder-white/30 focus:border-[#D97706] focus:outline-none transition-colors"
-                                        placeholder="Dein Name"
+                                        className="w-full bg-white/5 border border-white/10 px-4 py-3 text-sm font-mono text-white placeholder-white/30 focus:border-[#D97706] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D97706] transition-colors"
+                                        placeholder="Max Mustermann\u2026"
                                     />
                                 </div>
                                 <div>
-                                    <label className="block font-mono text-[10px] text-[#9CA3AF] uppercase tracking-widest mb-2">E-Mail *</label>
+                                    <label htmlFor="contact-email" className="block font-mono text-[10px] text-[#9CA3AF] uppercase tracking-widest mb-2">E-Mail *</label>
                                     <input
+                                        id="contact-email"
+                                        name="email"
                                         type="email"
                                         required
+                                        autoComplete="email"
+                                        spellCheck={false}
                                         value={formData.email}
                                         onChange={e => setFormData({ ...formData, email: e.target.value })}
-                                        className="w-full bg-white/5 border border-white/10 px-4 py-3 text-sm font-mono text-white placeholder-white/30 focus:border-[#D97706] focus:outline-none transition-colors"
+                                        className="w-full bg-white/5 border border-white/10 px-4 py-3 text-sm font-mono text-white placeholder-white/30 focus:border-[#D97706] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D97706] transition-colors"
                                         placeholder="deine@email.de"
                                     />
                                 </div>
@@ -84,21 +91,26 @@ const Contact: React.FC = () => {
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div>
-                                    <label className="block font-mono text-[10px] text-[#9CA3AF] uppercase tracking-widest mb-2">Telefon</label>
+                                    <label htmlFor="contact-phone" className="block font-mono text-[10px] text-[#9CA3AF] uppercase tracking-widest mb-2">Telefon</label>
                                     <input
+                                        id="contact-phone"
+                                        name="phone"
                                         type="tel"
+                                        autoComplete="tel"
                                         value={formData.phone}
                                         onChange={e => setFormData({ ...formData, phone: e.target.value })}
-                                        className="w-full bg-white/5 border border-white/10 px-4 py-3 text-sm font-mono text-white placeholder-white/30 focus:border-[#D97706] focus:outline-none transition-colors"
-                                        placeholder="+49 ..."
+                                        className="w-full bg-white/5 border border-white/10 px-4 py-3 text-sm font-mono text-white placeholder-white/30 focus:border-[#D97706] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D97706] transition-colors"
+                                        placeholder="+49 170\u2026"
                                     />
                                 </div>
                                 <div>
-                                    <label className="block font-mono text-[10px] text-[#9CA3AF] uppercase tracking-widest mb-2">Leistung</label>
+                                    <label htmlFor="contact-service" className="block font-mono text-[10px] text-[#9CA3AF] uppercase tracking-widest mb-2">Leistung</label>
                                     <select
+                                        id="contact-service"
+                                        name="service"
                                         value={formData.service}
                                         onChange={e => setFormData({ ...formData, service: e.target.value })}
-                                        className="w-full bg-white/5 border border-white/10 px-4 py-3 text-sm font-mono text-white focus:border-[#D97706] focus:outline-none transition-colors"
+                                        className="w-full bg-white/5 border border-white/10 px-4 py-3 text-sm font-mono text-white focus:border-[#D97706] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D97706] transition-colors"
                                     >
                                         <option value="" className="bg-[#1A1A1A]">Bitte wählen</option>
                                         <option value="Event-Container" className="bg-[#1A1A1A]">Event-Container</option>
@@ -111,23 +123,25 @@ const Contact: React.FC = () => {
                             </div>
 
                             <div>
-                                <label className="block font-mono text-[10px] text-[#9CA3AF] uppercase tracking-widest mb-2">Nachricht *</label>
+                                <label htmlFor="contact-message" className="block font-mono text-[10px] text-[#9CA3AF] uppercase tracking-widest mb-2">Nachricht *</label>
                                 <textarea
+                                    id="contact-message"
+                                    name="message"
                                     required
                                     rows={5}
                                     value={formData.message}
                                     onChange={e => setFormData({ ...formData, message: e.target.value })}
-                                    className="w-full bg-white/5 border border-white/10 px-4 py-3 text-sm font-mono text-white placeholder-white/30 focus:border-[#D97706] focus:outline-none transition-colors resize-none"
-                                    placeholder="Erzähl uns von deinem Projekt..."
+                                    className="w-full bg-white/5 border border-white/10 px-4 py-3 text-sm font-mono text-white placeholder-white/30 focus:border-[#D97706] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D97706] transition-colors resize-none"
+                                    placeholder="Erzähl uns von deinem Projekt\u2026"
                                 />
                             </div>
 
                             <button
                                 type="submit"
                                 disabled={status === 'sending'}
-                                className="btn-press w-full bg-[#D97706] hover:bg-[#B45309] disabled:opacity-50 text-white px-8 py-4 font-black text-sm uppercase tracking-widest transition-all duration-300 hover:-translate-y-0.5 shadow-[0_10px_20px_-10px_rgba(217,119,6,0.5)]"
+                                className="btn-press w-full bg-[#D97706] hover:bg-[#B45309] disabled:opacity-50 text-white px-8 py-4 font-black text-sm uppercase tracking-widest transition-[background-color,transform,box-shadow] duration-300 hover:-translate-y-0.5 shadow-[0_10px_20px_-10px_rgba(217,119,6,0.5)]"
                             >
-                                {status === 'sending' ? 'Wird gesendet...' : 'Nachricht senden'}
+                                {status === 'sending' ? 'Wird gesendet\u2026' : 'Nachricht senden'}
                             </button>
 
                             {status === 'success' && (
@@ -193,9 +207,9 @@ const Contact: React.FC = () => {
                                 href="https://www.google.com/maps/dir/?api=1&destination=Seewiesenstraße+18,+71334+Waiblingen,+Germany"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="btn-press absolute bottom-4 right-4 bg-[#D97706] hover:bg-[#B45309] text-white px-5 py-3 font-black text-xs uppercase tracking-widest transition-all duration-300 hover:-translate-y-1 shadow-[0_10px_20px_-10px_rgba(217,119,6,0.5)] flex items-center gap-2"
+                                className="btn-press absolute bottom-4 right-4 bg-[#D97706] hover:bg-[#B45309] text-white px-5 py-3 font-black text-xs uppercase tracking-widest transition-[background-color,transform,box-shadow] duration-300 hover:-translate-y-1 shadow-[0_10px_20px_-10px_rgba(217,119,6,0.5)] flex items-center gap-2"
                             >
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                                     <polygon points="3 11 22 2 13 21 11 13 3 11"/>
                                 </svg>
                                 Route berechnen

@@ -44,7 +44,7 @@ const Navigation: React.FC = () => {
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b ${scrolled ? 'bg-[#0F0F0F]/95 backdrop-blur-md py-4 border-white/10 shadow-2xl' : 'bg-[#0F0F0F]/50 backdrop-blur-sm py-6 border-transparent'}`}>
+      <nav className={`fixed top-0 left-0 w-full z-50 transition-[background-color,padding,border-color,backdrop-filter,box-shadow] duration-300 border-b ${scrolled ? 'bg-[#0F0F0F]/95 backdrop-blur-md py-4 border-white/10 shadow-2xl' : 'bg-[#0F0F0F]/50 backdrop-blur-sm py-6 border-transparent'}`}>
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center relative">
           <Link to="/" className="flex items-center gap-2 group">
             <span className="font-display font-black text-2xl tracking-tighter text-white">THM<span className="text-[#D97706] group-hover:text-white transition-colors">.</span>MICHELS</span>
@@ -59,11 +59,11 @@ const Navigation: React.FC = () => {
             >
               <button className="text-sm font-mono text-[#9CA3AF] hover:text-[#F8F9FA] transition-colors uppercase tracking-widest flex items-center gap-1 py-4">
                 Leistungen
-                <svg className={`w-3 h-3 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className={`w-3 h-3 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              <div className={`absolute top-full left-0 w-64 bg-[#0F0F0F] border border-white/10 shadow-xl transition-all duration-200 transform origin-top ${isServicesOpen ? 'opacity-100 scale-y-100 translate-y-0' : 'opacity-0 scale-y-95 -translate-y-2 pointer-events-none'}`} style={{ transitionTimingFunction: 'var(--ease-smooth)' }}>
+              <div className={`absolute top-full left-0 w-64 bg-[#0F0F0F] border border-white/10 shadow-xl transition-[opacity,transform] duration-200 transform origin-top ${isServicesOpen ? 'opacity-100 scale-y-100 translate-y-0' : 'opacity-0 scale-y-95 -translate-y-2 pointer-events-none'}`} style={{ transitionTimingFunction: 'var(--ease-smooth)' }}>
                 <div className="flex flex-col">
                   <Link to="/leistungen/event-container" className="px-6 py-4 hover:bg-white/5 text-sm font-mono text-[#9CA3AF] hover:text-[#D97706] transition-colors border-b border-white/5">Event-Container</Link>
                   <Link to="/leistungen/office-container" className="px-6 py-4 hover:bg-white/5 text-sm font-mono text-[#9CA3AF] hover:text-[#D97706] transition-colors border-b border-white/5">Office-Container</Link>
@@ -81,23 +81,23 @@ const Navigation: React.FC = () => {
             {/* Dark/Light Mode Toggle */}
             <button
               onClick={toggleMode}
-              className="p-2 rounded-full border border-white/20 hover:border-white/40 transition-all"
+              className="p-2 rounded-full border border-white/20 hover:border-white/40 transition-[border-color]"
               aria-label={mode === 'dark' ? 'Light Mode aktivieren' : 'Dark Mode aktivieren'}
             >
               {mode === 'dark' ? (
-                <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                 </svg>
               ) : (
-                <svg className="w-5 h-5 text-[#0F0F0F]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-5 h-5 text-[#0F0F0F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                 </svg>
               )}
             </button>
 
-            <Link to="/konfigurator" className="btn-press text-white px-6 py-2 rounded-none font-bold transition-all duration-200 text-sm uppercase tracking-widest flex items-center gap-2 group" style={{ backgroundColor: colors.accent, transitionTimingFunction: 'var(--ease-smooth)' }}>
+            <Link to="/konfigurator" className="btn-press text-white px-6 py-2 rounded-none font-bold transition-[background-color,transform] duration-200 text-sm uppercase tracking-widest flex items-center gap-2 group" style={{ backgroundColor: colors.accent, transitionTimingFunction: 'var(--ease-smooth)' }}>
               KONFIGURATOR
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </Link>
@@ -109,9 +109,9 @@ const Navigation: React.FC = () => {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
-            <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-            <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
-            <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+            <span className={`block w-6 h-0.5 bg-white transition-[transform,opacity] duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+            <span className={`block w-6 h-0.5 bg-white transition-[transform,opacity] duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
+            <span className={`block w-6 h-0.5 bg-white transition-[transform,opacity] duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
           </button>
         </div>
 
@@ -125,7 +125,9 @@ const Navigation: React.FC = () => {
       </nav>
 
       {/* Mobile Menu Overlay */}
-      <div
+      <button
+        type="button"
+        aria-label="Menü schließen"
         className={`md:hidden fixed inset-0 bg-black/80 z-40 transition-opacity duration-200 ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         onClick={() => setIsMobileMenuOpen(false)}
       />
@@ -140,11 +142,11 @@ const Navigation: React.FC = () => {
               className="flex justify-between items-center py-4 border-b border-white/10 text-left"
             >
               <span className="font-mono text-sm uppercase tracking-widest text-white">Leistungen</span>
-              <svg className={`w-4 h-4 text-[#D97706] transition-transform ${isMobileServicesOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className={`w-4 h-4 text-[#D97706] transition-transform ${isMobileServicesOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
-            <div className={`overflow-hidden transition-all duration-250 ${isMobileServicesOpen ? 'max-h-64' : 'max-h-0'}`} style={{ transitionTimingFunction: 'var(--ease-smooth)' }}>
+            <div className={`overflow-hidden transition-[max-height] duration-250 ${isMobileServicesOpen ? 'max-h-64' : 'max-h-0'}`} style={{ transitionTimingFunction: 'var(--ease-smooth)' }}>
               <div className="flex flex-col pl-4 pb-2">
                 <Link to="/leistungen/event-container" className="py-3 text-sm font-mono text-[#9CA3AF] hover:text-[#D97706]">Event-Container</Link>
                 <Link to="/leistungen/office-container" className="py-3 text-sm font-mono text-[#9CA3AF] hover:text-[#D97706]">Office-Container</Link>
@@ -161,7 +163,7 @@ const Navigation: React.FC = () => {
 
             {/* Phone Number */}
             <a href="tel:+491702847337" className="mt-6 flex items-center gap-3 text-[#D97706]">
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
               <span className="font-mono text-sm">+49 170 2847337</span>

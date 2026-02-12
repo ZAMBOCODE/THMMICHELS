@@ -78,7 +78,7 @@ const ProjectPlanner: React.FC = () => {
 
             <div className="w-full h-1 bg-white/5 relative">
               <div
-                className="absolute top-0 left-0 h-full bg-[#D97706] transition-all duration-500"
+                className="absolute top-0 left-0 h-full bg-[#D97706] transition-[width] duration-500"
                 style={{ width: `${(step / 4) * 100}%` }}
               ></div>
             </div>
@@ -93,9 +93,9 @@ const ProjectPlanner: React.FC = () => {
                     <button
                       key={c.id}
                       onClick={() => { setFormData({ ...formData, category: c.id }); handleNext(); }}
-                      className={`p-6 border flex flex-col items-center gap-4 transition-all ${formData.category === c.id ? 'border-[#D97706] bg-[#D97706]/5' : 'border-white/10 hover:border-white/30'}`}
+                      className={`p-6 border flex flex-col items-center gap-4 transition-[border-color,background-color,color] ${formData.category === c.id ? 'border-[#D97706] bg-[#D97706]/5' : 'border-white/10 hover:border-white/30'}`}
                     >
-                      <svg className="h-8 w-8 text-[#D97706]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <svg className="h-8 w-8 text-[#D97706]" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={c.icon} />
                       </svg>
                       <span className="font-mono text-[10px] uppercase tracking-widest font-bold">{c.label}</span>
@@ -113,7 +113,7 @@ const ProjectPlanner: React.FC = () => {
                     <button
                       key={m.id}
                       onClick={() => { setFormData({ ...formData, mobility: m.id }); handleNext(); }}
-                      className={`p-8 border text-left transition-all ${formData.mobility === m.id ? 'border-[#D97706] bg-[#D97706]/5' : 'border-white/10 hover:border-white/30'}`}
+                      className={`p-8 border text-left transition-[border-color,background-color,color] ${formData.mobility === m.id ? 'border-[#D97706] bg-[#D97706]/5' : 'border-white/10 hover:border-white/30'}`}
                     >
                       <h5 className="font-display font-black uppercase text-lg mb-2">{m.label}</h5>
                       <p className="font-mono text-xs text-[#9CA3AF]">{m.desc}</p>
@@ -131,7 +131,7 @@ const ProjectPlanner: React.FC = () => {
                     <button
                       key={f.id}
                       onClick={() => toggleFeature(f.id)}
-                      className={`p-4 border text-left font-mono text-[10px] uppercase tracking-widest transition-all ${formData.features.includes(f.id) ? 'border-[#D97706] text-[#D97706]' : 'border-white/10 text-[#9CA3AF]'}`}
+                      className={`p-4 border text-left font-mono text-[10px] uppercase tracking-widest transition-[border-color,background-color,color] ${formData.features.includes(f.id) ? 'border-[#D97706] text-[#D97706]' : 'border-white/10 text-[#9CA3AF]'}`}
                     >
                       {f.label}
                     </button>
@@ -145,27 +145,45 @@ const ProjectPlanner: React.FC = () => {
               <div className="space-y-6">
                 <h4 className="text-xl font-display font-black uppercase mb-8">Kontakt Details</h4>
                 <div className="grid grid-cols-1 gap-4">
-                  <input
-                    type="text"
-                    placeholder="NAME / UNTERNEHMEN"
-                    className="w-full bg-white/5 border border-white/10 p-4 font-mono text-sm focus:border-[#D97706] outline-none"
-                    value={formData.contact.name}
-                    onChange={(e) => setFormData({ ...formData, contact: { ...formData.contact, name: e.target.value } })}
-                  />
-                  <input
-                    type="email"
-                    placeholder="EMAIL_ADRESSE"
-                    className="w-full bg-white/5 border border-white/10 p-4 font-mono text-sm focus:border-[#D97706] outline-none"
-                    value={formData.contact.email}
-                    onChange={(e) => setFormData({ ...formData, contact: { ...formData.contact, email: e.target.value } })}
-                  />
-                  <textarea
-                    rows={4}
-                    placeholder="NACHRICHT_AN_MAXIM"
-                    className="w-full bg-white/5 border border-white/10 p-4 font-mono text-sm focus:border-[#D97706] outline-none"
-                    value={formData.contact.message}
-                    onChange={(e) => setFormData({ ...formData, contact: { ...formData.contact, message: e.target.value } })}
-                  ></textarea>
+                  <div>
+                    <label htmlFor="planner-name" className="sr-only">Name / Unternehmen</label>
+                    <input
+                      id="planner-name"
+                      name="name"
+                      type="text"
+                      autoComplete="name"
+                      placeholder="Name / Unternehmen\u2026"
+                      className="w-full bg-white/5 border border-white/10 p-4 font-mono text-sm text-white placeholder-white/30 focus:border-[#D97706] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D97706] transition-colors"
+                      value={formData.contact.name}
+                      onChange={(e) => setFormData({ ...formData, contact: { ...formData.contact, name: e.target.value } })}
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="planner-email" className="sr-only">E-Mail-Adresse</label>
+                    <input
+                      id="planner-email"
+                      name="email"
+                      type="email"
+                      autoComplete="email"
+                      spellCheck={false}
+                      placeholder="deine@email.de"
+                      className="w-full bg-white/5 border border-white/10 p-4 font-mono text-sm text-white placeholder-white/30 focus:border-[#D97706] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D97706] transition-colors"
+                      value={formData.contact.email}
+                      onChange={(e) => setFormData({ ...formData, contact: { ...formData.contact, email: e.target.value } })}
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="planner-message" className="sr-only">Nachricht</label>
+                    <textarea
+                      id="planner-message"
+                      name="message"
+                      rows={4}
+                      placeholder="Erzähl uns von deiner Idee\u2026"
+                      className="w-full bg-white/5 border border-white/10 p-4 font-mono text-sm text-white placeholder-white/30 focus:border-[#D97706] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D97706] transition-colors"
+                      value={formData.contact.message}
+                      onChange={(e) => setFormData({ ...formData, contact: { ...formData.contact, message: e.target.value } })}
+                    ></textarea>
+                  </div>
                 </div>
                 <button
                   onClick={handleSubmit}
@@ -179,7 +197,7 @@ const ProjectPlanner: React.FC = () => {
             {isSubmitted && (
               <div className="text-center py-12">
                 <div className="w-20 h-20 mx-auto mb-6 border-2 border-[#D97706] rounded-full flex items-center justify-center">
-                  <svg className="w-10 h-10 text-[#D97706]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="w-10 h-10 text-[#D97706]" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
