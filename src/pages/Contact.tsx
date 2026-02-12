@@ -125,7 +125,7 @@ const Contact: React.FC = () => {
                             <button
                                 type="submit"
                                 disabled={status === 'sending'}
-                                className="w-full bg-[#D97706] hover:bg-[#B45309] disabled:opacity-50 text-white px-8 py-4 font-black text-sm uppercase tracking-widest transition-all hover:-translate-y-0.5 shadow-[0_10px_20px_-10px_rgba(217,119,6,0.5)]"
+                                className="btn-press w-full bg-[#D97706] hover:bg-[#B45309] disabled:opacity-50 text-white px-8 py-4 font-black text-sm uppercase tracking-widest transition-all duration-300 hover:-translate-y-0.5 shadow-[0_10px_20px_-10px_rgba(217,119,6,0.5)]"
                             >
                                 {status === 'sending' ? 'Wird gesendet...' : 'Nachricht senden'}
                             </button>
@@ -193,7 +193,7 @@ const Contact: React.FC = () => {
                                 href="https://www.google.com/maps/dir/?api=1&destination=Seewiesenstraße+18,+71334+Waiblingen,+Germany"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="absolute bottom-4 right-4 bg-[#D97706] hover:bg-[#B45309] text-white px-5 py-3 font-black text-xs uppercase tracking-widest transition-all hover:-translate-y-1 shadow-[0_10px_20px_-10px_rgba(217,119,6,0.5)] flex items-center gap-2"
+                                className="btn-press absolute bottom-4 right-4 bg-[#D97706] hover:bg-[#B45309] text-white px-5 py-3 font-black text-xs uppercase tracking-widest transition-all duration-300 hover:-translate-y-1 shadow-[0_10px_20px_-10px_rgba(217,119,6,0.5)] flex items-center gap-2"
                             >
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                     <polygon points="3 11 22 2 13 21 11 13 3 11"/>

@@ -64,7 +64,8 @@ const LazyImage: React.FC<LazyImageProps> = ({
         <img
           src={src}
           alt={alt}
-          className={`${className} transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+          className={`${className} transition-all duration-400 ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-[0.98]'}`}
+          style={{ transitionTimingFunction: 'var(--ease-smooth)' }}
           onLoad={() => setIsLoaded(true)}
           loading="lazy"
         />

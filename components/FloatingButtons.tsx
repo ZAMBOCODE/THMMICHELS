@@ -12,7 +12,7 @@ const FloatingButtons: React.FC = () => {
       {/* Color Toggle Button */}
       <button
         onClick={toggleAccentColor}
-        className="group relative flex items-center justify-center w-11 h-11 rounded-full shadow-md transition-all hover:scale-105"
+        className="btn-press group relative flex items-center justify-center w-11 h-11 rounded-full shadow-md transition-all duration-200 hover:scale-105"
         style={{ backgroundColor: colors.accent }}
         aria-label="Farbe wechseln"
       >
@@ -37,7 +37,7 @@ const FloatingButtons: React.FC = () => {
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="group relative flex items-center justify-center w-11 h-11 bg-[#25D366] rounded-full shadow-md hover:bg-[#20BA5C] transition-all hover:scale-105"
+        className="btn-press group relative flex items-center justify-center w-11 h-11 bg-[#25D366] rounded-full shadow-md hover:bg-[#20BA5C] transition-all duration-200 hover:scale-105"
         aria-label="Kontakt über WhatsApp"
       >
         <svg

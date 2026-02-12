@@ -96,31 +96,31 @@ const CaseStudy: React.FC = () => {
         {/* PREV Button - left side */}
         <button
           onClick={() => navigate('prev')}
-          className="group absolute left-2 md:left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-16 md:h-16 overflow-hidden"
+          className="btn-press group absolute left-2 md:left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-16 md:h-16 overflow-hidden"
         >
-          <div className="absolute inset-0 border border-white/20 group-hover:border-[#D97706] transition-all duration-500"></div>
-          <div className="absolute inset-0 bg-[#D97706] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></div>
+          <div className="absolute inset-0 border border-white/20 group-hover:border-[#D97706] transition-all duration-300" style={{ transitionTimingFunction: 'var(--ease-smooth)' }}></div>
+          <div className="absolute inset-0 bg-[#D97706] translate-y-full group-hover:translate-y-0 transition-transform duration-300" style={{ transitionTimingFunction: 'var(--ease-smooth)' }}></div>
           <div className="absolute inset-0 flex items-center justify-center">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="relative z-10 group-hover:text-[#0F0F0F] transition-colors duration-500">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="relative z-10 group-hover:text-[#0F0F0F] transition-colors duration-300">
               <path d="M19 12H5M12 19l-7-7 7-7" />
             </svg>
           </div>
-          <span className="absolute bottom-1 left-1 md:bottom-2 md:left-2 font-mono text-[8px] text-white/30 group-hover:text-[#0F0F0F]/50 transition-colors duration-500 hidden md:block">PREV</span>
+          <span className="absolute bottom-1 left-1 md:bottom-2 md:left-2 font-mono text-[8px] text-white/30 group-hover:text-[#0F0F0F]/50 transition-colors duration-300 hidden md:block">PREV</span>
         </button>
 
         {/* NEXT Button - right side */}
         <button
           onClick={() => navigate('next')}
-          className="group absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-16 md:h-16 overflow-hidden"
+          className="btn-press group absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-16 md:h-16 overflow-hidden"
         >
-          <div className="absolute inset-0 border border-white/20 group-hover:border-[#D97706] transition-all duration-500"></div>
-          <div className="absolute inset-0 bg-[#D97706] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></div>
+          <div className="absolute inset-0 border border-white/20 group-hover:border-[#D97706] transition-all duration-300" style={{ transitionTimingFunction: 'var(--ease-smooth)' }}></div>
+          <div className="absolute inset-0 bg-[#D97706] translate-y-full group-hover:translate-y-0 transition-transform duration-300" style={{ transitionTimingFunction: 'var(--ease-smooth)' }}></div>
           <div className="absolute inset-0 flex items-center justify-center">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="relative z-10 group-hover:text-[#0F0F0F] transition-colors duration-500">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="relative z-10 group-hover:text-[#0F0F0F] transition-colors duration-300">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </div>
-          <span className="absolute bottom-1 right-1 md:bottom-2 md:right-2 font-mono text-[8px] text-white/30 group-hover:text-[#0F0F0F]/50 transition-colors duration-500 hidden md:block">NEXT</span>
+          <span className="absolute bottom-1 right-1 md:bottom-2 md:right-2 font-mono text-[8px] text-white/30 group-hover:text-[#0F0F0F]/50 transition-colors duration-300 hidden md:block">NEXT</span>
         </button>
 
         {/* Carousel */}
@@ -133,18 +133,18 @@ const CaseStudy: React.FC = () => {
             <div
               key={study.id}
               onClick={() => scrollToIndex(index)}
-              className={`flex-shrink-0 w-[85%] md:w-[60%] cursor-pointer transition-all duration-500 snap-center ${
+              className={`flex-shrink-0 w-[85%] md:w-[60%] cursor-pointer transition-all duration-400 snap-center ${
                 index === activeIndex ? 'opacity-100 scale-100' : 'opacity-50 scale-95'
               }`}
             >
               <div className="relative group">
                 {/* Image */}
-                <div className="relative overflow-hidden border border-white/10 group-hover:border-[#D97706]/50 transition-all duration-500">
+                <div className="relative overflow-hidden border border-white/10 group-hover:border-[#D97706]/50 transition-all duration-300" style={{ transitionTimingFunction: 'var(--ease-smooth)' }}>
                   <img
                     src={study.image}
                     alt={`${study.title} – Container-Projekt von THM Michels`}
                     loading="lazy"
-                    className={`w-full h-[400px] md:h-[500px] object-cover transition-all duration-500 ${
+                    className={`w-full h-[400px] md:h-[500px] object-cover transition-all duration-400 ${
                       index === activeIndex ? 'grayscale-0' : 'grayscale'
                     }`}
                     draggable={false}
@@ -183,7 +183,7 @@ const CaseStudy: React.FC = () => {
           className="inline-flex items-center gap-3 text-[#D97706] font-black uppercase tracking-widest text-sm group"
         >
           Alle Projekte ansehen
-          <span className="w-8 h-[1px] bg-[#D97706] group-hover:w-16 transition-all duration-500"></span>
+          <span className="w-8 h-[1px] bg-[#D97706] group-hover:w-16 transition-all duration-300" style={{ transitionTimingFunction: 'var(--ease-smooth)' }}></span>
         </a>
       </div>
     </section>

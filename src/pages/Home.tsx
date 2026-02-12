@@ -115,13 +115,13 @@ const Home: React.FC = () => {
                     <div className="flex flex-col sm:flex-row gap-4 justify-end">
                       <Link
                         to="/konfigurator"
-                        className="bg-[#D97706] hover:bg-[#B45309] text-white px-6 py-3 md:px-10 md:py-5 font-black text-xs md:text-sm uppercase tracking-widest transition-all hover:-translate-y-1 shadow-[0_10px_20px_-10px_rgba(217,119,6,0.5)] text-center"
+                        className="btn-press bg-[#D97706] hover:bg-[#B45309] text-white px-6 py-3 md:px-10 md:py-5 font-black text-xs md:text-sm uppercase tracking-widest transition-all duration-300 hover:-translate-y-1 shadow-[0_10px_20px_-10px_rgba(217,119,6,0.5)] text-center"
                       >
                         Jetzt konfigurieren
                       </Link>
                       <Link
                         to="/kontakt"
-                        className="px-6 py-3 md:px-10 md:py-5 border border-white/20 hover:border-white/40 font-black text-xs md:text-sm uppercase tracking-widest transition-all bg-white/5 backdrop-blur-sm text-center"
+                        className="btn-press px-6 py-3 md:px-10 md:py-5 border border-white/20 hover:border-white/40 font-black text-xs md:text-sm uppercase tracking-widest transition-all duration-300 bg-white/5 backdrop-blur-sm text-center"
                       >
                         Beratung anfragen
                       </Link>

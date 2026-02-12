@@ -63,7 +63,7 @@ const Navigation: React.FC = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              <div className={`absolute top-full left-0 w-64 bg-[#0F0F0F] border border-white/10 shadow-xl transition-all duration-300 transform origin-top ${isServicesOpen ? 'opacity-100 scale-y-100 translate-y-0' : 'opacity-0 scale-y-95 -translate-y-2 pointer-events-none'}`}>
+              <div className={`absolute top-full left-0 w-64 bg-[#0F0F0F] border border-white/10 shadow-xl transition-all duration-200 transform origin-top ${isServicesOpen ? 'opacity-100 scale-y-100 translate-y-0' : 'opacity-0 scale-y-95 -translate-y-2 pointer-events-none'}`} style={{ transitionTimingFunction: 'var(--ease-smooth)' }}>
                 <div className="flex flex-col">
                   <Link to="/leistungen/event-container" className="px-6 py-4 hover:bg-white/5 text-sm font-mono text-[#9CA3AF] hover:text-[#D97706] transition-colors border-b border-white/5">Event-Container</Link>
                   <Link to="/leistungen/office-container" className="px-6 py-4 hover:bg-white/5 text-sm font-mono text-[#9CA3AF] hover:text-[#D97706] transition-colors border-b border-white/5">Office-Container</Link>
@@ -95,7 +95,7 @@ const Navigation: React.FC = () => {
               )}
             </button>
 
-            <Link to="/konfigurator" className="text-white px-6 py-2 rounded-none font-bold transition-all text-sm uppercase tracking-widest flex items-center gap-2 group" style={{ backgroundColor: colors.accent }}>
+            <Link to="/konfigurator" className="btn-press text-white px-6 py-2 rounded-none font-bold transition-all duration-200 text-sm uppercase tracking-widest flex items-center gap-2 group" style={{ backgroundColor: colors.accent, transitionTimingFunction: 'var(--ease-smooth)' }}>
               KONFIGURATOR
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -126,12 +126,12 @@ const Navigation: React.FC = () => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`md:hidden fixed inset-0 bg-black/80 z-40 transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+        className={`md:hidden fixed inset-0 bg-black/80 z-40 transition-opacity duration-200 ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         onClick={() => setIsMobileMenuOpen(false)}
       />
 
       {/* Mobile Menu Drawer */}
-      <div className={`md:hidden fixed top-0 right-0 h-full w-80 max-w-[90vw] bg-[#0F0F0F] z-50 transform transition-transform duration-300 ease-out ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+      <div className={`md:hidden fixed top-0 right-0 h-full w-80 max-w-[90vw] bg-[#0F0F0F] z-50 transform transition-transform duration-300 ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`} style={{ transitionTimingFunction: 'var(--ease-smooth)' }}>
         <div className="p-6 pt-24 h-full overflow-y-auto">
           <div className="flex flex-col gap-2">
             {/* Leistungen Accordion */}
@@ -144,7 +144,7 @@ const Navigation: React.FC = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
-            <div className={`overflow-hidden transition-all duration-300 ${isMobileServicesOpen ? 'max-h-64' : 'max-h-0'}`}>
+            <div className={`overflow-hidden transition-all duration-250 ${isMobileServicesOpen ? 'max-h-64' : 'max-h-0'}`} style={{ transitionTimingFunction: 'var(--ease-smooth)' }}>
               <div className="flex flex-col pl-4 pb-2">
                 <Link to="/leistungen/event-container" className="py-3 text-sm font-mono text-[#9CA3AF] hover:text-[#D97706]">Event-Container</Link>
                 <Link to="/leistungen/office-container" className="py-3 text-sm font-mono text-[#9CA3AF] hover:text-[#D97706]">Office-Container</Link>
@@ -174,7 +174,7 @@ const Navigation: React.FC = () => {
       <div className={`md:hidden fixed bottom-4 right-4 z-[60] transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
         <Link
           to="/konfigurator"
-          className="bg-[#D97706] hover:bg-[#B45309] text-white px-4 py-2 rounded-lg font-bold shadow-lg active:scale-95 transition-transform uppercase tracking-widest text-[10px]"
+          className="btn-press bg-[#D97706] hover:bg-[#B45309] text-white px-4 py-2 rounded-lg font-bold shadow-lg transition-transform uppercase tracking-widest text-[10px]"
         >
           3D Konfigurator
         </Link>

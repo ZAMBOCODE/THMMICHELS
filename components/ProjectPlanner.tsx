@@ -169,7 +169,7 @@ const ProjectPlanner: React.FC = () => {
                 </div>
                 <button
                   onClick={handleSubmit}
-                  className="mt-8 bg-[#D97706] hover:bg-[#B45309] text-white px-8 py-4 font-black text-sm uppercase tracking-widest w-full transition-colors"
+                  className="btn-press mt-8 bg-[#D97706] hover:bg-[#B45309] text-white px-8 py-4 font-black text-sm uppercase tracking-widest w-full transition-colors duration-300"
                 >
                   Anfrage Absenden
                 </button>

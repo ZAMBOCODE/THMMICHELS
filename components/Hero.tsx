@@ -38,13 +38,15 @@ const Hero: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4 sm:justify-start">
             <button
               onClick={() => (window as any).lenis?.scrollTo('#configurator', { offset: -100 })}
-              className="bg-[#D97706] hover:bg-[#B45309] text-white px-6 py-3 md:px-10 md:py-5 font-black text-xs md:text-sm uppercase tracking-widest transition-all hover:-translate-y-1 shadow-[0_10px_20px_-10px_rgba(217,119,6,0.5)]"
+              className="btn-press bg-[#D97706] hover:bg-[#B45309] text-white px-6 py-3 md:px-10 md:py-5 font-black text-xs md:text-sm uppercase tracking-widest transition-all duration-300 hover:-translate-y-1 shadow-[0_10px_20px_-10px_rgba(217,119,6,0.5)]"
+              style={{ transitionTimingFunction: 'var(--ease-smooth)' }}
             >
               PROJEKT ANFRAGEN
             </button>
             <button
               onClick={() => (window as any).lenis?.scrollTo('#showcase', { offset: -100 })}
-              className="px-6 py-3 md:px-10 md:py-5 border border-white/20 hover:border-white/40 font-black text-xs md:text-sm uppercase tracking-widest transition-all bg-white/5 backdrop-blur-sm"
+              className="btn-press px-6 py-3 md:px-10 md:py-5 border border-white/20 hover:border-white/40 font-black text-xs md:text-sm uppercase tracking-widest transition-all duration-300 bg-white/5 backdrop-blur-sm"
+              style={{ transitionTimingFunction: 'var(--ease-smooth)' }}
             >
               UNSERE ARBEITEN
             </button>

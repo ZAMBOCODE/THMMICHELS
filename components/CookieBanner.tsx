@@ -62,7 +62,7 @@ const CookieBanner: React.FC = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-[100] p-4 md:p-6">
+    <div className="fixed bottom-0 left-0 right-0 z-[100] p-4 md:p-6 animate-[slideUp_0.4s_var(--ease-smooth)_both]">
       <div className="max-w-4xl mx-auto bg-[#1A1A1A] border border-white/10 p-6 md:p-8 shadow-2xl">
         <div className="flex flex-col md:flex-row gap-6 items-start md:items-center">
           <div className="flex-1">
@@ -75,13 +75,13 @@ const CookieBanner: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
             <button
               onClick={acceptEssential}
-              className="px-6 py-3 border border-white/20 hover:border-white/40 font-bold text-sm uppercase tracking-widest transition-all"
+              className="btn-press px-6 py-3 border border-white/20 hover:border-white/40 font-bold text-sm uppercase tracking-widest transition-all duration-200"
             >
               Nur Essenzielle
             </button>
             <button
               onClick={acceptAll}
-              className="px-6 py-3 bg-[#D97706] hover:bg-[#B45309] text-white font-bold text-sm uppercase tracking-widest transition-all"
+              className="btn-press px-6 py-3 bg-[#D97706] hover:bg-[#B45309] text-white font-bold text-sm uppercase tracking-widest transition-all duration-200"
             >
               Alle akzeptieren
             </button>

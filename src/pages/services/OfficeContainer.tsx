@@ -83,7 +83,7 @@ const OfficeContainer: React.FC = () => {
                     <p className="font-mono text-[#9CA3AF] mb-8">Erzähl uns, was du brauchst – wir erstellen dir ein unverbindliches Angebot.</p>
                     <Link
                         to="/kontakt"
-                        className="inline-block bg-[#D97706] hover:bg-[#B45309] text-white px-10 py-5 font-black text-sm uppercase tracking-widest transition-all"
+                        className="btn-press inline-block bg-[#D97706] hover:bg-[#B45309] text-white px-10 py-5 font-black text-sm uppercase tracking-widest transition-all duration-300"
                     >
                         Jetzt anfragen
                     </Link>
